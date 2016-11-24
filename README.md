@@ -45,7 +45,7 @@ Please visit our wiki for furthur project info:
 
 ### Project Documents
 - [Project Idea](docs/idea.pdf) ([Presentation](docs/idea-slides.pdf))
-- [Project Inception](../../wiki/inception)
+- [Project Inception](https://github.com/shoamco/Smart-School/wiki/Inception-Planing)
 - [Software Requirements Specification](../../wiki/srs)
 - [Software Design Specification](../../wiki/sds)
 
