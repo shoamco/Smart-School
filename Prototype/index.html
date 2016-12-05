@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+
+<html ng-app="scotchApp">
+
+<head>
+  
+
+    <link rel="stylesheet" type="text/css" href="Angular.css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+  <script src="AngularJavaScript.js"></script>
+
+</head>
+
+
+<body ng-controller="mainController">
+
+     <header>
+   <h1>Angular</h1>
+</header>  
+
+  
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#home"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="#project"><i class="fa fa-shield"></i> Project</a></li>
+        <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+      </ul>
+   
+
+  <div id="main">
+  
+    
+    <div ng-view></div>
+    
+  </div>
+  
+  <footer >shoam</footer>
+  
+</body>
+
+</html>
