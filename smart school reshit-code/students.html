@@ -1,0 +1,27 @@
+﻿
+<h1>MY STUDENTS</h1>
+<div class="container object" ng-repeat="student in myStudent">
+    <div id="main-container-image">
+        <section class="work">
+            <figure class="white">
+                <a href="#">
+                    <img img src="img/{{student.img}}" alt="{{student.FirstName}}" />
+                </a>
+                <div id="wrapper-part-info">
+                    <div id="part-info">{{student.FirstName + " " + student.LastName }}</div>
+                </div>
+            </figure>
+        </section>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
