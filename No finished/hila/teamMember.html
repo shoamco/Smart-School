@@ -1,20 +1,26 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html  lang="he">
 <head>
-<link rel="stylesheet" type="text/css" href="teamMember.css">
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+ <link rel="stylesheet" type="text/css" href="teamMember.css">
 
 </head>
-<meta charset="utf-8" />
 <body dir="rtl">
 <h3>איש צוות חדש: </h3>
+<form action="newMember">
 <table>
+ <tr>
+  <td><label for="id"> מספר זהות: </label></td>
+  <td><input id="id" name="id" type ="text"/><br/></td>
+ </tr>
 <tr>
 <td><label for="firstName2"> שם פרטי: </label></td>
-<td><input id "firstName2" type ="text"/><br/></td>
+<td><input id="firstName2" name="firstName2" type ="text"/><br/></td>
 </tr>
 <tr>
  <td> <label for="LastName2">שם משפחה:</label></td>
- <td><input id="LastName2" type ="text"/><br/></td>
+ <td><input id="LastName2" name="LastName2" type ="text"/><br/></td>
  </tr>
  <tr>
  <td><label for="syudentclass">רמת הרשאה:</label></td>
@@ -29,19 +35,15 @@
   <br/></td>
   </tr>
   <tr>
- <td> <label for ="studentid">כיתות לימוד: </label></td>
-<td> <select id ="studentid" required>
-  <option value="בחר">בחר</option>
-  <option value="א">א</option>
-  <option value="ב"> ב</option>
-  <option value="ג">ג</option>
-   <option value="ד">ד</option>
-
-   <option value="ה">ה</option>
-   <option value="ו">ו</option>
-   <option value="ז">ז</option>
-   <option value="ח">ח</option>
-   </select>
+ <td> <label >כיתות לימוד: </label></td>
+<td> <input type="checkbox" name="studentid" value="א" required/>
+ <input type="checkbox" name="studentid" value="ב" required/>
+ <input type="checkbox" name="studentid" value="ג" required/>
+ <input type="checkbox" name="studentid" value="ד" required/>
+ <input type="checkbox" name="studentid" value="ה" required/>
+ <input type="checkbox" name="studentid" value="ו" required/>
+ <input type="checkbox" name="studentid" value="ז" required/>
+ <input type="checkbox" name="studentid" value="ח" required/>
    <br/></td>
 </tr>
 <tr>
@@ -49,4 +51,6 @@
  <td><input type="submit" value="אישור"></td>
 </tr>
 </table>
+</form>
+</body>
 </html>
