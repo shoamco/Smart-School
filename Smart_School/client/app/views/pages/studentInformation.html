@@ -1,0 +1,27 @@
+<div >
+
+    <div class="row">
+        <div class="col-xs-6 col-md-8" style="background-color:lavenderblush; height:250px;">
+            <p >{{student.FirstName}}</p>
+            <p ng-data>{{student.LastName}}</p>
+            <p>{{student.class}}</p>
+            <p>{{student.teachet_name}}</p>
+        </div>
+        <div class="col-xs-6 col-md-4" style="background-color:lightgrey; height:250px;">
+            <div id="student-container-image">
+                <section class="work">
+                    <figure class="white">
+                        <a ng-href="#studentInformation">
+                            <img src="img/{{student.img}}"/>
+                        </a>
+                    </figure>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4" style="background-color:lavender;">הערכה מילולית</div>
+        <div class="col-sm-4" style="background-color:lavenderblush;">ציון</div>
+        <div class="col-sm-4" style="background-color:lavender;">מקצוע</div>
+    </div>
+</div>
