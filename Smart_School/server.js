@@ -7,10 +7,15 @@ var http = require('http'),
     mongoose = require("mongoose");
 var app = express();
 var port = 5000;
-
+var router  = express.Router();
 
 // APP CONFIGURATION------------------------------------------
 // use body parser to grab information from POST
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname,'client/app/controllers')));
+app.use(express.static(path.join(__dirname, '/client')));
+app.use(express.static(path.join(__dirname, '/server/controllers')));
 app.use(express.static(path.join(__dirname,'/client/src/img/')));
 app.use(express.static(path.join(__dirname,'client/app/views/pages/')));
 app.use(express.static(path.join(__dirname,'client/src/js')));
@@ -39,13 +44,45 @@ db.once('open', function() {
 mongoose.connect("mongodb://chanami:123456@ds139438.mlab.com:39438/smart_school");
 console.log("bd connected!");
 
-
 //=========================--ROUTES/API--====================================
 //API ROUTES
-app.get('/', function(req, res) {
+
+var student = require('./server/controllers/student');
+var classes = require('./server/controllers/classes');
+
+router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
+//console.log("after get");
 
+
+// Get all products
+router.get('/students', student.getAll);
+router.get('/classes', classes.getAll);
+//router.get('/students/getById', student.FindStudentByClass);
+
+// Create a product
+//router.post('/student', student.create);
+
+// Get one product, update one product, delete one product
+/*router.route('/api/product/:id')
+    .get(product.read)
+    .put(product.update)
+    .delete(product.delete);*/
+
+// Register the routing
+app.use('/', router);
+
+
+
+
+
+
+
+
+
+
+module.exports = router;
  //app.use('/client',);
 
 // app.get('/', function (req, res) {
@@ -55,7 +92,6 @@ app.get('/', function(req, res) {
 //=========================--START THE SERVER---=========================
 app.listen(port);
 console.log('Server listenning at localhost:'+port);
-
 
 
 

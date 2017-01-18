@@ -1,21 +1,26 @@
 
 
 
-<h1>i am in classes pages </h1>
-<div class="container object" ng-repeat="class in list_classes" ng-controller="StudentsCtrl">
+<h1>my classes </h1>
+
+
+<div class="container object" ng-repeat="class in Classes" ng-controller="StudentsCtrl">
     <div id="main-container-image">
         <section class="work">
             <figure class="white">
-                <a ng-click="selectionGrade(class.ClassName)"  ng-href="#students" >
-                    <img img src="{{class.imgSrc}}" alt="" />
+                <a ng-click="selectionGrade(class.ClassId)"  ng-href="#students" >
+                    <img img src="/a.jpg" alt="" />
                 </a>
                 <div id="wrapper-part-info">
-                    <div id="part-info">{{class.ClassName}}</div>
+                    <div id="part-info">{{class.ClassId}}</div>
                 </div>
             </figure>
         </section>
+
     </div>
 </div>
+
+
 
    
           
