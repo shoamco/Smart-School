@@ -14,6 +14,8 @@ var router  = express.Router();
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname,'client/app/controllers')));
+app.use(express.static(path.join(__dirname,'client/app/services')));
+app.use(express.static(path.join(__dirname,'client/app/directives')));
 app.use(express.static(path.join(__dirname, '/client')));
 app.use(express.static(path.join(__dirname, '/server/controllers')));
 app.use(express.static(path.join(__dirname,'/client/src/img/')));
@@ -59,6 +61,7 @@ router.get('/', function(req, res) {
 // Get all products
 router.get('/students', student.getAll);
 router.get('/classes', classes.getAll);
+router.post('/classes/:classId/grades', student.updateGrades);
 //router.get('/students/getById', student.FindStudentByClass);
 
 // Create a product

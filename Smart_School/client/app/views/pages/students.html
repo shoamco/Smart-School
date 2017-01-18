@@ -1,11 +1,13 @@
+<p>i am in class </p>
+<p>check out my id : {{id}}</p>
 
 <h1>MY STUDENTS</h1>
 >
-<div class="container object" ng-repeat="student in Students">
+<div class="container object" ng-repeat="student in MyClass">
     <div id="main-container-image">
         <section class="work">
             <figure class="white">
-                <a href="#">
+                <a ng-href="#/classes/{{id}}/students/{{student.StudentId}}"   >
                     <img img src="/1.jpg" alt="{{student.FirstName}}" />
                 </a>
                 <div id="wrapper-part-info">
@@ -15,14 +17,4 @@
         </section>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
 

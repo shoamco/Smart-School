@@ -4,15 +4,15 @@
 <h1>my classes </h1>
 
 
-<div class="container object" ng-repeat="class in Classes" ng-controller="StudentsCtrl">
+<div class="container object" ng-repeat="class in Classes">
     <div id="main-container-image">
         <section class="work">
             <figure class="white">
-                <a ng-click="selectionGrade(class.ClassId)"  ng-href="#students" >
+                <a ng-href="#/classes/{{class.ClassId}}"   >
                     <img img src="/a.jpg" alt="" />
                 </a>
                 <div id="wrapper-part-info">
-                    <div id="part-info">{{class.ClassId}}</div>
+                    <div id="part-info">{{class.ClassName}}</div>
                 </div>
             </figure>
         </section>
