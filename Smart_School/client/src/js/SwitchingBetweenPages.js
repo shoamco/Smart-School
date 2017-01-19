@@ -54,11 +54,48 @@ app.config(function ($routeProvider) {
                 templateUrl: "adminStudents.html",
                 controller: "AdminStudentsCtrl"
             })
-        .when('/admin/adminStaff',
+        .when('/admin/staff',
             {
                 templateUrl: "adminStaff.html",
                 controller: "AdminStaffCtrl"
             })
+        .when('/admin/students/creatStudent',
+            {
+                templateUrl: "creatStudent.html",
+                controller: "AdminStudentsCtrl"
+            })
+        .when('/admin/staff/creatStaff',
+            {
+                templateUrl: "creatStaff.html",
+                controller: "AdminStaffCtrl"
+            })
+        .when('/admin/students/updateStudents',
+            {
+                templateUrl: "updateStudents.html",
+                controller: "AdminStudentsCtrl"
+            })
+        .when('/admin/staff/updateStaff',
+            {
+                templateUrl: "updateStaff.html",
+                controller: "AdminStaffCtrl"
+            })
+        .when('/admin/classes/updateClasses',
+            {
+                templateUrl: "updateClasses.html",
+                controller: "AdminClassesCtrl"
+            })
+        .when('/admin/classes/creatClass',
+            {
+                templateUrl: "creatClass.html",
+                controller: "AdminClassesCtrl"
+            })
+
+    // when('/admin/staff/creatStudent',
+    //     {
+    //         templateUrl: "creatStaff.html",
+    //         controller: "AdminStudentsCtrl"
+    //     })
+
         // .when('/admin/allClasses',
         //     {
         //         templateUrl: "adminClasses.html",

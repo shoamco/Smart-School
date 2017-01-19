@@ -6,16 +6,18 @@
 <table>
     <tr>
         <th>שם הכיתה</th>
+        <th>ClassId</th>
         <th>מחנך</th>
     </tr>
     <tr ng-repeat="class in AllClasses">
         <td>{{ class.ClassName }}</td>
+        <td>{{ class.ClassId}}</td>
         <td>{{ class.Educator }}</td>
     </tr>
 </table>
 
-<a ng-href="#">הוספת כיתה</a></br>
-<a ng-href="#">עדכון</a></br>
+<a ng-href="#/admin/classes/creatClass">הוספת כיתה</a></br>
+<a ng-href="#/admin/classes/updateClasses">עדכון</a></br>
    
           
 
