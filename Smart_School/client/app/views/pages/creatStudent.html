@@ -1,6 +1,6 @@
 
 <h3>סטודנט חדש:</h3>
-<form action="newStudent">
+<form>
     <table>
         <tr>
             <td><label for="id"> מספר זהות: </label></td>
@@ -8,11 +8,11 @@
         </tr>
         <tr>
             <td><label dir="rtl" for="firstName">שם פרטי:</label></td>
-            <td><input id="firstName" name="firstName" type ="text"/></td>
+            <td><input id="firstName" name="firstName" type ="text"  ng-model="FirstName"/></td>
         </tr>
         <tr>
             <td><label for="LastName">שם משפחה:</label></td>
-            <td> <input id="LastName" type ="text"/></td>
+            <td> <input id="LastName" type ="text" ng-model="LastName"/></td>
         </tr>
         <tr>
             <td><label for="studentclass">כיתה:</label></td>
@@ -31,9 +31,10 @@
         </tr>
         <tr>
             <td></td>
-            <td> <input type="submit" value="אישור"></td>
+
 
         </tr>
 
     </table>
 </form>
+<input type="submit" value="אישור" ng-click="SendData()">

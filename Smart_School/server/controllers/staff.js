@@ -1,5 +1,5 @@
 
-var Staff  = require('../models/staff');
+var Staff = require('../models/staff');
 // Wrap all the methods in an object
 
 var staff = {

@@ -15,7 +15,7 @@ var student = {
     res.json({type: "Delete", id: req.params.id});
   },
     updateGrades:function(req,res) {
-
+console.log("updateGrades in the sever ");
         // UpdateStudentGrade:function (studentid, courseid, grade, evaluation)///Take out accurate details  V
         // {
         //     Student.findOne({StudentId: studentid}, function (err, data) {
@@ -44,7 +44,25 @@ var student = {
       if(err) console.error;
       res.json(data);
     })
-  } 
+  } ,
+    createStudent:function(req, res, next)//the Function create student
+    {console.log("in the server");
+        // student.findOne({StudentId: studentid},function (err, data) {
+        //     if (err) return console.error(err);
+        //     else if (data!=null)
+        //         console.log("the student "+firstname+ " " +lastname+ " already exists");
+        //     else
+        //     {
+                student.create({FirstName: req.query(fName),LastName:req.query(lName)}, function (err, data) {
+                    if (err) return console.error(err);
+                    console.log("we create student "+firstname);
+                    res.send(data);
+                });
+            //}
+
+       // });
+
+    }
 }
 
 // Return the object

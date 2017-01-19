@@ -8,7 +8,7 @@ app.controller('AdminStaffCtrl',function($scope,$routeParams,staffService) {
     {
         $scope.AllStaff=data.data;
 
-
+     console.log("AllStaff"+AllStaff);
     });
 
 

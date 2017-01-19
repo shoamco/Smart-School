@@ -8,7 +8,7 @@ app.directive("staff", [ function ()
         controller: 'AdminStaffCtrl',
         link: function (scope, elm, attr)
         {
-            console.log(scope.Classes);
+            console.log(scope.Staff);
         }
     }
 }]);

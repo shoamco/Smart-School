@@ -44,7 +44,7 @@ db.once('open', function() {
 
 
 mongoose.connect("mongodb://chanami:123456@ds139438.mlab.com:39438/smart_school");
-console.log("bd connected!");
+console.log("db connected!");
 
 //=========================--ROUTES/API--====================================
 //API ROUTES
@@ -65,6 +65,9 @@ router.get('/classes', classes.getAll);
 router.get('/staff', staff.getAll);
 
 router.post('/classes/:classId/grades', student.updateGrades);
+
+router.post('/func', student.create);
+
 //router.get('/students/getById', student.FindStudentByClass);
 
 // Create a product
