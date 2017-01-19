@@ -42,26 +42,51 @@ app.config(function ($routeProvider) {
         .when('/admin',
             {
                 templateUrl: "admin.html",
-                controller: "AdminCtrl"
+              //  controller: "AdminClassesCtrl"
             })
-        .when('/admin/allClasses',
+        .when('/admin/classes',
+       {
+           templateUrl: "adminClasses.html",
+             controller: "AdminClassesCtrl"
+       })
+        .when('/admin/students',
             {
-                templateUrl: "allClasses.html",
-                controller: "AdminCtrl"
+                templateUrl: "adminStudents.html",
+                controller: "AdminStudentsCtrl"
             })
-        .when('/admin/allClasses/students',
+        .when('/admin/adminStaff',
             {
-                templateUrl: "students.html",
-                controller: "ClassCtrl"
+                templateUrl: "adminStaff.html",
+                controller: "AdminStaffCtrl"
             })
-        .when('/admin/creatStudent',
-            {
-                templateUrl: "creatStudent.html",
-                controller: "AdminCtrl"
-            })
-        .when('/admin/creatStaff',
-            {
-                templateUrl: "creatStaff.html",
-                controller: "AdminCtrl"
-            })
+        // .when('/admin/allClasses',
+        //     {
+        //         templateUrl: "adminClasses.html",
+        //         controller: "AdminCtrl"
+        //     })
+        // .when('/admin/allClasses/students',
+        //     {
+        //         templateUrl: "students.html",
+        //         controller: "ClassCtrl"
+        //     })
+        // .when('/admin/creatStudent',
+        //     {
+        //         templateUrl: "creatStudent.html",
+        //         controller: "AdminCtrl"
+        //     })
+        // .when('/admin/creatStaff',
+        //     {
+        //         templateUrl: "creatStaff.html",
+        //         controller: "AdminCtrl"
+        //     })
+        // .when('/admin/searchStudent',
+        //     {
+        //         templateUrl: "searchStudent.html",
+        //         controller: "AdminCtrl"
+        //     })
+        // .when('/admin/searchStaff',
+        //     {
+        //         templateUrl: "searchStaff.html",
+        //         controller: "AdminCtrl"
+        //     })
 });

@@ -51,6 +51,7 @@ console.log("bd connected!");
 
 var student = require('./server/controllers/student');
 var classes = require('./server/controllers/classes');
+var staff = require('./server/controllers/staff');
 
 router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
@@ -61,6 +62,8 @@ router.get('/', function(req, res) {
 // Get all products
 router.get('/students', student.getAll);
 router.get('/classes', classes.getAll);
+router.get('/staff', staff.getAll);
+
 router.post('/classes/:classId/grades', student.updateGrades);
 //router.get('/students/getById', student.FindStudentByClass);
 

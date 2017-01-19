@@ -6,8 +6,8 @@
  */
 
 
-app.controller('AdminCtrl',function($scope,$routeParams,classesService) {
-    $scope.id = $routeParams.id;
+app.controller('AdminClassesCtrl',function($scope,$routeParams,classesService) {
+
     var promise = classesService.getClasses();
     promise.then(function (data)
     {
@@ -16,4 +16,7 @@ app.controller('AdminCtrl',function($scope,$routeParams,classesService) {
 
     });
 
+
 });
+
+
