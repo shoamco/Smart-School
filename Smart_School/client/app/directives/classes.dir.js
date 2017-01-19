@@ -1,5 +1,5 @@
 /**
- * Created by כהן on 18/01/2017.
+
  */
 app.directive("classes", [ function ()
 {
