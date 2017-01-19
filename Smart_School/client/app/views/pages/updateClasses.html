@@ -1,0 +1,22 @@
+
+
+
+<h1>update classes  </h1>
+<form >
+<table>
+    <tr>
+        <th>שם הכיתה</th>
+        <th>ClassId</th>
+        <th>מחנך</th>
+    </tr>
+    <tr ng-repeat="class in AllClasses">
+        <td><input  type ="text" value="{{ class.ClassName }}"></td>
+        <td><input  type ="text" value="{{ class.ClassId }}"></td>
+        <td><input  type ="text" value="{{ class.Educator }}"></td>
+    </tr>
+</table>
+
+
+
+    <input type="submit" value="עדכן"></td>
+</form>
