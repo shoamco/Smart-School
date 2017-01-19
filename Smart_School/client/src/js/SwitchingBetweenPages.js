@@ -38,11 +38,30 @@ app.config(function ($routeProvider) {
                 templateUrl: "class.html",
                 controller: "ClassCtrl"
             })
-        .when("/studentInformation",
+////////////////////////////////admin side
+        .when('/admin',
             {
-                templateUrl: "studentInformation.html",
-                controller: "StudentsInformationCtrl"
+                templateUrl: "admin.html",
+                controller: "AdminCtrl"
             })
-
-
+        .when('/admin/allClasses',
+            {
+                templateUrl: "allClasses.html",
+                controller: "AdminCtrl"
+            })
+        .when('/admin/allClasses/students',
+            {
+                templateUrl: "students.html",
+                controller: "ClassCtrl"
+            })
+        .when('/admin/creatStudent',
+            {
+                templateUrl: "creatStudent.html",
+                controller: "AdminCtrl"
+            })
+        .when('/admin/creatStaff',
+            {
+                templateUrl: "creatStaff.html",
+                controller: "AdminCtrl"
+            })
 });
