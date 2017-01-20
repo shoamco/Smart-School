@@ -5,12 +5,16 @@
         <th>שם משפחה</th>
         <th>תעודת זהות</th>
         <th>ClassId</th>
+        <th>עדכון</th>
+        <th>מחיקה</th>
     </tr>
     <tr ng-repeat="student in AllStudents">
         <td>{{student.FirstName}}</td>
         <td>{{ student.LastName }}</td>
         <td>{{ student.StudentId }}</td>
         <td>{{ student.ClassId }}</td>
+        <th><a ng-href="#/admin/students/updateStudent/{{student.StudentId}}">עדכון</a></th>
+        <th>מחיקה</th>
     </tr>
 </table>
 

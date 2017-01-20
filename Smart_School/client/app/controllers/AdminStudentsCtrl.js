@@ -5,7 +5,7 @@
 
 
 app.controller('AdminStudentsCtrl',function($scope,$routeParams,studentsService) {
-    //  $scope.id = $routeParams.id;
+    $scope.StudentId = $routeParams.studentId;
 
     var promise = studentsService.getStudents();
     promise.then(function (data)
