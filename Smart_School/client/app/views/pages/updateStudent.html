@@ -1,15 +1,36 @@
 <h1>עדכון סטודנט </h1>
-<form name="myForm" ng-submit="updateStudent(myForm)" >
+<form name="myForm1" ng-submit="updateStudent(myForm1)" >
 
 
             <ul>
-                <li><strong>ת.ז.: </strong><input  name="FirstName"  type ="text" ng-model="StudentId" value="{{student.StudentId}}"></li>
-                <li><strong>שם פרטי: </strong><input   name="FirstName"  type ="text" value="{{student.FirstName}}"></li>
-                <li><strong>משפחה : </strong><input  type ="text"  value="{{student.LastName}}"></li>
-                <li><strong>מחנך : </strong><input  type ="text" value="{{student.TeacherName}}"></li>
-                <li><strong>כיתה :</strong><input  type ="text"  value="{{student.ClassId}}"></li>
+                <li><strong>ת.ז.: </strong><input    type ="text" value="{{student.StudentId}}"required/></li>
+                <li><strong>שם פרטי: </strong><input   name="FirstName"  type ="text" value="{{student.FirstName}}" /></li>
+                <li><strong>משפחה : </strong><input  type ="text"  value="{{student.LastName}}" /></li>
+                <li><strong>מחנך : </strong><input  type ="text" value="{{student.TeacherName}}" ></li>
+                <li>כיתה :<input  type ="text"  value="{{student.ClassId}}" /></li>
             </ul>
 
+
+
+    <!--<table>-->
+        <!--<tr>-->
+            <!--<td><label for="id"> מספר זהות: </label></td>-->
+            <!--<td><input id="id" name="id" type ="text" ng-model="StudentId" value="{{student.StudentId}}" required/><br/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td><label dir="rtl" for="firstName">שם פרטי:</label></td>-->
+            <!--<td><input id="firstName" name="FirstName" type ="text"  ng-model="FirstName" value="{{student.FirstName}}" required/></td>-->
+
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td><label for="LastName">שם משפחה:</label></td>-->
+            <!--<td> <input id="LastName" type ="text" ng-model="LastName"  value="{{student.LastName}}" required/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td><label for="class">כיתה:</label></td>-->
+            <!--<td> <input id="class" type ="text" ng-model="LastName"  value="{{student.ClassId}}" required/></td>-->
+        <!--</tr>-->
+    <!--</table>-->
 <h1>קורסים</h1>
 
 
@@ -37,5 +58,7 @@
     </tr>
 </table>
 
-    <input type="submit"   name="submit"  />
+    <input type="submit"   name="submit" value="עדכן" />
 </form>
+
+<p>{{message1}}</p>

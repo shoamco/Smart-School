@@ -38,7 +38,19 @@ var student = {
       });
   },
   update: function(req, res, next){
-    res.json({type: "Update", id: req.params.id, body: req.body });
+      Students.update({
+          StudentId: req.body.StudentId,
+          FirstName: req.body.FirstName,
+          LastName: req.body.LastName,
+          ClassId: req.body.ClassId
+          //  Courses:courses
+      }, function (err, data) {
+          if (err) return console.error(err);
+          console.log("update student ");
+
+          res.send("הסטודנט עודכן");
+      });
+
   },
   delete: function(req, res, next){
       console.log("in server  delete"+req.params.id);

@@ -76,6 +76,7 @@ router.post('/createStudent', student.create);
 router.get('/deleteStudent/:id',student.delete);
 
 
+router.post('/updateStudent', student.update);
 
 
 

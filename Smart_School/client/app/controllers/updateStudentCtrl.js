@@ -37,14 +37,14 @@ app.controller('updateStudentCtrl',function($scope,$routeParams,studentsService,
         xmlhttp.onreadystatechange = function () {
 
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                // $scope.companyList = JSON.parse(xmlhttp.responseText);
+                $scope.message1 =xmlhttp.responseText;
                 $scope.$apply();
 
 
             }
         }
 
-        xmlhttp.open('POST', 'http://localhost:5000/createStudent');
+        xmlhttp.open('POST', 'http://localhost:5000/updateStudent');
         xmlhttp.setRequestHeader("Content-Type", "application/json;charset=utf-8");
         xmlhttp.send(JSON.stringify(document));
     }
