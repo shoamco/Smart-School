@@ -13,7 +13,7 @@ db.once('open', function() {
 
 
 mongoose.connect("mongodb://chanami:123456@ds139438.mlab.com:39438/smart_school");
-console.log("db connected!");
+console.log("db1 connected!");
 
 var Schema = mongoose.Schema;
 

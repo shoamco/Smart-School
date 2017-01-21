@@ -1,9 +1,9 @@
 <h1>עדכון סטודנט </h1>
-
+<form >
 
 
             <ul>
-                <li><strong>שם פרטי: </strong><input  type ="text" value="{{student.FirstName}}"></li>
+                <li><strong>שם פרטי: </strong><input  id="percentCalc" name="FirstName"  type ="text" value="{{student.FirstName}}"></li>
                 <li><strong>משפחה : </strong><input  type ="text" value="{{student.LastName}}"></li>
                 <li><strong>מחנך : </strong><input  type ="text" value="{{student.TeacherName}}"></li>
                 <li><strong>כיתה :</strong><input  type ="text" value="{{student.ClassId}}"></li>
@@ -27,7 +27,7 @@
 
 
 
-        <td><input  type ="text" value="{{course.CoursName}}"></td>
+        <td><input id="CoursName" type ="text" value="{{course.CoursName}}"></td>
         <td> <input  type ="text" value="{{ course.CourseId}}"></td>
         <th><input  type ="text" value="{{ course.TeacherName}}"></th>
         <td><input  type ="text" value="{{ course.Grade }}"> </td>
@@ -35,4 +35,6 @@
 
     </tr>
 </table>
-<input type="submit" value="עדכן סטודנט" >
+
+    <input type="submit"   name="submit"   ng-click="update()" value="עדכן סטודנט"/>
+</form>

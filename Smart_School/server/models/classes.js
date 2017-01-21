@@ -6,7 +6,8 @@ var schema = {
     Educator:String,
     //Img:
   //  Courses:[courseSchema]
-    Students:[]
+    Students:[],
+    Courses:[]
 
 }
 
@@ -16,8 +17,8 @@ module.exports =  mongoose.model('classes',{
     ClassId:String,
     Educator:String,
     ClassName:String,
-    Students:[]
-
+    Students:[],
+    Courses:[]
     //Img:
     //  Courses:[courseSchema]
 });

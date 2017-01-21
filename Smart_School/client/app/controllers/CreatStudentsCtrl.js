@@ -4,29 +4,40 @@
 
 app.controller("CreatStudentsCtrl", function ($scope, $http) {
 
-    $scope.SendData = function () {
-        // use $.param jQuery function to serialize data from JSON
-        var data = $.param({
-            fName: $scope.FirstName,
-            lName: $scope.LastName
-        });
+   //
+    $scope.createStudent = function() {
 
-        var config = {
-            headers : {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+
+
+        if (window.XMLHttpRequest)
+            var xmlhttp = new XMLHttpRequest();
+        else
+            var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+        var document =
+            {
+
+                "StudentId": $scope.StudentId,
+                "FirstName":$scope.FirstName,
+                "LastName": $scope.LastName,
+                "ClassId":$scope.ClassId
+
+            };
+
+        xmlhttp.onreadystatechange = function () {
+
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                // $scope.companyList = JSON.parse(xmlhttp.responseText);
+                $scope.$apply();
+
+
             }
         }
 
-        $http.post('/func', data, config)
-            .success(function (data, status, headers, config) {
-                $scope.PostDataResponse = data;
-            })
-            .error(function (data, status, header, config) {
-                $scope.ResponseDetails = "Data: " + data +
-                    "<hr />status: " + status +
-                    "<hr />headers: " + header +
-                    "<hr />config: " + config;
-            });
-    };
+        xmlhttp.open('POST', 'http://localhost:5000/createStudent');
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=utf-8");
+        xmlhttp.send(JSON.stringify(document));
+    }
+
 
 });

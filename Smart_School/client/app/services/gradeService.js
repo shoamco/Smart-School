@@ -7,8 +7,8 @@ app.service("gradeService", ['$http', '$q', function ($http, $q)
 
     this.updateStudents = function (form)
     {
-        console.log(form);
-        $http.post("/classes/{{classId}}/grades",form).then(function (data)
+       alert(form);
+        $http.post("/update",form).then(function (data)
         {
 
             deferred.resolve(data);

@@ -14,7 +14,7 @@
         <td>{{ student.StudentId }}</td>
         <td>{{ student.ClassId }}</td>
         <th><a ng-href="#/admin/students/updateStudent/{{student.StudentId}}">עדכון</a></th>
-        <th>מחיקה</th>
+        <th><a ng-click="deleteStudent(student.StudentId)"> מחיקה</a></th>
     </tr>
 </table>
 
