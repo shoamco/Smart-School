@@ -9,8 +9,10 @@ var student = {
     //  console.log("in server controller create");
       Students.findOne({StudentId: req.body.StudentId},function (err, data) {
           if (err) return console.error(err);
-          else if (data != null)
+          else if (data != null){
               console.log("the student id" + req.body.StudentId + " already exists");
+          res.send( "שגיאה:סטודנט עם ת.ז. "+req.body.StudentId+" כבר קיים במערכת ");
+              }
           else {
               var courses = [];
               Classes.findOne({ClassId:req.body.ClassId}, function (err, data) {
@@ -29,7 +31,7 @@ var student = {
                   if (err) return console.error(err);
                   console.log("we create student ");
 
-                  //  res.send(data);
+                   res.send("הסטודנט נכנס למערכת");
               });
               });
           }
@@ -39,7 +41,27 @@ var student = {
     res.json({type: "Update", id: req.params.id, body: req.body });
   },
   delete: function(req, res, next){
-    res.json({type: "Delete", id: req.params.id});
+      console.log("in server  delete"+req.params.id);
+      Students.findOne({StudentId: req.params.id}, function (err, data) {
+          if (err) return console.error(err);
+          else if(data==null)
+
+              console.log("the student " + req.params.id + " not  exists");
+          //}
+          else{
+
+
+              Students.remove({StudentId: req.params.id}, function(err) {
+                  if (!err) {
+                      console.log("the student "+req.params.id+ " delete from the student list");
+                  }
+                  else {
+                      console.log("erro");
+                  }
+              });
+          }
+      });
+
   },
     // updateCompany:function(id,field_to_edit) {
     //     db.collection('students').updateOne(id,{$set:field_to_edit});
@@ -85,24 +107,7 @@ console.log("updateGrades in the sever ");
       res.json(data);
     })
   } ,
-    createStudent:function(req, res, next)//the Function create student
-    {console.log("in the server");
-        // student.findOne({StudentId: studentid},function (err, data) {
-        //     if (err) return console.error(err);
-        //     else if (data!=null)
-        //         console.log("the student "+firstname+ " " +lastname+ " already exists");
-        //     else
-        //     {
-                student.create({FirstName: req.query(fName),LastName:req.query(lName)}, function (err, data) {
-                    if (err) return console.error(err);
-                    console.log("we create student "+firstname);
-                    res.send(data);
-                });
-            //}
 
-       // });
-
-    }
 }
 
 

@@ -27,8 +27,9 @@ app.controller("CreatStudentsCtrl", function ($scope, $http) {
         xmlhttp.onreadystatechange = function () {
 
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                // $scope.companyList = JSON.parse(xmlhttp.responseText);
+              $scope.message1 =xmlhttp.responseText;
                 $scope.$apply();
+                alert(xmlhttp.responseText);
 
 
             }

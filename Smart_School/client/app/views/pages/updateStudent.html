@@ -1,12 +1,13 @@
 <h1>עדכון סטודנט </h1>
-<form >
+<form name="myForm" ng-submit="updateStudent(myForm)" >
 
 
             <ul>
-                <li><strong>שם פרטי: </strong><input  id="percentCalc" name="FirstName"  type ="text" value="{{student.FirstName}}"></li>
-                <li><strong>משפחה : </strong><input  type ="text" value="{{student.LastName}}"></li>
+                <li><strong>ת.ז.: </strong><input  name="FirstName"  type ="text" ng-model="StudentId" value="{{student.StudentId}}"></li>
+                <li><strong>שם פרטי: </strong><input   name="FirstName"  type ="text" value="{{student.FirstName}}"></li>
+                <li><strong>משפחה : </strong><input  type ="text"  value="{{student.LastName}}"></li>
                 <li><strong>מחנך : </strong><input  type ="text" value="{{student.TeacherName}}"></li>
-                <li><strong>כיתה :</strong><input  type ="text" value="{{student.ClassId}}"></li>
+                <li><strong>כיתה :</strong><input  type ="text"  value="{{student.ClassId}}"></li>
             </ul>
 
 <h1>קורסים</h1>
@@ -23,12 +24,12 @@
         <th>הערכה מילולית</th>
 
     </tr>
-    <tr ng-repeat="course in student.Courses">
+    <tr ng-repeat="course in student.Courses" ng-model="course">
 
 
 
-        <td><input id="CoursName" type ="text" value="{{course.CoursName}}"></td>
-        <td> <input  type ="text" value="{{ course.CourseId}}"></td>
+        <td><input id="CoursName" type ="text"  ng-model="course.CoursName" value="{{course.CoursName}}" ></td>
+        <td> <input  type ="text"  ng-model="course.CourseId" value="{{ course.CourseId}}"></td>
         <th><input  type ="text" value="{{ course.TeacherName}}"></th>
         <td><input  type ="text" value="{{ course.Grade }}"> </td>
         <td><input  type ="text" value="{{ course.Evaluation}}"></td>
@@ -36,5 +37,5 @@
     </tr>
 </table>
 
-    <input type="submit"   name="submit"   ng-click="update()" value="עדכן סטודנט"/>
+    <input type="submit"   name="submit"  />
 </form>

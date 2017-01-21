@@ -15,24 +15,40 @@ app.controller('updateStudentCtrl',function($scope,$routeParams,studentsService,
 
 
     });
-     // var promise1 = studentsService.updateStudent();
-    // promise1.then(function (data)
-    // {
-    //
-    // });
+    $scope.updateStudent = function() {
 
-  // $scope.updateStudent = function ()
-  //   {
-  //       console.log("in client");
-  //       alert("in ctrl");
-  //       studentsService.updateStudent();
-  //       // $http.post("updateStudent").then(function (data)
-  //       // {
-  //       //     alert("in client updateStudent");
-  //       //
-  //       //     deferred.resolve(data);
-  //       // });
-  //   }
+
+
+        if (window.XMLHttpRequest)
+            var xmlhttp = new XMLHttpRequest();
+        else
+            var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+        var document =
+            {
+
+                "StudentId": $scope.StudentId,
+                "FirstName":$scope.FirstName,
+                "LastName": $scope.LastName,
+                "ClassId":$scope.ClassId
+
+            };
+
+        xmlhttp.onreadystatechange = function () {
+
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                // $scope.companyList = JSON.parse(xmlhttp.responseText);
+                $scope.$apply();
+
+
+            }
+        }
+
+        xmlhttp.open('POST', 'http://localhost:5000/createStudent');
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=utf-8");
+        xmlhttp.send(JSON.stringify(document));
+    }
+
 
 
 

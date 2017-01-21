@@ -4,29 +4,31 @@
     <table>
         <tr>
             <td><label for="id"> מספר זהות: </label></td>
-            <td><input id="id" name="id" type ="text" ng-model="StudentId"/><br/></td>
+            <td><input id="id" name="id" type ="text" ng-model="StudentId" required/><br/></td>
         </tr>
         <tr>
             <td><label dir="rtl" for="firstName">שם פרטי:</label></td>
-            <td><input id="firstName" name="firstName" type ="text"  ng-model="FirstName"/></td>
+            <td><input id="firstName" name="FirstName" type ="text"  ng-model="FirstName" required/></td>
+
         </tr>
         <tr>
             <td><label for="LastName">שם משפחה:</label></td>
-            <td> <input id="LastName" type ="text" ng-model="LastName"/></td>
+            <td> <input id="LastName" type ="text" ng-model="LastName" required/></td>
         </tr>
         <tr>
             <td><label for="studentclass">כיתה:</label></td>
-            <td><select id ="studentclass" required ng-model="ClassId">
-                <option value="בחר">בחר</option>
-                <option value="1">א</option>
-                <option value="2"> ב</option>
+            <!--required not work in select-->
+            <td><select id ="studentclass"  ng-model="ClassId"  required>
+
+                <option value="1" >א</option>
+                <option value="2"  > ב</option>
                 <option value="3">ג</option>
                 <option value="4">ד</option>
 
-                <option value="5">ה</option>
-                <option value="6">ו</option>
-                <option value="7">ז</option>
-                <option value="8">ח</option>
+                <option value="5"  >ה</option>
+                <option value="6"  >ו</option>
+                <option value="7" >ז</option>
+                <option value="8"  >ח</option>
             </select></td>
         </tr>
         <tr>
@@ -38,4 +40,5 @@
     </table>
     <input type="submit" value="אישור">
 </form>
-<!--<input type="submit" value="אישור" ng-click="createStudent(myForm)">-->
+
+<p>{{message1}}</p>

@@ -65,14 +65,20 @@ router.get('/classes', classes.getAll);
 router.get('/staff', staff.getAll);
 
 
+router.post('/createStudent', student.create);
+//
+// app.post('/createStudent', function (req, res) {
+//     console.log("in server function createStudent");
+//
+//   student.create(req);
+//    res.send("hello");
+// })
+router.get('/deleteStudent/:id',student.delete);
 
 
-app.post('/createStudent', function (req, res) {
-    console.log("in server function createStudent");
 
-    student.create(req);
-   // res.send('POST request to the homepage')
-})
+
+
 
 // router.post('/classes/:classId/grades', student.updateGrades);
 // router.post('updateStudent', student.updateStudent);
