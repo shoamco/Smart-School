@@ -1,38 +1,41 @@
 
 <h1>hello {{student.FirstName}}</h1>
-<section class="work">
-    <figure >
-        <div>
-            <div class="col-xs-12 col-sm-4">
-                <figure>
-                    <img class=" studentIm" img src="/1.jpg" alt="{{student.FirstName}}" />
-                    <figcaption>{{student.FirstName}}</figcaption>
-                </figure>
-            </div>
-
-            <div class="col-xs-12 col-sm-4">
-                <ul>
-                    <li><strong>שם פרטי: </strong>{{student.FirstName}}</li>
-                    <li><strong>משפחה : </strong>{{student.LastName}}</li>
-                </ul>
-            </div>
+<div class="studentInfo">
+    <div>
+        <div class="col-xs-12 col-sm-4">
+            <figure class="studentFi">
+                <img class=" studentIm" img src="/1.jpg" alt="{{student.FirstName}}" />
+                <figcaption>{{student.FirstName}}</figcaption>
+            </figure>
         </div>
 
- <div class="divider" ></div>
+        <div class="col-xs-12 col-sm-4">
+            <ul>
+                <li><strong>שם פרטי: </strong>{{student.FirstName}}</li> <li><strong>משפחה : </strong>{{student.LastName}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="divider" ></div>
         <div class="row">
-            <div data-ng-repeat="course in student.Courses">
-                <div>
-                    <table>
+            <div>
+                <table>
+                    <tr>
+                        <td>שם הקורס</td>
+                        <td>מרצה הקורס</td>
+                        <td>הערכה מילולית</td>
+                        <td>ציון קורס</td>
+                    <tr>
+                    <tr data-ng-repeat="course in student.Courses">
                         <td>{{course.CoursName}}</td>
                         <td>{{course.TeacherName}}</td>
                         <td>{{course.Evaluation}}</td>
                         <td>{{course.Grade}}</td>
-                    </table>
-                </div>
+                    <tr>
+                </table>
             </div>
         </div>
-    </figure>
-</section>
+</div>
 
 
 
