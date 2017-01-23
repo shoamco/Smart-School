@@ -5,10 +5,11 @@ app.directive("students", [ function ()
 {
     return {
         restrict: 'E',
-        controller: 'StudentsCtrl',
+        controller: 'GradesCtrl',
         link: function (scope, elm, attr)
         {
-            console.log(scope.Students);
+ 
+		console.log("__________",scope.hello);
         }
     }
 }]);

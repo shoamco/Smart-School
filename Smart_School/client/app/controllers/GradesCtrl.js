@@ -25,10 +25,11 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService) {
 
 
    $scope.findGread = function(studentid,courseid) {///the function get student and course and return gread of cours
-
+   	console.log("hello שלום");
+   	console.log($scope.MyStudents);
         for (var i = 0; i < $scope.MyStudents.length; i++) {
             if ($scope.MyStudents[i].StudentId ==  studentid) {
-
+            	console.log($scope.MyStudents[i].StudentId);
                 for (var j = 0; j < $scope.MyStudents.Courses.length; i++) {
                     if ($scope.MyStudents.Courses.CourseId[i] ==courseid) {
                         return $scope.MyStudents.Courses.CourseId[i].Grade;
@@ -38,7 +39,7 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService) {
         }
     }
 
-        $scope.findEvaluation = function(studentid,courseid) {///the function get student and course and return Evaluation of cours
+    $scope.findEvaluation = function(studentid,courseid) {///the function get student and course and return Evaluation of cours
 
             for (var i = 0; i < $scope.MyStudents.length; i++) {
                 if ($scope.MyStudents[i].StudentId ==  studentid) {
@@ -51,7 +52,7 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService) {
                 }
             }
         }
-    var a=findGread(101,10);
-        alert(a);
+    /*var a=findGread(101,10);
+        alert(a);*/
 });
 });

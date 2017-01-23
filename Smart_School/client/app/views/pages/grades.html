@@ -1,4 +1,6 @@
+
 <h1>  הקורס:{{MyCourse[0].CoursName}}</h1>
+ 
     <h1>    המורה: "אבי כהן"</h1>
 <table>
     <tr>
@@ -13,8 +15,8 @@
         <td>{{student.FirstName}}</td>
         <td>{{student.LastName }}</td>
 
-        <td>{{this.findGread(student.StudentId,MyCourse.CourseId)}}</td>
-        <td>{{this.findEvaluation(student.StudentId,MyCourse.CourseId)}}</td>
+        <td  ><div data-ng-students mystudents=MyStudents data-ng-click="findGread(2222222,10)">click me</div></td>
+        <td><!--{{this.findEvaluation(student.StudentId,MyCourse[0].CourseId)}}{{student.StudentId,MyCourse[0].CourseId}}--></td>
 
     </tr>
 
