@@ -6,7 +6,19 @@
                 <li><strong>ת.ז.: </strong><input    type ="text" value="{{student.StudentId}}" name="StudentId" required/></li>
                 <li><strong>שם פרטי: </strong><input  id="FirstName1" type ="text" value="{{student.FirstName}}" name="FirstName" required/></li>
                 <li><strong>משפחה : </strong><input  type ="text"  value="{{student.LastName }}" name="LastName" required /></li>
-                <li>כיתה :<input  type ="text" value="{{student.ClassId}}" name="ClassId" required/></li>
+
+
+                <td><select id ="studentclass"  name="ClassId"   name="ClassId" >
+                  <option value="{{student.ClassId}}" selected>כיתה</option>
+                    <option value="1" >א</option>
+                    <option value="2"  > ב</option>
+                    <option value="3">ג</option>
+                    <option value="4">ד</option>
+                    <option value="5"  >ה</option>
+                    <option value="6"  >ו</option>
+                    <option value="7" >ז</option>
+                    <option value="8"  >ח</option>
+                </select></td>
             </ul>
 
 
