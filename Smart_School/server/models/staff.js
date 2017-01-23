@@ -5,7 +5,9 @@ var schema = {
     FirstName:String,
     LastName: String,
     ListClass:[],
-    Type:String
+    Type:String,
+	user:String,
+	password:String
 }
 
 var Staff = mongoose.model("Staff", schema);
@@ -17,5 +19,6 @@ module.exports =  mongoose.model('staff',{
     LastName: String,
     ListClass:[],
     Type:String
-
+	user:String,
+	password:String
 });

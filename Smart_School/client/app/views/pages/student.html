@@ -1,42 +1,45 @@
 
 <h1>hello {{student.FirstName}}</h1>
+<section class="work">
+    <figure >
+        <div>
+            <div class="col-xs-12 col-sm-4">
+                <figure>
+                    <img class=" studentIm" img src="/1.jpg" alt="{{student.FirstName}}" />
+                    <figcaption>{{student.FirstName}}</figcaption>
+                </figure>
+            </div>
 
-
-<div >
-    <div>
-        <div class="col-xs-12 col-sm-4">
-            <figure>
-                <img img src="/1.jpg" alt="{{student.FirstName}}" />
-                <figcaption>{{student.FirstName}}</figcaption>
-            </figure>
-        </div>
-
-        <div class="col-xs-12 col-sm-4">
+            <div class="col-xs-12 col-sm-4">
                 <ul>
                     <li><strong>שם פרטי: </strong>{{student.FirstName}}</li>
                     <li><strong>משפחה : </strong>{{student.LastName}}</li>
-                    <li><strong>מחנך : </strong>{{student.TeacherName}}</li>
-                    <li><strong>שם כיתה :</strong>{{student.ClasstName}}</li>
                 </ul>
-        <div>
-    </div>
-</div>
+            </div>
+        </div>
 
-<br>
-<div class="divider"></div>
-    <div class="col-xs-12 col-sm-6">
-        <dl data-ng-repeat="course in student.Courses">
-            <div class="row">
-                <div class="col-xs-8">
-                    <dt>{{course.CourseName}}</dt>
-                    <dd>{{course.Grade}}</dd>
-                    <dfn>{{course.evaluation}}</dfn>
+ <div class="divider" ></div>
+        <div class="row">
+            <div data-ng-repeat="course in student.Courses">
+                <div>
+                    <table>
+                        <td>{{course.CoursName}}</td>
+                        <td>{{course.TeacherName}}</td>
+                        <td>{{course.Evaluation}}</td>
+                        <td>{{course.Grade}}</td>
+                    </table>
                 </div>
             </div>
-        </dl>
-    </div>
-</div>
-</div>
+        </div>
+    </figure>
+</section>
+
+
+
+
+
+
+
 
 
 
@@ -83,12 +86,7 @@
             <p>{{student.TeacherName}}</p>
         </div>
     </div>-->
-    <div class="row">
-        <div class="col-sm-4" style="background-color:lavender;">הערכה מילולית</div>
-        <div class="col-sm-4" style="background-color:lavenderblush;">ציון</div>
-        <div class="col-sm-4" style="background-color:lavender;">מקצוע</div>
-    </div>
-</div>
+
 
 
 
