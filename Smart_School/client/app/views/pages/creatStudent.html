@@ -18,7 +18,7 @@
         <tr>
             <td><label for="studentclass">כיתה:</label></td>
             <!--required not work in select-->
-            <td><select id ="studentclass"  ng-model="ClassId"  required>
+            <td><select id ="studentclass"  name="ClassId"  required>
 
                 <option value="1" >א</option>
                 <option value="2"  > ב</option>
@@ -41,4 +41,4 @@
     <input type="submit" value="אישור">
 </form>
 
-<p>{{message1}}</p>
+<p style="color: red">{{message1}}</p>

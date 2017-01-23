@@ -79,7 +79,12 @@ router.get('/deleteStudent/:id',student.delete);
 router.post('/updateStudent', student.update);
 
 
-
+// app.post('/updateStudent', function (req, res) {
+//     console.log("in server function createStudent");
+//
+//     student.updateStudent(req);
+//    res.send("hello");
+// })
 
 // router.post('/classes/:classId/grades', student.updateGrades);
 // router.post('updateStudent', student.updateStudent);

@@ -20,7 +20,7 @@ app.controller("CreatStudentsCtrl", function ($scope, $http) {
                 "StudentId": $scope.StudentId,
                 "FirstName":$scope.FirstName,
                 "LastName": $scope.LastName,
-                "ClassId":$scope.ClassId
+                "ClassId":myForm.ClassId.value
 
             };
 
@@ -29,7 +29,7 @@ app.controller("CreatStudentsCtrl", function ($scope, $http) {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
               $scope.message1 =xmlhttp.responseText;
                 $scope.$apply();
-                alert(xmlhttp.responseText);
+                //alert(xmlhttp.responseText);
 
 
             }
