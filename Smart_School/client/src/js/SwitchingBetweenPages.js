@@ -104,6 +104,11 @@ app.config(function ($routeProvider) {
                 templateUrl: "login.html",
                 controller: "loginCtrl"
             })
+        .when('/admin/classes/updateClass/:classId',///
+            {
+                templateUrl: "updateClass.html",
+                controller: "updateClassCtrl"
+            })
 
     // when('/admin/staff/creatStudent',
     //     {
