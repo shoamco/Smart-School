@@ -1,7 +1,7 @@
 
 
 app.controller('updateStudentCtrl',function($scope,$routeParams,studentsService,$http) {
-    $scope.StudentId = $routeParams.studentId;
+    $scope.StudenId = $routeParams.studentId;
     var promise = studentsService.getStudents();
     promise.then(function (data)
     {
@@ -9,7 +9,7 @@ app.controller('updateStudentCtrl',function($scope,$routeParams,studentsService,
 
 
         for (var i = 0; i < $scope.Students.length; i++) {
-            if ($scope.Students[i].StudentId ==  $scope.StudentId)
+            if ($scope.Students[i].StudentId ==  $scope.StudenId)
                 $scope.student = $scope.Students[i];
         }
 
@@ -17,8 +17,9 @@ app.controller('updateStudentCtrl',function($scope,$routeParams,studentsService,
     });
     $scope.updateStudent = function() {
 
+//alert("updateStudent in controller");
 
-
+      //  alert(myForm1.FirstName.value);
         if (window.XMLHttpRequest)
             var xmlhttp = new XMLHttpRequest();
         else
@@ -27,17 +28,19 @@ app.controller('updateStudentCtrl',function($scope,$routeParams,studentsService,
         var document =
             {
 
-                "StudentId": $scope.StudentId,
-                "FirstName":$scope.FirstName,
-                "LastName": $scope.LastName,
-                "ClassId":$scope.ClassId
-
+                "StudentId":myForm1.StudentId.value,
+                "FirstName":myForm1.FirstName.value,
+                "LastName":myForm1.LastName.value,
+                "ClassId": myForm1.ClassId.value,
+                "StudentIdOriginal":  $scope.StudenId
             };
 
         xmlhttp.onreadystatechange = function () {
 
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 $scope.message1 =xmlhttp.responseText;
+
+                alert( $scope.message1);
                 $scope.$apply();
 
 

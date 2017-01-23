@@ -31,7 +31,8 @@ app.controller('AdminStudentsCtrl',function($scope,$routeParams,studentsService)
 
             xmlhttp.onreadystatechange = function(){
                 if (xmlhttp.readyState==4 && xmlhttp.status==200){
-                    //alert(xmlhttp.responseText);
+                    $scope.message1 =xmlhttp.responseText;
+                    alert( $scope.message1);
                   //  $scope.companyList=JSON.parse(xmlhttp.responseText);
                     $scope.$apply();
                 }
