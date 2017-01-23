@@ -12,4 +12,13 @@ app.service("staffService", ['$http', '$q', function ($http, $q)
     {
         return deferred.promise;
     }
+    this.login = function (form)
+    {
+        alert(form);
+        $http.post("/login",form).then(function (data)
+        {
+
+            deferred.resolve(data);
+        });
+    }
 }]);

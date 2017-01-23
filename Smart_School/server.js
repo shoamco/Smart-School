@@ -78,6 +78,8 @@ router.get('/deleteStudent/:id',student.delete);
 
 router.post('/updateStudent', student.update);
 
+router.post('/login', staff.getUser);
+
 
 // app.post('/updateStudent', function (req, res) {
 //     console.log("in server function createStudent");
