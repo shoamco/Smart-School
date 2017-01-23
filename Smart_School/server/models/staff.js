@@ -18,7 +18,7 @@ module.exports =  mongoose.model('staff',{
     FirstName:String,
     LastName: String,
     ListClass:[],
-    Type:String
+    Type:String,
 	user:String,
 	password:String
 });
