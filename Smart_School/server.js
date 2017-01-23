@@ -79,7 +79,7 @@ router.get('/deleteStudent/:id',student.delete);
 
 router.post('/updateStudent', student.update);
 
-router.post('/login', staff.getUser);
+//router.post('/login', staff.getUser);
 
 
 // app.post('/updateStudent', function (req, res) {
