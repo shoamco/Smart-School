@@ -20,7 +20,7 @@ app.controller("CreatStudentsCtrl", function ($scope, $http) {
                 "StudentId": $scope.StudentId,
                 "FirstName":$scope.FirstName,
                 "LastName": $scope.LastName,
-                "ClassId":$scope.ClassId
+                "ClassId":myForm.ClassId.value
 
             };
 
