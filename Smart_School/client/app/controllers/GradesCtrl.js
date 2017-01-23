@@ -25,7 +25,7 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService) {
 
 
    $scope.findGread = function(studentid,courseid) {///the function get student and course and return gread of cours
-   	console.log("hello שלום");
+   	console.log("hello");
    	console.log($scope.MyStudents);
         for (var i = 0; i < $scope.MyStudents.length; i++) {
             if ($scope.MyStudents[i].StudentId ==  studentid) {

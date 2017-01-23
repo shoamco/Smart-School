@@ -1,5 +1,4 @@
 
-<h1>hello {{student.FirstName}}</h1>
 <div class="studentInfo">
     <div>
         <div class="col-xs-12 col-sm-4">
@@ -10,9 +9,11 @@
         </div>
 
         <div class="col-xs-12 col-sm-4">
-            <ul>
-                <li><strong>שם פרטי: </strong>{{student.FirstName}}</li> <li><strong>משפחה : </strong>{{student.LastName}}</li>
-            </ul>
+            <p><strong>שם פרטי: </strong>{{student.FirstName}}</p> 
+            <p><strong>משפחה : </strong>{{student.LastName}}</p>
+            <p><strong>כיתה : </strong>{{student.ClassName}}</p>
+            <p><strong>שנתון : </strong>{{student.year}}</p>
+            <p><strong>שם המורה : </strong>{{student.TeacherName}}</p>
         </div>
     </div>
 
