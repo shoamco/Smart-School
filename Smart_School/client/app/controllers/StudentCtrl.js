@@ -12,7 +12,8 @@ app.controller('StudentCtrl',function($scope,$routeParams,studentsService) {
                 $scope.student = $scope.Students[i];
         }
 
-
+         console.log($scope.student);
     });
+   
 
 });

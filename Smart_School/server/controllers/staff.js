@@ -24,9 +24,9 @@ var staff = {
     getUser: function(req, res, next){
         Staff.find({user:req.params.user,password:req.params.password},function(err, data){
         if(err) console.error;
-      res.json(data);
-    })
-}
+        res.json(data);
+        })
+    }
 
 }
 
