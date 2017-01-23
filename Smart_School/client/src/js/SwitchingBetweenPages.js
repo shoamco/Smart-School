@@ -99,6 +99,11 @@ app.config(function ($routeProvider) {
                 templateUrl: "creatClass.html",
                 controller: "AdminClassesCtrl"
             })
+        .when('/login',
+            {
+                templateUrl: "login.html",
+                controller: "loginCtrl"
+            })
 
     // when('/admin/staff/creatStudent',
     //     {
