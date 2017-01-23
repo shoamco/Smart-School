@@ -23,12 +23,14 @@
                 <table>
                     <tr>
                         <td>שם הקורס</td>
+                        <td>קוד הקורס</td>
                         <td>מרצה הקורס</td>
                         <td>הערכה מילולית</td>
                         <td>ציון קורס</td>
                     <tr>
                     <tr data-ng-repeat="course in student.Courses">
                         <td>{{course.CoursName}}</td>
+                        <td>{{course.CourseId}}</td>
                         <td>{{course.TeacherName}}</td>
                         <td>{{course.Evaluation}}</td>
                         <td>{{course.Grade}}</td>
