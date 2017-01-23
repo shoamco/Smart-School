@@ -886,6 +886,7 @@ h1{
     box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
     background-color:#FFF;
     border: gray solid;
+    margin-top:50px;
 }
 .studentInfo table{
     clear: both;
@@ -897,7 +898,7 @@ h1{
 }
 .studentInfo table td{
     margin: 3px !important;
-    padding: 0px !important;
+    padding: 3px !important;
     border: gray solid;
 }
 html{
@@ -1024,5 +1025,12 @@ ul,ol{
 .divider
 {
     margin-bottom: 0px;
+    clear: both;
+}
+.tableInfo{
+    width: 100%;
+    clear: both;
+    position: relative;
+    top:50px;
 }
 
