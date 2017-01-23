@@ -89,11 +89,7 @@ app.config(function ($routeProvider) {
                 templateUrl: "updateStaff.html",
                 controller: "AdminStaffCtrl"
             })
-        .when('/admin/classes/updateClasses',
-            {
-                templateUrl: "updateClasses.html",
-                controller: "AdminClassesCtrl"
-            })
+
         .when('/admin/classes/creatClass',
             {
                 templateUrl: "creatClass.html",
@@ -103,6 +99,11 @@ app.config(function ($routeProvider) {
             {
                 templateUrl: "login.html",
                 controller: "loginCtrl"
+            })
+        .when('/admin/classes/updateClass/:classId',///
+            {
+                templateUrl: "updateClass.html",
+                controller: "updateClassCtrl"
             })
 
     // when('/admin/staff/creatStudent',
