@@ -1,6 +1,6 @@
 
 
-app.controller('updateStudentCtrl',function($scope,$routeParams,studentsService,$http) {
+app.controller('updateStudentCtrl',function($scope,$routeParams,studentsService,$http,$window) {
     $scope.StudenId = $routeParams.studentId;
     var promise = studentsService.getStudents();
     promise.then(function (data)
@@ -50,6 +50,7 @@ app.controller('updateStudentCtrl',function($scope,$routeParams,studentsService,
         xmlhttp.open('POST', 'http://localhost:5000/updateStudent');
         xmlhttp.setRequestHeader("Content-Type", "application/json;charset=utf-8");
         xmlhttp.send(JSON.stringify(document));
+      //  $window.reload();
     }
 
 

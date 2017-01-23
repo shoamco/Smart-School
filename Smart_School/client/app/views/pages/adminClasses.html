@@ -8,11 +8,13 @@
         <th>שם הכיתה</th>
         <th>ClassId</th>
         <th>מחנך</th>
+        <th>עדכון</th>
     </tr>
     <tr ng-repeat="class in AllClasses">
         <td>{{ class.ClassName }}</td>
         <td>{{ class.ClassId}}</td>
         <td>{{ class.Educator }}</td>
+        <th><a ng-href="#">עדכון</a></th>
     </tr>
 </table>
 

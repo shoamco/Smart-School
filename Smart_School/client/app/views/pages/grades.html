@@ -1,5 +1,19 @@
+<h1>  הקורס:{{MyCourse.CoursName}}</h1>
+    <h1>    המורה:חנן ירושלמי</h1>
+<table>
+    <tr>
+        <th>תעודת זהות</th>
+        <th>שם פרטי</th>
+        <th>שם משפחה</th>
+        <th >ציון</th>
+        <th >הערכה מילולית</th>
+    </tr>
+    <tr ng-repeat="student in MyStudents">
+        <td>{{student.StudentId }}</td>
+        <td>{{student.FirstName}}</td>
+        <td>{{student.LastName }}</td>
 
-    <form  ng-submit="update('#test.val()')">
-        <input id="test" type="text"/>
-        <input type="submit" value="אישור"/>
-    </form>
+        <td>{{this.findGread(student.StudentId,MyCourse.CourseId)}}</td>
+    </tr>
+
+</table>
