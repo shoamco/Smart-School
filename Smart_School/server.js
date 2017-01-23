@@ -53,6 +53,7 @@ var student = require('./server/controllers/student');
 var classes = require('./server/controllers/classes');
 var staff = require('./server/controllers/staff');
 
+
 router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });

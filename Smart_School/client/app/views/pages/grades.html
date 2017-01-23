@@ -1,5 +1,5 @@
-<h1>  הקורס:{{MyCourse.CoursName}}</h1>
-    <h1>    המורה:חנן ירושלמי</h1>
+<h1>  הקורס:{{MyCourse[0].CoursName}}</h1>
+    <h1>    המורה: "אבי כהן"</h1>
 <table>
     <tr>
         <th>תעודת זהות</th>
@@ -14,6 +14,8 @@
         <td>{{student.LastName }}</td>
 
         <td>{{this.findGread(student.StudentId,MyCourse.CourseId)}}</td>
+        <td>{{this.findEvaluation(student.StudentId,MyCourse.CourseId)}}</td>
+
     </tr>
 
 </table>

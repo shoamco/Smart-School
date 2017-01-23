@@ -13,9 +13,10 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService) {
                 $scope.ALLCourse=$scope.Classes[i].Courses;
             }
         }
+        $scope.MyCourse=[];///all course of this techear
         for (var i = 0; i < $scope.ALLCourse.length; i++) {
-            if ($scope.ALLCourse[i].TeacherName == "חנן ירושלמי") {
-                $scope.MyCourse=$scope.ALLCourse[i];
+            if ($scope.ALLCourse[i].TeacherName ==  "אבי כהן") {////arry of course
+                $scope.MyCourse.push($scope.ALLCourse[i]);
             }
         }
 
@@ -23,7 +24,7 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService) {
 
 
 
-   $scope.findGread = function(studentid,courseid) {
+   $scope.findGread = function(studentid,courseid) {///the function get student and course and return gread of cours
 
         for (var i = 0; i < $scope.MyStudents.length; i++) {
             if ($scope.MyStudents[i].StudentId ==  studentid) {
@@ -36,6 +37,20 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService) {
             }
         }
     }
+
+        $scope.findEvaluation = function(studentid,courseid) {///the function get student and course and return Evaluation of cours
+
+            for (var i = 0; i < $scope.MyStudents.length; i++) {
+                if ($scope.MyStudents[i].StudentId ==  studentid) {
+
+                    for (var j = 0; j < $scope.MyStudents.Courses.length; i++) {
+                        if ($scope.MyStudents.Courses.CourseId[i] ==courseid) {
+                            return $scope.MyStudents.Courses.CourseId[i].Evaluation;
+                        }
+                    }
+                }
+            }
+        }
     var a=findGread(101,10);
         alert(a);
 });
