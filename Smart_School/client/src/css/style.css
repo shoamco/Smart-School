@@ -866,6 +866,12 @@ h1{
     position: relative;
     border: gray solid;
 }
+.studentInfo p{
+    color:gray;
+    text-align: right;
+    font-size: 20px;
+    padding-top: 5px;
+}
 .studentIm{
     position: relative;
     min-height: 1px;
