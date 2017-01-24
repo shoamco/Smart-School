@@ -2,6 +2,9 @@
 <h1>  הקורס:{{MyCourse[0].CoursName}}</h1>
  
     <h1>    המורה: "אבי כהן"</h1>
+
+<form name="myGread" ng-submit="updatemyGread(myGread)" >
+
 <table>
     <tr>
         <th>תעודת זהות</th>
@@ -14,12 +17,12 @@
         <td>{{student.StudentId }}</td>
         <td>{{student.FirstName}}</td>
         <td>{{student.LastName }}</td>
+        <td><input  type ="text"  value="{{findGread(student.StudentId,MyCourse[0].CourseId)}}" required /></td>
+        <td><input  type ="text"  value="{{findEvaluation(student.StudentId,MyCourse[0].CourseId)}}" required /></td>
 
-        <td  ><div data-ng-students mystudents=MyStudents data-ng-click="findGread(2222222,10)">click me</div></td>
-        <td><!--{{this.findEvaluation(student.StudentId,MyCourse[0].CourseId)}}{{student.StudentId,MyCourse[0].CourseId}}--></td>
-        <td>{{this.findGread(student.StudentId,MyCourse[0].CourseId)}}</td>
-        <td>{{this.findEvaluation(student.StudentId,MyCourse[0].CourseId)}}</td>
 
     </tr>
 
 </table>
+    <input type="submit"   name="submit" value="עדכן" />
+</form>
