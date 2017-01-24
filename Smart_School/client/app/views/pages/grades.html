@@ -1,9 +1,9 @@
 
-<h1>  הקורס:{{MyCourse[0].CoursName}}</h1>
+<h1>  הקורס:{{courseId}}</h1>
  
     <h1>    המורה: "אבי כהן"</h1>
 
-<form name="myGread" ng-submit="updatemyGread(myGread)" >
+<form name="myGread" ng-submit="updateGreads(myGread)" >
 
 <table>
     <tr>
@@ -13,12 +13,12 @@
         <th >ציון</th>
         <th >הערכה מילולית</th>
     </tr>
-    <tr ng-repeat="student in MyStudents">
-        <td>{{student.StudentId }}</td>
+    <tr ng-repeat="student in MyStudents" >
+        <td name="StudentId">{{student.StudentId }}</td>
         <td>{{student.FirstName}}</td>
         <td>{{student.LastName }}</td>
-        <td><input  type ="text"  value="{{findGread(student.StudentId,MyCourse[0].CourseId)}}" required /></td>
-        <td><input  type ="text"  value="{{findEvaluation(student.StudentId,MyCourse[0].CourseId)}}" required /></td>
+        <td><input  type ="text"  value="{{findGread(student.StudentId,courseId)}}" required  name="Gread"/></td>
+        <td><input  type ="text"  value="{{findEvaluation(student.StudentId,courseId)}}" required name="Evaluation"/></td>
 
 
     </tr>
@@ -26,3 +26,5 @@
 </table>
     <input type="submit"   name="submit" value="עדכן" />
 </form>
+
+<p style="color: red">{{message1}}</p>

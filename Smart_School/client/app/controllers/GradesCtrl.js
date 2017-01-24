@@ -2,7 +2,7 @@
 app.controller('GradesCtrl',function($scope,$routeParams,classesService,studentsService) {
     $scope.id = $routeParams.id;
 
-
+    $scope.courseId=$routeParams.courseId;
    // alert($scope.AllStudents);
     var promise = classesService.getClasses();
     var promise2=studentsService.getStudents()
@@ -71,6 +71,42 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService,students
                         }
                     }
                 }
+            }
+
+
+
+
+            $scope.updateGreads = function() {
+       alert("in updateGreads");
+
+                if (window.XMLHttpRequest)
+                    var xmlhttp = new XMLHttpRequest();
+                else
+                    var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+                var document =
+                    {
+
+                        "StudentGreads":[],
+                        // "StudentId":myForm1.StudentId.value,
+
+                    };
+
+                xmlhttp.onreadystatechange = function () {
+
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        $scope.message1 =xmlhttp.responseText;
+
+                       // alert( $scope.message1);
+                        $scope.$apply();
+
+
+                    }
+                }
+
+                xmlhttp.open('POST', 'http://localhost:5000/updateGreads');
+                xmlhttp.setRequestHeader("Content-Type", "application/json;charset=utf-8");
+                xmlhttp.send(JSON.stringify(document));
             }
 
         });
