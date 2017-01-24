@@ -14,7 +14,7 @@
         <th >הערכה מילולית</th>
     </tr>
     <tr ng-repeat="student in MyStudents" >
-        <td name="StudentId">{{student.StudentId }}</td>
+        <td ng-data="{{student.StudentId }}" name="StudentId">{{student.StudentId }}</td>
         <td>{{student.FirstName}}</td>
         <td>{{student.LastName }}</td>
         <td><input  type ="text"  value="{{findGread(student.StudentId,courseId)}}" required  name="Gread"/></td>
