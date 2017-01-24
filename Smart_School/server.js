@@ -51,7 +51,7 @@ console.log("db connected!");
 
 var student = require('./server/controllers/student');
 var classes = require('./server/controllers/classes');
-var staff = require('./server/controllers/staff');
+var user = require('./server/controllers/user');
 
 
 router.get('/', function(req, res) {
@@ -63,7 +63,7 @@ router.get('/', function(req, res) {
 // Get all products
 router.get('/students', student.getAll);
 router.get('/classes', classes.getAll);
-router.get('/staff', staff.getAll);
+router.get('/users', user.getAll);
 
 
 router.post('/createStudent', student.create);

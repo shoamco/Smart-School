@@ -1,7 +1,7 @@
 /**
  * Created by כהן on 18/01/2017.
  */
-app.controller('ClassCtrl',function($scope,$routeParams,classesService) {
+app.controller('ClassCtrl',function($scope,$routeParams,classesService,usersService) {
     $scope.id = $routeParams.id;
     var promise = classesService.getClasses();
     promise.then(function (data)
@@ -14,6 +14,13 @@ app.controller('ClassCtrl',function($scope,$routeParams,classesService) {
                 $scope.MyClass = $scope.Classes[i].Students;
         }
 
+
+    });
+    var promise = usersService.getUsers();
+     promise.then(function (data)
+    {
+        $scope.Users=data.data;
+        console.log($scope.Users);
 
     });
 
