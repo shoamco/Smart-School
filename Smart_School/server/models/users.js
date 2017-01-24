@@ -1,10 +1,12 @@
+
+
+
 var mongoose = require('mongoose');
 
 var schema = {
     UserId: String,
     UserName: String,
     //Img:
-
   ClassList:[]
 	
 }
