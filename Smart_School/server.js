@@ -78,7 +78,7 @@ router.get('/deleteStudent/:id',student.delete);
 
 
 router.post('/updateStudent', student.update);
-
+router.post('/updateGreads', student.updateGreads);
 //router.post('/login', staff.getUser);
 
 
