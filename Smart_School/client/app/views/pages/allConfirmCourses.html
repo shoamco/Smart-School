@@ -1,0 +1,7 @@
+<h1>allConfirmCourses</h1>
+
+<ul  ng-repeat="course in ALLCourse">
+    <li> <a ng-href="#/classes/{{id}}/confirmCourses/{{course.CourseId}}">{{course.CoursName}}</a>
+        <a style="color: red" ng-if="course.ConfirmEducator==1">           הקורס אושר        </a>
+    </li>
+</ul>

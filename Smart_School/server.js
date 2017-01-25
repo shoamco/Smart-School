@@ -79,6 +79,7 @@ router.get('/deleteStudent/:id',student.delete);
 
 router.post('/updateStudent', student.update);
 router.post('/updateGreads', student.updateGreads);
+router.post('/confirmCourse', student.confirmCourse);
 //router.post('/login', staff.getUser);
 
 
