@@ -186,18 +186,49 @@ var student = {
 
 
 
-    // updateStudent:function(req, res, next) {
-    //     console.log("updateStudent in the sever ");
-    //     res.send("updateStudent in server");
-    // },
 
-    updateGreads:function(req,res,next) {
-console.log("updateGrades in the sever ");
+//     updateGreads:function(req,res,next) {
+// console.log("updateGrades in the sever ");
+//
+//     },
 
+
+updateGreads:function(req,res,next) {
+    console.log("in the server updateGreads");
+   // console.log(req.body.StudentGreads);
+   //console.log(req.body.StudentGreads[0].StudentId);
+ //  console.log(req.body.StudentGreads[s].Grade);
+    req.body.StudentGreads.forEach(function (eachName, index){
+
+     Students.findOne({StudentId: req.body.StudentGreads[index].StudentId}, function (err, data) {//Finding the right student
+         console.log("index" + index);
+         if (err) return console.error(err);
+         else if (data == null)
+             console.log("the student not  exists");
+         else {
+             for (var i = 0; i < data.Courses.length; i++) {////Finding the right course
+                 if (data.Courses[i].CourseId == req.body.CourseId) {
+                     console.log("find corse id " + req.body.CourseId);
+                     console.log("the last grade" + data.Courses[i].Grade);
+                     console.log("index" + index);
+                     console.log("the class grade" + req.body.StudentGreads[index].Grade);
+
+                     data.Courses[i].Grade = req.body.StudentGreads[index].Grade;
+                     data.Courses[i].Evaluation = req.body.StudentGreads[index].Evaluation;
+
+                 }
+             }
+             Students.findOneAndUpdate({StudentId: req.body.StudentGreads[index].StudentId}, {Courses: data.Courses}, function (err, data2) {//update course in the student
+                 if (err) return console.error(err);
+                 console.log("update student" + req.body.StudentGreads[index].StudentId);
+
+             });
+
+         }
+     });
+    });
+   res.send("all student update")
     },
-
-
-
 
 
 

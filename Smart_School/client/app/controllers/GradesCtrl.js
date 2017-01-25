@@ -19,7 +19,7 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService,students
         }
         $scope.MyCourse=[];///all course of this techear
         for (var i = 0; i < $scope.ALLCourse.length; i++) {
-            if ($scope.ALLCourse[i].TeacherName ==  "אבי כהן") {////arry of course
+            if ($scope.ALLCourse[i].TeacherName ==  "יאיר כהן") {////arry of course
                 $scope.MyCourse.push($scope.ALLCourse[i]);
             }
         }
@@ -77,19 +77,30 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService,students
 
 
             $scope.updateGreads = function() {
-       alert("in updateGreads");
+                alert("in client updateGreads");
 
+               // alert(myGread.Gread[0].value+ " "+myGread.Evaluation[0].value+" ");
+                var StudentGreads1=[];
+               // console.log(myGread);
+              for(var i=0;i<myGrade.Grade.length;i++)
+             {StudentGreads1.push({"StudentId":$scope.MyStudents[i].StudentId,"Grade":myGrade.Grade[i].value,"Evaluation":myGrade.Evaluation[i].value});
+
+                    alert("ID"+$scope.MyStudents[i].StudentId+ " "+myGrade.Grade[i].value+" "+myGrade.Evaluation[i].value);
+                    // alert( );
+               }
                 if (window.XMLHttpRequest)
                     var xmlhttp = new XMLHttpRequest();
                 else
                     var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 
+
                 var document =
                     {
 
-                        "StudentGreads":[],
-                        // "StudentId":myForm1.StudentId.value,
 
+                        "StudentGreads":StudentGreads1,
+
+                        "CourseId":$scope.courseId
                     };
 
                 xmlhttp.onreadystatechange = function () {
@@ -97,7 +108,7 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService,students
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         $scope.message1 =xmlhttp.responseText;
 
-                       // alert( $scope.message1);
+                       //alert( $scope.message1);
                         $scope.$apply();
 
 
