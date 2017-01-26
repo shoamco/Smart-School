@@ -34,7 +34,18 @@ app.config(function ($routeProvider) {
                 templateUrl: "myCourses.html",
                 controller: "GradesCtrl"
             })
-        .when("/classes/:classId/students/:studentId", {
+        .when('/classes/:id/confirmCourses',
+        {
+            templateUrl: "allConfirmCourses.html",
+            controller: "ConfirmCoursesCtrl"
+        })
+        .when('/classes/:id/confirmCourses/:courseId',
+            {
+                templateUrl: "confirmCourses.html",
+                controller: "ConfirmCoursesCtrl"
+            })
+        .when("/classes/:classId/students/:studentId",
+            {
             templateUrl: "student.html",
             controller: "StudentCtrl"
         })
