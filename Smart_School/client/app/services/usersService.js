@@ -13,13 +13,9 @@ app.service("usersService", ['$http', '$q', function ($http, $q)
         return deferred.promise;
     }
 
- /*  this.login = function (form)
+   /*this.login = function ()
     {
-        alert(form);
-        $http.post("/login",form).then(function (data)
-        {
+        return deferred.promise;
 
-            deferred.resolve(data);
-        });
     }*/
 }]);
