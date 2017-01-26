@@ -74,7 +74,16 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService,students
             }
 
 
+            $scope.findConfirmEducator = function(courseid) {///the function get student and course and return Evaluation of cours
 
+                for (var i=0;i<$scope.ALLCourse.length;i++)
+                {
+                    if($scope.ALLCourse[i].CourseId==courseid)
+                        return $scope.ALLCourse[i].ConfirmEducator;
+                }
+
+
+            }
 
             $scope.updateGreads = function() {
                 alert("in client updateGreads");

@@ -3,7 +3,7 @@
  
     <h1>    המורה: "יאיר כהן"</h1>
 
-<form name="myGrade" ng-submit="updateGreads(myGrade)" >
+<form name="myGrade" ng-submit="updateGreads(myGrade)" ng-if="findConfirmEducator(courseId)==0" >
 
 <table>
     <tr>
@@ -25,5 +25,24 @@
 </table>
     <input type="submit"   name="submit" value="עדכן" />
 </form>
+
+<table ng-if="findConfirmEducator(courseId)==1">
+    <tr>
+        <th>תעודת זהות</th>
+        <th>שם פרטי</th>
+        <th>שם משפחה</th>
+        <th >ציון</th>
+        <th >הערכה מילולית</th>
+    </tr>
+    <tr ng-repeat="student in MyStudents"  >
+        <td>{{student.StudentId}}</td>
+        <td>{{student.FirstName}}</td>
+        <td>{{student.LastName }}</td>
+        <td>{{findGread(student.StudentId,courseId)}}</td>
+        <td>{{findEvaluation(student.StudentId,courseId)}}</td>
+
+    </tr>
+
+</table>
 
 <p style="color: red">{{message1}}</p>

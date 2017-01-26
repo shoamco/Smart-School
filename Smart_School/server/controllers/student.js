@@ -279,7 +279,7 @@ updateGreads:function(req,res,next) {
                     console.log("before ConfirmEducator "+ arr_course[i].ConfirmEducator);
                     arr_course[i].ConfirmEducator=1;
                 }
-            Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {///delete student from list student in class
+            Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {/// Confirm Educator
                 if (err) return console.error(err);
                 console.log("ConfirmEducator=1");
             });
@@ -288,7 +288,27 @@ updateGreads:function(req,res,next) {
 
     },
 
+    cancelConfirmCourse:function(req,res,next) {
+        console.log("in the server cancelConfirmCourse");
 
+        Classes.findOne({ClassId: req.body.ClassId}, function (err, data3) {///Finding the right class
+            if (err) return console.error(err);
+
+            var arr_course=data3.Courses;
+            for(var i=0;i<arr_course.length;i++)
+                if(arr_course[i].CourseId==req.body.CourseId)///Finding the right course
+                {
+                    console.log("before ConfirmEducator "+ arr_course[i].ConfirmEducator);
+                    arr_course[i].ConfirmEducator=0;
+                }
+            Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {///cancel the ConfirmEducator
+                if (err) return console.error(err);
+                console.log("ConfirmEducator=0");
+            });
+        });
+        res.send("cancel the ConfirmEducator ")
+
+    },
 
 
 

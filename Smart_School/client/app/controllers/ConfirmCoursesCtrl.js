@@ -67,7 +67,7 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
                 }
             }
 
-            $scope.findConfirmEducator = function(courseid) {///the function get student and course and return Evaluation of cours
+            $scope.findConfirmEducator = function(courseid) {///
 
              for (var i=0;i<$scope.ALLCourse.length;i++)
              {
@@ -77,9 +77,19 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
 
 
             }
+            $scope.findConfirmCoordinator = function(courseid) {///the function get student and course and return Evaluation of cours
+
+                for (var i=0;i<$scope.ALLCourse.length;i++)
+                {
+                    if($scope.ALLCourse[i].CourseId==courseid)
+                        return $scope.ALLCourse[i].ConfirmCoordinator;
+                }
+
+
+            }
 
             $scope.confirmCourse = function() {
-                alert("in client confirmCourse");
+               // alert("in client confirmCourse");
 
                 // alert(myGread.Gread[0].value+ " "+myGread.Evaluation[0].value+" ");
                 var StudentGreads1=[];
@@ -126,5 +136,42 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
 
 
         });
+        $scope.cancelConfirmCourse=function () {
+            alert("in client confirmCourse");
+
+
+            if (window.XMLHttpRequest)
+                var xmlhttp = new XMLHttpRequest();
+            else
+                var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+
+            var document =
+                {
+
+
+                    "CourseId":$scope.courseId,
+                    "ClassId": $scope.id
+                };
+
+            xmlhttp.onreadystatechange = function () {
+
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    $scope.message1 =xmlhttp.responseText;
+
+                    //alert( $scope.message1);
+                    $scope.$apply();
+
+
+                }
+            }
+
+            xmlhttp.open('POST', 'http://localhost:5000/cancelConfirmCourse');
+            xmlhttp.setRequestHeader("Content-Type", "application/json;charset=utf-8");
+            xmlhttp.send(JSON.stringify(document));
+
+
+
+        }
         });
 });
