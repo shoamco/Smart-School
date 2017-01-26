@@ -331,6 +331,7 @@ body,html{
 
 .work figure.white dl{
     background: #FFF;
+    cursor: pointer;
 }
 
 
