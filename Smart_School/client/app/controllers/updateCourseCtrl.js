@@ -41,9 +41,11 @@ app.controller('updateCourseCtrl',function($scope,$routeParams,classesService,$h
             }
         };
 
-        xmlhttp.open('POST', 'http://localhost:5000/AddCourse');
+        xmlhttp.open('POST', 'http://localhost:5000/updateCourse');
         xmlhttp.setRequestHeader("Content-Type", "application/json;charset=utf-8");
         xmlhttp.send(JSON.stringify(document));
     };
-});
+
+
+    });
 });

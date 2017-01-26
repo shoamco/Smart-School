@@ -75,9 +75,11 @@ router.post('/createStudent', student.create);
 //    res.send("hello");
 // })
 router.get('/deleteStudent/:id',student.delete);
+// router.get('/deleteCourse/:courseid',classes.deleteCourse);
 
 
 router.post('/updateStudent', student.update);
+router.post('/deleteCourse', classes.deleteCourse);
 
 
 router.post('/updateClass', classes.update);

@@ -23,6 +23,7 @@
         <tr ng-repeat="course in myClass.Courses" ng-model="course">
             <td>{{course.CoursName}}</td>
             <td><a ng-href="#/admin/classes/updateClass/{{myClass.ClassId}}/updateCourse/{{course.CourseId}}">עדכון</a></td>
+            <th> <input type="submit" value="מחיקה" ng-click="deleteCourse(course.CourseId)"></th>
 
         </tr>
     </table>
