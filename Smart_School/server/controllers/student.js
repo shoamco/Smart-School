@@ -59,7 +59,7 @@ var student = {
   update: function(req, res, next){
       Students.findOne({StudentId: req.body.StudentIdOriginal},function (err, data1) {
           if (err) return console.error(err);
-          if(data1.ClassId!=req.body.ClassId)//Switching Class-add student to the new class add delete him from the old class
+          if(data1.ClassId!=req.body.ClassId)//Switching Class-add student to the new class and delete him from the old class
                                                   ///and swith the course in the student
           {
               Classes.findOne({ClassId: req.body.ClassId}, function (err, data) {
@@ -71,8 +71,6 @@ var student = {
                   Students.findOneAndUpdate({StudentId: req.body.StudentIdOriginal}, {Courses:courses}, function (err, data) {
                       if (err) return console.error(err);
                       console.log("update course ");
-
-
                   })
                   var arr_student=data.Students;
                   arr_student.push({
@@ -186,132 +184,15 @@ var student = {
 
 
 
+    // updateStudent:function(req, res, next) {
+    //     console.log("updateStudent in the sever ");
+    //     res.send("updateStudent in server");
+    // },
 
-//     updateGreads:function(req,res,next) {
-// console.log("updateGrades in the sever ");
-//
-//     },
-
-
-updateGreads:function(req,res,next) {
-    console.log("in the server updateGreads");
-   // console.log(req.body.StudentGreads);
-   //console.log(req.body.StudentGreads[0].StudentId);
- //  console.log(req.body.StudentGreads[s].Grade);
-    req.body.StudentGreads.forEach(function (eachName, index){
-
-     Students.findOne({StudentId: req.body.StudentGreads[index].StudentId}, function (err, data) {//Finding the right student
-        // console.log("index" + index);
-         if (err) return console.error(err);
-         else if (data == null)
-             console.log("the student not  exists");
-         else {
-             for (var i = 0; i < data.Courses.length; i++) {////Finding the right course
-                 if (data.Courses[i].CourseId == req.body.CourseId) {
-                  //   console.log("find corse id " + req.body.CourseId);
-                  //   console.log("the last grade" + data.Courses[i].Grade);
-                   //  console.log("index" + index);
-                   //  console.log("the class grade" + req.body.StudentGreads[index].Grade);
-
-                     data.Courses[i].Grade = req.body.StudentGreads[index].Grade;
-                     data.Courses[i].Evaluation = req.body.StudentGreads[index].Evaluation;
-
-                 }
-             }
-             Students.findOneAndUpdate({StudentId: req.body.StudentGreads[index].StudentId}, {Courses: data.Courses}, function (err, data2) {//update course in the student
-                 if (err) return console.error(err);
-                 console.log("update student" + req.body.StudentGreads[index].StudentId);
-
-             });
-
-
-
-
-
-         }
-
-     });
-    });
-
-   res.send("all student update")
-    },
-
-///////////////////////////
-
-
-
-    confirmCourse:function(req,res,next) {
-        console.log("in the server confirmCourses:");
-
-        req.body.StudentGreads.forEach(function (eachName, index){
-
-            Students.findOne({StudentId: req.body.StudentGreads[index].StudentId}, function (err, data) {//Finding the right student
-                //console.log("index" + index);
-                if (err) return console.error(err);
-                else if (data == null)
-                    console.log("the student not  exists");
-                else {
-                    for (var i = 0; i < data.Courses.length; i++) {////Finding the right course
-                        if (data.Courses[i].CourseId == req.body.CourseId) {
-
-
-                            data.Courses[i].Grade = req.body.StudentGreads[index].Grade;
-                            data.Courses[i].Evaluation = req.body.StudentGreads[index].Evaluation;
-
-                        }
-                    }
-                    Students.findOneAndUpdate({StudentId: req.body.StudentGreads[index].StudentId}, {Courses: data.Courses}, function (err, data2) {//update course in the student
-                        if (err) return console.error(err);
-                        console.log("update student" + req.body.StudentGreads[index].StudentId);
-
-                    });
-
-                }
-            });
-        });
-        Classes.findOne({ClassId: req.body.ClassId}, function (err, data3) {
-            if (err) return console.error(err);
-
-            var arr_course=data3.Courses;
-            for(var i=0;i<arr_course.length;i++)
-                if(arr_course[i].CourseId==req.body.CourseId)
-                {
-                    console.log("before ConfirmEducator "+ arr_course[i].ConfirmEducator);
-                    arr_course[i].ConfirmEducator=1;
-                }
-            Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {/// Confirm Educator
-                if (err) return console.error(err);
-                console.log("ConfirmEducator=1");
-            });
-        });
-        res.send("all student update and Confirm ")
+    updateGreads:function(req,res,next) {
+console.log("updateGrades in the sever ");
 
     },
-
-    cancelConfirmCourse:function(req,res,next) {
-        console.log("in the server cancelConfirmCourse");
-
-        Classes.findOne({ClassId: req.body.ClassId}, function (err, data3) {///Finding the right class
-            if (err) return console.error(err);
-
-            var arr_course=data3.Courses;
-            for(var i=0;i<arr_course.length;i++)
-                if(arr_course[i].CourseId==req.body.CourseId)///Finding the right course
-                {
-                    console.log("before ConfirmEducator "+ arr_course[i].ConfirmEducator);
-                    arr_course[i].ConfirmEducator=0;
-                }
-            Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {///cancel the ConfirmEducator
-                if (err) return console.error(err);
-                console.log("ConfirmEducator=0");
-            });
-        });
-        res.send("cancel the ConfirmEducator ")
-
-    },
-
-
-
 
 
 

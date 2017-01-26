@@ -78,9 +78,13 @@ router.get('/deleteStudent/:id',student.delete);
 
 
 router.post('/updateStudent', student.update);
+
+
+router.post('/updateClass', classes.update);
+router.post('/updateCourse', classes.updateCourse);
+router.post('/AddCourse', classes.CreateCourse);
 router.post('/updateGreads', student.updateGreads);
-router.post('/confirmCourse', student.confirmCourse);
-router.post('/cancelConfirmCourse',student.cancelConfirmCourse);
+
 //router.post('/login', staff.getUser);
 
 
