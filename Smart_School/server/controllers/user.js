@@ -19,7 +19,13 @@ var user = {
       if(err) console.error;
       res.json(data);
     })
-  } 
+  },   
+  getUser: function(req, res, next){
+        Users.find({user:req.params.user,password:req.params.password},function(err, data){
+        if(err) console.error;
+        res.json(data);
+        })
+    } 
 }
 
 // Return the object

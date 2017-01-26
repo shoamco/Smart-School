@@ -4,19 +4,23 @@
 var mongoose = require('mongoose');
 
 var schema = {
-    UserId: String,
-    UserName: String,
-    //Img:
-  ClassList:[]
-	
+    StaffId: String,
+    FirstName:String,
+    LastName: String,
+    ListClass:[],
+    Type:String,
+	user:String,
+	password:String
 }
 
 var Users = mongoose.model("Users", schema);
 
 module.exports =  mongoose.model('user',{
-    UserId: String,
-    UserName: String,
-    //Img:" "
-    ClassList:[]
+    StaffId: String,
+    FirstName:String,
+    LastName: String,
+    ListClass:[],
+    Type:String,
+	user:String,
+	password:String
 });
-

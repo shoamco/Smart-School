@@ -1,5 +1,5 @@
 /**
- * Created by כהן on 19/01/2017.
+
  */
 
 
@@ -11,7 +11,6 @@ app.controller('AdminStudentsCtrl',function($scope,$routeParams,studentsService)
     promise.then(function (data)
     {
         $scope.AllStudents=data.data;
-
 
     });
 
@@ -30,24 +29,17 @@ app.controller('AdminStudentsCtrl',function($scope,$routeParams,studentsService)
             xmlhttp.send();
 
             xmlhttp.onreadystatechange = function(){
-                if (xmlhttp.readyState==4 && xmlhttp.status==200){
-                    $scope.message1 =xmlhttp.responseText;
-                    alert( $scope.message1);
-                  //  $scope.companyList=JSON.parse(xmlhttp.responseText);
-                    $scope.$apply();
+
+                    if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                        $scope.message1 =xmlhttp.responseText;
+                        alert( $scope.message1);
+                     //  $scope.companyList=JSON.parse(xmlhttp.responseText)  
+                        $scope.$apply();
+                    // $( ".data" ).load(window.location.href + " .data" );
                 }
 
             }
         }
-    }
-
-
-
-
-
-
-
-
-
+    }  
 });
 
