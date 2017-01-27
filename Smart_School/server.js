@@ -88,6 +88,9 @@ router.post('/AddCourse', classes.CreateCourse);
 router.post('/updateGreads', student.updateGreads);
 
 //router.post('/login', staff.getUser);
+router.post('/confirmCourse', student.confirmCourse);
+router.post('/cancelConfirmCourse',student.cancelConfirmCourse);
+router.post('/login', user.getUser);
 
 
 // app.post('/updateStudent', function (req, res) {

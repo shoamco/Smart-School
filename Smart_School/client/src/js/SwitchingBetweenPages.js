@@ -5,7 +5,7 @@ app.config(function ($routeProvider) {
         .when('/',
             {
                 templateUrl: "classes.html",
-                controller: "ClassesCtrl"
+                controller: "MainPageControl"
             })
 
         .when('/classes',

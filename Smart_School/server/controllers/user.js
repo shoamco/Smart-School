@@ -1,4 +1,5 @@
 var Users  = require('../models/users');
+
 // Wrap all the methods in an object
 
 var user = {
@@ -19,7 +20,13 @@ var user = {
       if(err) console.error;
       res.json(data);
     })
-  } 
+  },   
+  getUser: function(req, res, next){
+        Users.find({user:req.body.user,password:req.body.password},function(err, data){
+        if(err) console.error;
+        res.json(data);
+        })
+    } 
 }
 
 // Return the object
