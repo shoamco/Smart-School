@@ -1,9 +1,9 @@
 
 
 
-app.controller('AdminStaffCtrl',function($scope,$routeParams,staffService) {
+app.controller('AdminStaffCtrl',function($scope,$routeParams,usersService) {
 
-    var promise = staffService.getStaff();
+    var promise = usersService.getUsers();
     promise.then(function (data)
     {
         $scope.AllStaff=data.data;
