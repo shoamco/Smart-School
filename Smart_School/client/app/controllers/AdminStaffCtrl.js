@@ -2,13 +2,13 @@
 
 
 app.controller('AdminStaffCtrl',function($scope,$routeParams,usersService) {
-
+    //$scope.UserId = $routeParams.UserId;
     var promise = usersService.getUsers();
     promise.then(function (data)
     {
-        $scope.AllStaff=data.data;
+        $scope.AllUsers=data.data;
 
-     console.log("AllStaff"+AllStaff);
+    // console.log("AllStaff"+AllStaff);
     });
 
 
