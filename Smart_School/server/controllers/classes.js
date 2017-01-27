@@ -16,11 +16,15 @@ var classes = {
     res.json({type: "Delete", id: req.params.id});
   },
   getAll: function(req, res, next){
-    Classes.find(function(err, data){
-      if(err) console.error;
-      res.json(data);
-    })
-  } 
+    // Classes.find(function(err, data){
+    //   if(err) console.error;
+    //   res.json(data);
+    // })
+      Classes.find().sort({ 'ClassId' : 1}).exec(function(err, data){
+          if(err) console.error;
+            res.json(data);
+      })
+  }
 }
 
 // Return the object

@@ -4,7 +4,20 @@ var http = require('http'),
     bodyParser = require('body-parser'),
     path = require('path'),
     url = require('url'),
+   // Docxtemplater=require('docxtemplater'),
     mongoose = require("mongoose");
+
+/////////////
+var JSZip = require('jszip');
+var Docxtemplater = require('docxtemplater');
+
+var fs = require('fs');
+var path = require('path');
+
+
+
+
+
 var app = express();
 var port = 5000;
 var router  = express.Router();
@@ -81,6 +94,8 @@ router.post('/updateStudent', student.update);
 router.post('/updateGreads', student.updateGreads);
 router.post('/confirmCourse', student.confirmCourse);
 router.post('/cancelConfirmCourse',student.cancelConfirmCourse);
+router.post('/switchClasses',student.switchClasses);
+
 //router.post('/login', staff.getUser);
 
 

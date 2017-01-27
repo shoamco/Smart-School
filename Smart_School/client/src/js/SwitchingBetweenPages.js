@@ -75,11 +75,17 @@ app.config(function ($routeProvider) {
                 templateUrl: "adminStaff.html",
                 controller: "AdminStaffCtrl"
             })
-        // .when('/admin/courses',
-        //     {
-        //         templateUrl: "adminCourses.html",
-        //         controller: "AdminCoursesCtrl"
-        //     })
+
+        .when('/admin/switchClasses',
+            {
+                templateUrl: "switchClasses.html",
+                controller: "SwitchClassesCtrl"
+            })
+        .when('/admin/Certificate',
+            {
+                templateUrl: "Certificate.html",
+                controller: "CertificateCtrl"
+            })
         .when('/admin/students/creatStudent',
             {
                 templateUrl: "creatStudent.html",

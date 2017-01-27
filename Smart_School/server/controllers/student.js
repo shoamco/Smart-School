@@ -279,7 +279,7 @@ updateGreads:function(req,res,next) {
                     console.log("before ConfirmEducator "+ arr_course[i].ConfirmEducator);
                     arr_course[i].ConfirmEducator=1;
                 }
-            Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {/// Confirm Educator
+            Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {///
                 if (err) return console.error(err);
                 console.log("ConfirmEducator=1");
             });
@@ -319,11 +319,43 @@ updateGreads:function(req,res,next) {
 
 
     getAll: function(req, res, next){
-    Students.find(function(err, data){
-      if(err) console.error;
-      res.json(data);
-    })
+    // Students.find(function(err, data){
+        //   if(err) console.error;
+        //   res.json(data);
+        // })
+        Students.find().sort({ 'FirstName' : 1}).exec(function(err, data){
+            if(err) console.error;
+            res.json(data);
+        })
   } ,
+
+    //////////////////
+    switchClasses: function (req, res, next) {
+        console.log("in the server switchClasses ")
+var arrCourses=[];
+        var arrStudent=[];
+     // var arr=[1,2,3,4,5,6,7,8];
+ // arr.forEach(function (eachName, index) {
+//for(var i=1;i<=8;i++)
+//{console.log("i" + i);
+        Classes.find().sort({ 'ClassId' : 1}).exec(function(err, model){
+            console.log(model);
+        });
+        // Classes.find().sort('ClassId').exec(function(err, docs) {
+        //     console.log(docs);
+        //     // for(i=0;i<8;i++)
+        //     // {
+        //     //     arrCourses[i]=docs[i+1].Courses;
+        //     //    // arrStudent[i]=docs[i+1].Students;
+        //     // }
+        //    console.log("arrCourses"+arrCourses);
+        // });
+
+      //
+  //  }
+ // });
+
+    },
 
 }
 
