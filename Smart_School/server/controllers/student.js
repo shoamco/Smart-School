@@ -1,6 +1,12 @@
 var Students = require('../models/students');
 // Wrap all the methods in an object
 var Classes  = require('../models/classes');
+
+var JSZip = require('jszip');
+var Docxtemplater = require('docxtemplater');
+//
+var fs = require('fs');
+var path = require('path');
 var student = {
   read: function(req, res, next){
     res.json({type: "Read", id: req.params.id});
@@ -320,7 +326,77 @@ updateGreads:function(req,res,next) {
   } ,
 
     //////////////////
+    certificate: function(req, res, next) {
+        console.log("in server function Certificate");
 
+        Students. find(function(err, data) {
+            var english="אנגלית";
+            console.log(data.length);
+            var allStudentGrades = [];
+            for (var i = 0; i < data.length; i++) {
+                console.log("i" + i);
+
+                for (var j = 0; j < data[i].Courses.length; j++) {
+                    console.log("Courses"+data[i].Courses[j].CoursName);
+               if (data[i].Courses[j].CoursName == english ) {
+                        console.log("YES");
+                        allStudentGrades[i] = {
+                            "FirstName": data[i].FirstName,
+                            "LastName": data[i].LastName,
+                            "StudentId": data[i].StudentId,
+                            "english_grade": data[i].Courses[j].Grade,
+                            "english_evaluation": data[i].Courses[j].Evaluation
+                        };
+                    //    console.log(allStudentGrades[i]);
+
+                }
+                }
+               /// console.log(allStudentGrades);
+//Load the docx file as a binary
+
+            var content = fs.readFileSync(path.resolve('certificate/input1.docx'), 'binary');
+            var zip = new JSZip(content);
+
+            var doc = new Docxtemplater();
+            doc.loadZip(zip);
+
+//set the templateVariables
+            doc.setData({
+                FirstName: allStudentGrades[i].FirstName,
+                LastName: allStudentGrades[i].LastName,
+                StudentId: allStudentGrades[i].StudentId,
+                English_grade: allStudentGrades[i].english_grade,
+                English_evaluation: allStudentGrades[i].english_evaluation
+
+
+            });
+                console.log("data i"+i);
+            try {
+                // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
+                doc.render()
+            }
+            catch (error) {
+                var e = {
+                    message: error.message,
+                    name: error.name,
+                    stack: error.stack,
+                    properties: error.properties,
+                }
+                console.log(JSON.stringify({error: e}));
+                // The error thrown here contains additional information when logged with JSON.stringify (it contains a property object).
+                throw error;
+            }
+
+            var buf = doc.getZip()
+                .generate({type: 'nodebuffer'});
+
+// buf is a nodejs buffer, you can either write it to a file or do anything else with it.
+            fs.writeFileSync(path.resolve('certificate/student' + i + '.docx'), buf);
+        }
+res.send("התעודות נוצרו")
+        })
+
+    },
 }
 
 

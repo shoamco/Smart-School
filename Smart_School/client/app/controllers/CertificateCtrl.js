@@ -26,7 +26,7 @@ $scope.Certificate=function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             $scope.message1 =xmlhttp.responseText;
 
-            alert( $scope.message1);
+          //  alert($scope.message1);
             $scope.$apply();
 
 
