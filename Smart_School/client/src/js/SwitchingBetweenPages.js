@@ -90,6 +90,11 @@ app.config(function ($routeProvider) {
                 templateUrl: "creatStaff.html",
                 controller: "AdminStaffCtrl"
             })
+        .when('/changePassword',
+            {
+                templateUrl: "changePassword.html",
+                controller: "loginCtrl"
+            })
         // .when('/admin/students/updateStudents',
         //     {
         //         templateUrl: "updateStudents.html",

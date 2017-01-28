@@ -26,7 +26,16 @@ var user = {
         if(err) console.error;
         res.json(data);
         })
-    } 
+    } ,
+    updatePassword: function(req, res, next){
+        Users.find({user:req.body.user,password:req.body.password},function(err, data){
+            if(err) console.error;
+            res.json({type: "Update", id: data.id, password: req.body.newPassword });
+
+        });
+            //res.json(data)
+
+    }
 }
 
 // Return the object

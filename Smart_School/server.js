@@ -82,6 +82,8 @@ router.post('/updateGreads', student.updateGreads);
 router.post('/confirmCourse', student.confirmCourse);
 router.post('/cancelConfirmCourse',student.cancelConfirmCourse);
 router.post('/login', user.getUser);
+router.post('/changePassword', user.updatePassword);
+
 
 
 // app.post('/updateStudent', function (req, res) {
