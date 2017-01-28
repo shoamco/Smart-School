@@ -59,7 +59,7 @@ var student = {
   update: function(req, res, next){
       Students.findOne({StudentId: req.body.StudentIdOriginal},function (err, data1) {
           if (err) return console.error(err);
-          if(data1.ClassId!=req.body.ClassId)//Switching Class-add student to the new class add delete him from the old class
+          if(data1.ClassId!=req.body.ClassId)//Switching Class-add student to the new class and delete him from the old class
                                                   ///and swith the course in the student
           {
               Classes.findOne({ClassId: req.body.ClassId}, function (err, data) {
@@ -71,8 +71,6 @@ var student = {
                   Students.findOneAndUpdate({StudentId: req.body.StudentIdOriginal}, {Courses:courses}, function (err, data) {
                       if (err) return console.error(err);
                       console.log("update course ");
-
-
                   })
                   var arr_student=data.Students;
                   arr_student.push({
@@ -186,6 +184,10 @@ var student = {
 
 
 
+    // updateStudent:function(req, res, next) {
+    //     console.log("updateStudent in the sever ");
+    //     res.send("updateStudent in server");
+    // },
 
 //     updateGreads:function(req,res,next) {
 // console.log("updateGrades in the sever ");
@@ -308,10 +310,8 @@ updateGreads:function(req,res,next) {
         });
         res.send("cancel the ConfirmEducator ")
 
+
     },
-
-
-
 
 
 
@@ -330,32 +330,6 @@ updateGreads:function(req,res,next) {
   } ,
 
     //////////////////
-    switchClasses: function (req, res, next) {
-        console.log("in the server switchClasses ")
-var arrCourses=[];
-        var arrStudent=[];
-     // var arr=[1,2,3,4,5,6,7,8];
- // arr.forEach(function (eachName, index) {
-//for(var i=1;i<=8;i++)
-//{console.log("i" + i);
-        Classes.find().sort({ 'ClassId' : 1}).exec(function(err, model){
-            console.log(model);
-        });
-        // Classes.find().sort('ClassId').exec(function(err, docs) {
-        //     console.log(docs);
-        //     // for(i=0;i<8;i++)
-        //     // {
-        //     //     arrCourses[i]=docs[i+1].Courses;
-        //     //    // arrStudent[i]=docs[i+1].Students;
-        //     // }
-        //    console.log("arrCourses"+arrCourses);
-        // });
-
-      //
-  //  }
- // });
-
-    },
 
 }
 

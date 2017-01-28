@@ -5,7 +5,7 @@ app.config(function ($routeProvider) {
         .when('/',
             {
                 templateUrl: "classes.html",
-                controller: "ClassesCtrl"
+                controller: "MainPageControl"
             })
 
         .when('/classes',
@@ -34,18 +34,20 @@ app.config(function ($routeProvider) {
                 templateUrl: "myCourses.html",
                 controller: "GradesCtrl"
             })
+
+
         .when('/classes/:id/confirmCourses',
-        {
-            templateUrl: "allConfirmCourses.html",
-            controller: "ConfirmCoursesCtrl"
-        })
+            {
+                templateUrl: "allConfirmCourses.html",
+                controller: "ConfirmCoursesCtrl"
+            })
         .when('/classes/:id/confirmCourses/:courseId',
             {
                 templateUrl: "confirmCourses.html",
                 controller: "ConfirmCoursesCtrl"
             })
-        .when("/classes/:classId/students/:studentId",
-            {
+
+        .when("/classes/:classId/students/:studentId", {
             templateUrl: "student.html",
             controller: "StudentCtrl"
         })
@@ -123,11 +125,20 @@ app.config(function ($routeProvider) {
                 controller: "loginCtrl"
             })
         .when('/admin/classes/updateClass/:classId',///
+        {
+            templateUrl: "updateClass.html",
+            controller: "updateClassCtrl"
+        })
+        .when('/admin/classes/updateClass/:classId/updateCourse/:courseId',///
             {
-                templateUrl: "updateClass.html",
-                controller: "updateClassCtrl"
+                templateUrl: "updateCourse.html",
+                controller: "updateCourseCtrl"
             })
-
+    .when('/admin/classes/updateClass/:classId/AddCourse',///
+        {
+            templateUrl: "AddCourse.html",
+             controller: "AddCourseCtrl"
+        })
     // when('/admin/staff/creatStudent',
     //     {
     //         templateUrl: "creatStaff.html",

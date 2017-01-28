@@ -28,24 +28,24 @@
 </form>
 
 <form name="myGrade2" ng-submit="cancelConfirmCourse()" ng-if="findConfirmEducator(courseId)==1">
-<table  >
-    <tr>
-        <th>תעודת זהות</th>
-        <th>שם פרטי</th>
-        <th>שם משפחה</th>
-        <th >ציון</th>
-        <th >הערכה מילולית</th>
-    </tr>
-    <tr ng-repeat="student in MyStudents" >
-        <td>{{student.StudentId}}</td>
-        <td>{{student.FirstName}}</td>
-        <td>{{student.LastName }}</td>
-        <td>{{findGread(student.StudentId,courseId)}}</td>
-        <td>{{findEvaluation(student.StudentId,courseId)}}</td>
+    <table  >
+        <tr>
+            <th>תעודת זהות</th>
+            <th>שם פרטי</th>
+            <th>שם משפחה</th>
+            <th >ציון</th>
+            <th >הערכה מילולית</th>
+        </tr>
+        <tr ng-repeat="student in MyStudents" >
+            <td>{{student.StudentId}}</td>
+            <td>{{student.FirstName}}</td>
+            <td>{{student.LastName }}</td>
+            <td>{{findGread(student.StudentId,courseId)}}</td>
+            <td>{{findEvaluation(student.StudentId,courseId)}}</td>
 
-    </tr>
+        </tr>
 
-</table>
+    </table>
     <input type="submit"   name="submit" value="ביטול האישור" ng-if="findConfirmCoordinator(courseId)==0" />
 </form>
 <p style="color: red">{{message1}}</p>

@@ -1,2 +1,39 @@
-<h1>update Class</h1>
+
+<h1>עדכון כיתה</h1>
+
+<form name="myForm" ng-submit="updateClass(myForm)" >
+
+
+<ul>
+
+    <li >{{myClass.ClassName}}</li>
+    <li><strong>שם המחנך: </strong><input  id="Educator" type ="text" value="{{myClass.Educator}}" name="Educator" required/></li>
+</ul>
+
+
+
+
+<h1>קורסים</h1>
+
+    <table>
+        <tr>
+            <th>שם הקורס</th>
+        </tr>
+
+        <tr ng-repeat="course in myClass.Courses" ng-model="course">
+            <td>{{course.CoursName}}</td>
+            <td><a ng-href="#/admin/classes/updateClass/{{myClass.ClassId}}/updateCourse/{{course.CourseId}}">עדכון</a></td>
+            <th> <input type="submit" value="מחיקה" ng-click="deleteCourse(course.CourseId)"></th>
+
+        </tr>
+    </table>
+
+    <input type="submit"   name="submit" value="עדכן" />
+
+</form>
+<a ng-href="#/admin/classes/updateClass/{{myClass.ClassId}}/AddCourse">הוספה</a>
+
+<p style="color: red">{{message}}</p>
+
+
 

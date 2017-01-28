@@ -89,15 +89,28 @@ router.post('/createStudent', student.create);
 //    res.send("hello");
 // })
 router.get('/deleteStudent/:id',student.delete);
+// router.get('/deleteCourse/:courseid',classes.deleteCourse);
 
 
 router.post('/updateStudent', student.update);
+router.post('/deleteCourse', classes.deleteCourse);
+
+
+router.post('/updateClass', classes.update);
+router.post('/updateCourse', classes.updateCourse);
+router.post('/AddCourse', classes.CreateCourse);
 router.post('/updateGreads', student.updateGreads);
+
 router.post('/confirmCourse', student.confirmCourse);
 router.post('/cancelConfirmCourse',student.cancelConfirmCourse);
-router.post('/switchClasses',student.switchClasses);
+router.post('/switchClasses',classes.switchClasses);
+
+
 
 //router.post('/login', staff.getUser);
+//router.post('/confirmCourse', student.confirmCourse);
+//router.post('/cancelConfirmCourse',student.cancelConfirmCourse);
+router.post('/login', user.getUser);
 
 ////////////////////////////////////////////
 // app.post('/updateCompany', function (req, res,next) {
@@ -143,49 +156,6 @@ app.post('/certificate', function (req, res) {
     fs.writeFileSync(path.resolve(__dirname, 'output.docx'), buf);
 })
 
-
-
-// router.post('/classes/:classId/grades', student.updateGrades);
-// router.post('updateStudent', student.updateStudent);
-// router.post('/func',student.create);
-
-//router.get('/students/getById', student.FindStudentByClass);
-
-// Create a product
-//router.post('/student', student.create);
-
-// Get one product, update one product, delete one product
-/*router.route('/api/product/:id')
-    .get(product.read)
-    .put(product.update)
-    .delete(product.delete);*/
-
-// Register the routing
-
-// router.post('/deleteStudent/:id', student.delete);
-//var db1=require('./db.js');
-
-//
-// app.post('/updateCompany', function (req, res,next) {
-//     console.log("serving updateCompany");
-//     var document=req.body;
-//     // console.log(document);
-//
-//     var value_key={
-//         "_id":new mongodb.ObjectID(document.id),
-//     }
-//     //console.log(value_key);
-//     var arr=student.updateCompany(value_key,document);
-//     //console.log("arr"+arr);
-//     var arrComp;
-//     arr.toArray(function(err, items) { //foreach
-//         arrComp=JSON.stringify(items);
-//         console.log(items);
-//         res.send(arrComp);
-//
-//     });
-//
-// });
 
 
 
