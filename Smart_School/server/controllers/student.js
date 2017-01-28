@@ -184,16 +184,6 @@ var student = {
 
 
 
-    // updateStudent:function(req, res, next) {
-    //     console.log("updateStudent in the sever ");
-    //     res.send("updateStudent in server");
-    // },
-
-//     updateGreads:function(req,res,next) {
-// console.log("updateGrades in the sever ");
-//
-//     },
-
 
 updateGreads:function(req,res,next) {
     console.log("in the server updateGreads");
