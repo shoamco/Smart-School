@@ -96,6 +96,13 @@ router.get('/deleteStudent/:id',student.delete);
 
 
 router.post('/updateStudent', student.update);
+router.post('/updateGreads', student.updateGreads);
+router.post('/confirmCourse', student.confirmCourse);
+router.post('/cancelConfirmCourse',student.cancelConfirmCourse);
+router.post('/login', user.getUser);
+router.post('/changePassword', user.updatePassword);
+
+=======
 router.post('/deleteCourse', classes.deleteCourse);
 
 
