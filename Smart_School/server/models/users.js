@@ -20,3 +20,4 @@ module.exports =  mongoose.model('user',{
     user:String,
     password:String
 });
+

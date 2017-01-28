@@ -7,7 +7,7 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
     $scope.courseId=$routeParams.courseId;
 
     var promise = classesService.getClasses();
- var promise2=studentsService.getStudents();
+    var promise2=studentsService.getStudents();
     promise.then(function (data)
     {
         $scope.Classes=data.data;
@@ -69,11 +69,11 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
 
             $scope.findConfirmEducator = function(courseid) {///
 
-             for (var i=0;i<$scope.ALLCourse.length;i++)
-             {
-                 if($scope.ALLCourse[i].CourseId==courseid)
-                     return $scope.ALLCourse[i].ConfirmEducator;
-             }
+                for (var i=0;i<$scope.ALLCourse.length;i++)
+                {
+                    if($scope.ALLCourse[i].CourseId==courseid)
+                        return $scope.ALLCourse[i].ConfirmEducator;
+                }
 
 
             }
@@ -89,7 +89,7 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
             }
 
             $scope.confirmCourse = function() {
-               // alert("in client confirmCourse");
+                // alert("in client confirmCourse");
 
                 // alert(myGread.Gread[0].value+ " "+myGread.Evaluation[0].value+" ");
                 var StudentGreads1=[];
@@ -97,7 +97,7 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
                 for(var i=0;i<myGrade.Grade.length;i++)
                 {StudentGreads1.push({"StudentId":$scope.MyStudents[i].StudentId,"Grade":myGrade.Grade[i].value,"Evaluation":myGrade.Evaluation[i].value});
 
-                   // alert("ID"+$scope.MyStudents[i].StudentId+ " "+myGrade.Grade[i].value+" "+myGrade.Evaluation[i].value);
+                    // alert("ID"+$scope.MyStudents[i].StudentId+ " "+myGrade.Grade[i].value+" "+myGrade.Evaluation[i].value);
                     // alert( );
                 }
                 if (window.XMLHttpRequest)
@@ -173,5 +173,5 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
 
 
         }
-        });
+    });
 });

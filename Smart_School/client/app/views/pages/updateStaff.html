@@ -1,22 +1,16 @@
 <h1>update staff </h1>
-<p>AllStaff:{{AllStaff}}</p>
-<form >
-<table>
-    <tr>
-        <th>שם פרטי</th>
-        <th>שם משפחה</th>
-        <th>תעודת זהות</th>
-        <th>Type</th>
-    </tr>
-    <tr ng-repeat="staff in AllStaff">
-        <td><input  type ="text" value="{{staff.FirstName}}"></td>
-        <td><input  type ="text" value="{{staff.LastName }}"></td>
-        <td><input  type ="text" value="{{staff.StaffId}}"></td>
-       <td><input  type ="text" value="{{staff.Type}}"></td>
-    </tr>
-</table>
 
-<a ng-href="#/admin/staff/creatStaff">הוספת איש צוות</a></br>
-<a ng-href="#">עדכון</a></br>
+<form >
+    <strong>שם : </strong><input   type ="text" value="{{user.UserName}}" name="UserName" required/></br>
+    <strong>תז : </strong><input   type ="text" value="{{user.UserId}}" name="UserId" required/></br>
+    <strong>הרשאה:</strong><select   name="Type"  required>
+    <option value="{{user.UserType}}" selected>הרשאה</option>
+        <option value="1" >מורה</option>
+        <option value="2"  > מחנך</option>
+        <option value="3">רכז שכבה</option>
+        <option value="4">מנהל</option>
+        <option value="5"  >מזכירה</option>
+
+    </select></br>
     <input type="submit" value="עדכן"></td>
 </form>

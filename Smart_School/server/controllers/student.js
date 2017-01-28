@@ -59,7 +59,7 @@ var student = {
   update: function(req, res, next){
       Students.findOne({StudentId: req.body.StudentIdOriginal},function (err, data1) {
           if (err) return console.error(err);
-          if(data1.ClassId!=req.body.ClassId)//Switching Class-add student to the new class add delete him from the old class
+          if(data1.ClassId!=req.body.ClassId)//Switching Class-add student to the new class and delete him from the old class
                                                   ///and swith the course in the student
           {
               Classes.findOne({ClassId: req.body.ClassId}, function (err, data) {
@@ -71,8 +71,6 @@ var student = {
                   Students.findOneAndUpdate({StudentId: req.body.StudentIdOriginal}, {Courses:courses}, function (err, data) {
                       if (err) return console.error(err);
                       console.log("update course ");
-
-
                   })
                   var arr_student=data.Students;
                   arr_student.push({
@@ -187,12 +185,6 @@ var student = {
 
 
 
-//     updateGreads:function(req,res,next) {
-// console.log("updateGrades in the sever ");
-//
-//     },
-
-
 updateGreads:function(req,res,next) {
     console.log("in the server updateGreads");
    // console.log(req.body.StudentGreads);
@@ -279,7 +271,7 @@ updateGreads:function(req,res,next) {
                     console.log("before ConfirmEducator "+ arr_course[i].ConfirmEducator);
                     arr_course[i].ConfirmEducator=1;
                 }
-            Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {/// Confirm Educator
+            Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {///
                 if (err) return console.error(err);
                 console.log("ConfirmEducator=1");
             });
@@ -308,6 +300,7 @@ updateGreads:function(req,res,next) {
         });
         res.send("cancel the ConfirmEducator ")
 
+
     },
 
 
@@ -315,15 +308,18 @@ updateGreads:function(req,res,next) {
 
 
 
-
-
-
     getAll: function(req, res, next){
-    Students.find(function(err, data){
-      if(err) console.error;
-      res.json(data);
-    })
+    // Students.find(function(err, data){
+        //   if(err) console.error;
+        //   res.json(data);
+        // })
+        Students.find().sort({ 'FirstName' : 1}).exec(function(err, data){
+            if(err) console.error;
+            res.json(data);
+        })
   } ,
+
+    //////////////////
 
 }
 

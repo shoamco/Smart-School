@@ -4,7 +4,21 @@ var http = require('http'),
     bodyParser = require('body-parser'),
     path = require('path'),
     url = require('url'),
+   // Docxtemplater=require('docxtemplater'),
     mongoose = require("mongoose");
+
+
+/////////////
+var JSZip = require('jszip');
+var Docxtemplater = require('docxtemplater');
+//
+// var fs = require('fs');
+// var path = require('path');
+
+
+
+
+
 var app = express();
 var port = 5000;
 var router  = express.Router();
@@ -75,6 +89,7 @@ router.post('/createStudent', student.create);
 //    res.send("hello");
 // })
 router.get('/deleteStudent/:id',student.delete);
+// router.get('/deleteCourse/:courseid',classes.deleteCourse);
 
 
 router.post('/updateStudent', student.update);
@@ -84,56 +99,70 @@ router.post('/cancelConfirmCourse',student.cancelConfirmCourse);
 router.post('/login', user.getUser);
 router.post('/changePassword', user.updatePassword);
 
+=======
+router.post('/deleteCourse', classes.deleteCourse);
 
 
-// app.post('/updateStudent', function (req, res) {
-//     console.log("in server function createStudent");
-//
-//     student.updateStudent(req);
-//    res.send("hello");
-// })
+router.post('/updateClass', classes.update);
+router.post('/updateCourse', classes.updateCourse);
+router.post('/AddCourse', classes.CreateCourse);
+router.post('/updateGreads', student.updateGreads);
 
-// router.post('/classes/:classId/grades', student.updateGrades);
-// router.post('updateStudent', student.updateStudent);
-// router.post('/func',student.create);
+router.post('/confirmCourse', student.confirmCourse);
+router.post('/cancelConfirmCourse',student.cancelConfirmCourse);
+router.post('/switchClasses',classes.switchClasses);
 
-//router.get('/students/getById', student.FindStudentByClass);
 
-// Create a product
-//router.post('/student', student.create);
 
-// Get one product, update one product, delete one product
-/*router.route('/api/product/:id')
-    .get(product.read)
-    .put(product.update)
-    .delete(product.delete);*/
+//router.post('/login', staff.getUser);
+//router.post('/confirmCourse', student.confirmCourse);
+//router.post('/cancelConfirmCourse',student.cancelConfirmCourse);
+router.post('/login', user.getUser);
 
-// Register the routing
-
-// router.post('/deleteStudent/:id', student.delete);
-//var db1=require('./db.js');
-
-//
+////////////////////////////////////////////
 // app.post('/updateCompany', function (req, res,next) {
-//     console.log("serving updateCompany");
-//     var document=req.body;
-//     // console.log(document);
-//
-//     var value_key={
-//         "_id":new mongodb.ObjectID(document.id),
-//     }
-//     //console.log(value_key);
-//     var arr=student.updateCompany(value_key,document);
-//     //console.log("arr"+arr);
-//     var arrComp;
-//     arr.toArray(function(err, items) { //foreach
-//         arrComp=JSON.stringify(items);
-//         console.log(items);
-//         res.send(arrComp);
-//
-//     });
-//
-// });
+app.post('/certificate', function (req, res) {
+    console.log("in server function Certificate");
+
+
+    var content = fs.readFileSync(path.resolve(__dirname, 'input.docx'), 'binary');
+
+    var zip = new JSZip(content);
+
+    var doc = new Docxtemplater();
+    doc.loadZip(zip);
+
+//set the templateVariables
+    doc.setData({
+        first_name: 'חיים',
+        last_name: 'כהן',
+        phone: '0652455478',
+        description: 'New Website'
+    });
+
+    try {
+        // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
+        doc.render()
+    }
+    catch (error) {
+        var e = {
+            message: error.message,
+            name: error.name,
+            stack: error.stack,
+            properties: error.properties,
+        }
+        console.log(JSON.stringify({error: e}));
+        // The error thrown here contains additional information when logged with JSON.stringify (it contains a property object).
+        throw error;
+    }
+
+    var buf = doc.getZip()
+        .generate({type: 'nodebuffer'});
+
+// buf is a nodejs buffer, you can either write it to a file or do anything else with it.
+    fs.writeFileSync(path.resolve(__dirname, 'output.docx'), buf);
+})
+
 
 
 

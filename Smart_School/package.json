@@ -13,8 +13,16 @@
     "ajax": "0.0.4",
     "angular": "^1.6.1",
     "body-parser": "^1.16.0",
+    "docxtemplater": "^3.0.3",
     "express": "^4.14.0",
+<<<<<<< HEAD
+    "fs": "0.0.1-security",
+    "jszip": "^2.6.1",
     "mongoose": "^4.7.6",
+=======
+    "mongoose": "^4.7.7",
+    "nodemon": "^1.11.0",
+>>>>>>> 7276581e5629a63573b8ac8e2a2bb5ee53b4f92c
     "path": "^0.12.7",
     "url": "^0.11.0"
   }

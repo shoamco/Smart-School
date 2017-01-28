@@ -1,19 +1,19 @@
 <h1>staff admin </h1>
-<p>AllStaff:{{AllStaff}}</p>
+
 <table>
     <tr>
-        <th>שם פרטי</th>
-        <th>שם משפחה</th>
+        <th>שם </th>
         <th>תעודת זהות</th>
         <th>Type</th>
+        <th>עדכון</th>
     </tr>
-    <tr ng-repeat="staff in AllStaff">
-        <td>{{staff.FirstName}}</td>
-        <td>{{staff.LastName }}</td>
-        <td>{{staff.StaffId}}</td>
+    <tr ng-repeat="staff in AllUsers">
+        <td>{{staff.UserName}}</td>
+        <td>{{staff.UserId}}</td>
         <td>{{staff.Type}}</td>
+        <td><a ng-href="#/admin/staff/updateStaff/{{staff.UserId}}">עדכון</a></td>
     </tr>
 </table>
 
 <a ng-href="#/admin/staff/creatStaff">הוספת איש צוות</a></br>
-<a ng-href="#/admin/staff/updateStaff">עדכון</a></br>
+
