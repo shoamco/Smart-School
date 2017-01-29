@@ -22,7 +22,7 @@ var user = {
     })
   },   
   getUser: function(req, res, next){
-        Users.find({user:req.body.user,password:req.body.password},function(err, data){
+        Users.findOne({user:req.body.user,password:req.body.password},function(err, data){
         if(err) console.error;
         res.json(data);
         })

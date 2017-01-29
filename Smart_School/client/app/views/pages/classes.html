@@ -3,8 +3,8 @@
 
 <h1>my classes </h1>
 
-
-<div class="container object" ng-repeat="class in Classes">
+<h2>{{currentUser.UserName}}</h2>
+<div class="container object" ng-repeat="class in MyClasses track by $index">
     <div id="main-container-image">
         <section class="work">
             <figure class="white">
