@@ -79,17 +79,28 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService,students
             $scope.updateGreads = function() {
        alert("in updateGreads");
 
+                var StudentGreads1=[];
+                // console.log(myGread);
+                for(var i=0;i<myGrade.Grade.length;i++)
+                {StudentGreads1.push({"StudentId":$scope.MyStudents[i].StudentId,"Grade":myGread.Grade[i].value,"Evaluation":myGrade.Evaluation[i].value});
+
+                    
+                }
+
                 if (window.XMLHttpRequest)
                     var xmlhttp = new XMLHttpRequest();
                 else
                     var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 
+
                 var document =
                     {
 
-                        "StudentGreads":[],
-                        // "StudentId":myForm1.StudentId.value,
 
+                        "StudentGreads":StudentGreads1,
+
+                        "CourseId":$scope.courseId,
+                        "ClassId": $scope.id
                     };
 
                 xmlhttp.onreadystatechange = function () {
