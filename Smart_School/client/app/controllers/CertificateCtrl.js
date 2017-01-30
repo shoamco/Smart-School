@@ -33,6 +33,7 @@ $scope.Certificate=function () {
         }
     }
 
+
     xmlhttp.open('POST', 'http://localhost:5000/certificate');
     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=utf-8");
     xmlhttp.send(JSON.stringify(document));
