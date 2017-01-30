@@ -330,56 +330,30 @@ updateGreads:function(req,res,next) {
         console.log("in server function Certificate");
 
         Students. find(function(err, data) {
-            var english="אנגלית";
-           // console.log(data.length);
+
             var allStudentGrades = [];
             data.forEach(function (dataStudent, index){
-            //for (var i = 0; i < data.length; i++) {
-              //  console.log("index" + index+"data1"+dataStudent);
 
             var myCourses=[];
 
                 for (var j = 0; j < dataStudent.Courses.length; j++) {
-                    console.log("Courses"+dataStudent.Courses[j].CoursName);
-             //  if (data[i].Courses[j].CoursName == english ) {
-                      //  console.log("YES");
+
                     myCourses[j]={"CoursName":dataStudent.Courses[j].CoursName,"Grade":dataStudent.Courses[j].Grade,
                         "Evaluation": dataStudent.Courses[j].Evaluation};
-                    //
+
 
 
                 }
 
-            console.log(" myCourses"+ myCourses);
-                // allStudentGrades[index] = {
-                //     // "myCourses":myCourses,
-                //   //  "myCourses":[{"CoursName":"אנגלית","Grade":90,"Evaluation":"יפה מאוד"},{"CoursName":"חשבון","Grade":50,"Evaluation":"יפה מאוד"}],
-                //     "FirstName": dataStudent.FirstName,
-                //     "LastName": dataStudent.LastName,
-                //     "StudentId": dataStudent.StudentId,
-                //
-                // };
-               /// console.log(allStudentGrades);
-//Load the docx file as a binary
 
-            var content = fs.readFileSync(path.resolve('certificate/input2.docx'), 'binary');
+if(dataStudent.ClassId<=3)//Until third grade without grade
+            var content = fs.readFileSync(path.resolve('certificate/input1.docx'), 'binary');
+else
+    var content = fs.readFileSync(path.resolve('certificate/input2.docx'), 'binary');
             var zip = new JSZip(content);
 
             var doc = new Docxtemplater();
             doc.loadZip(zip);
-
-//set the templateVariables
-//             doc.setData({
-//                 // FirstName: allStudentGrades[i].FirstName,
-//                 // LastName: allStudentGrades[i].LastName,
-//                 // StudentId: allStudentGrades[i].StudentId,
-//                // FirstName: dataStudent.FirstName,
-//                // LastName:dataStudent.LastName,
-//               //  StudentId: dataStudent.StudentId,
-//               "myCourses":[{"CoursName":"אנגלית","Grade":90,"Evaluation":"יפה מאוד"},{"CoursName":"חשבון","Grade":50,"Evaluation":"יפה מאוד"}],
-//
-//
-//             });
 
 
                 doc.setData({
@@ -387,7 +361,7 @@ updateGreads:function(req,res,next) {
              LastName: dataStudent.LastName,
                     "myCourses":myCourses
                 });
-                console.log("data index"+index);
+               // console.log("Student index"+index);
             try {
                 // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
                 doc.render()
@@ -408,8 +382,9 @@ updateGreads:function(req,res,next) {
                 .generate({type: 'nodebuffer'});
 
 // buf is a nodejs buffer, you can either write it to a file or do anything else with it.
-            fs.writeFileSync(path.resolve('certificate/student' +index + '.docx'), buf);
+            fs.writeFileSync(path.resolve('certificate/' +dataStudent.FirstName+"_"+dataStudent.LastName+ '.docx'), buf);
         });
+            console.log("certificate for all student");
 res.send("התעודות נוצרו")
         })
 

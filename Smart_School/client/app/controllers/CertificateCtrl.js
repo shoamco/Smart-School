@@ -9,7 +9,7 @@ app.controller('CertificateCtrl',function($scope,$routeParams) {
 $scope.Certificate=function () {
 
 
-   alert("in Certificate client");
+ //  alert("in Certificate client");
 
 
     if (window.XMLHttpRequest)
