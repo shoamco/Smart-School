@@ -331,27 +331,34 @@ updateGreads:function(req,res,next) {
 
         Students. find(function(err, data) {
             var english="אנגלית";
-            console.log(data.length);
+           // console.log(data.length);
             var allStudentGrades = [];
-            for (var i = 0; i < data.length; i++) {
-                console.log("i" + i);
+            data.forEach(function (dataStudent, index){
+            //for (var i = 0; i < data.length; i++) {
+              //  console.log("index" + index+"data1"+dataStudent);
 
-                for (var j = 0; j < data[i].Courses.length; j++) {
-                    console.log("Courses"+data[i].Courses[j].CoursName);
-               if (data[i].Courses[j].CoursName == english ) {
-                        console.log("YES");
-                        allStudentGrades[i] = {
-                            "FirstName": data[i].FirstName,
-                            "LastName": data[i].LastName,
-                            "StudentId": data[i].StudentId,
-                            "english_grade": data[i].Courses[j].Grade,
-                            "english_evaluation": data[i].Courses[j].Evaluation
-                        };
-                    //    console.log(allStudentGrades[i]);
+            var myCourses=[];
+
+                for (var j = 0; j < dataStudent.Courses.length; j++) {
+                    console.log("Courses"+dataStudent.Courses[j].CoursName);
+             //  if (data[i].Courses[j].CoursName == english ) {
+                      //  console.log("YES");
+                    myCourses[j]={"CoursName":dataStudent.Courses[j].CoursName,"Grade":dataStudent.Courses[j].Grade,
+                        "Evaluation": dataStudent.Courses[j].Evaluation};
+                    //
+
 
                 }
-                }
 
+            console.log(" myCourses"+ myCourses);
+                // allStudentGrades[index] = {
+                //     // "myCourses":myCourses,
+                //   //  "myCourses":[{"CoursName":"אנגלית","Grade":90,"Evaluation":"יפה מאוד"},{"CoursName":"חשבון","Grade":50,"Evaluation":"יפה מאוד"}],
+                //     "FirstName": dataStudent.FirstName,
+                //     "LastName": dataStudent.LastName,
+                //     "StudentId": dataStudent.StudentId,
+                //
+                // };
                /// console.log(allStudentGrades);
 //Load the docx file as a binary
 
@@ -362,16 +369,25 @@ updateGreads:function(req,res,next) {
             doc.loadZip(zip);
 
 //set the templateVariables
-            doc.setData({
-                FirstName: allStudentGrades[i].FirstName,
-                LastName: allStudentGrades[i].LastName,
-                StudentId: allStudentGrades[i].StudentId,
-                English_grade: allStudentGrades[i].english_grade,
-                English_evaluation: allStudentGrades[i].english_evaluation
+//             doc.setData({
+//                 // FirstName: allStudentGrades[i].FirstName,
+//                 // LastName: allStudentGrades[i].LastName,
+//                 // StudentId: allStudentGrades[i].StudentId,
+//                // FirstName: dataStudent.FirstName,
+//                // LastName:dataStudent.LastName,
+//               //  StudentId: dataStudent.StudentId,
+//               "myCourses":[{"CoursName":"אנגלית","Grade":90,"Evaluation":"יפה מאוד"},{"CoursName":"חשבון","Grade":50,"Evaluation":"יפה מאוד"}],
+//
+//
+//             });
 
 
-            });
-                console.log("data i"+i);
+                doc.setData({
+                    FirstName: dataStudent.FirstName,
+             LastName: dataStudent.LastName,
+                    "myCourses":myCourses
+                });
+                console.log("data index"+index);
             try {
                 // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
                 doc.render()
@@ -392,8 +408,8 @@ updateGreads:function(req,res,next) {
                 .generate({type: 'nodebuffer'});
 
 // buf is a nodejs buffer, you can either write it to a file or do anything else with it.
-            fs.writeFileSync(path.resolve('certificate/student' + i + '.docx'), buf);
-        }
+            fs.writeFileSync(path.resolve('certificate/student' +index + '.docx'), buf);
+        });
 res.send("התעודות נוצרו")
         })
 
