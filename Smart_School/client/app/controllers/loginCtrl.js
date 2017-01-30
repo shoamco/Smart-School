@@ -30,10 +30,12 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
 
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 if (xmlhttp.responseText!='[]'){
-                     var currentUser =xmlhttp.responseText
+                    var currentUser =xmlhttp.responseText;
+                    console.log("currentUser~~~~~~~~~~~~",currentUser);
                     var curret =JSON.parse(currentUser);
-                    curret=curret[0];
-                    alert (currentUser );
+                    console.log("curret~~~~~~~~",curret);
+                    //curret=curret[0];
+                    //alert (currentUser );
             		console.log("user____________",curret.UserName);
             		$rootScope.currentUser=curret;
                     $rootScope.$apply();
