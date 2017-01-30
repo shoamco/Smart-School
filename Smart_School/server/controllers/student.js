@@ -7,6 +7,9 @@ var Docxtemplater = require('docxtemplater');
 //
 var fs = require('fs');
 var path = require('path');
+var http = require('http');
+// var express = require('express');
+// var router = express.Router();
 var student = {
   read: function(req, res, next){
     res.json({type: "Read", id: req.params.id});
@@ -61,6 +64,7 @@ var student = {
               }
           }
       });
+
   },
   update: function(req, res, next){
       Students.findOne({StudentId: req.body.StudentIdOriginal},function (err, data1) {
@@ -385,8 +389,23 @@ else
             fs.writeFileSync(path.resolve('certificate/' +dataStudent.FirstName+"_"+dataStudent.LastName+ '.docx'), buf);
         });
             console.log("certificate for all student");
+
+
+
+            // var file = fs.readFileSync('certificate/input2.docx', 'binary');
+            //
+            // res.setHeader('Content-Length', file.length);
+            // res.write(file, 'binary');
+         //   res.end();
+         //    var filePath = "certificate/input1.docx"; // Or format the path using the `id` rest param
+         //    var fileName = "input1.docx"; // The default name the browser will use
+         //
+         //    res.download(filePath, fileName);
 res.send("התעודות נוצרו")
         })
+
+    },
+  download : function(url, dest, cb) {
 
     },
 }

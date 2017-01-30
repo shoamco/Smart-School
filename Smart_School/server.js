@@ -123,6 +123,14 @@ router.post('/switchClasses',classes.switchClasses);
 router.post('/login', user.getUser);
 router.post('/certificate',  student.certificate);
 
+router.get('/download', function (req, res, next) {
+  //  for(var i=0;i<)
+    var filePath = "certificate/input1.docx"; // Or format the path using the `id` rest param
+    var fileName = "1.docx"; // The default name the browser will use
+
+    res.download(filePath, fileName);
+});
+
 ////////////////////////////////////////////
 // app.post('/updateCompany', function (req, res,next) {
 // app.post('/certificate', function (req, res) {
