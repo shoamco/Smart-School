@@ -355,7 +355,7 @@ updateGreads:function(req,res,next) {
                /// console.log(allStudentGrades);
 //Load the docx file as a binary
 
-            var content = fs.readFileSync(path.resolve('certificate/input1.docx'), 'binary');
+            var content = fs.readFileSync(path.resolve('certificate/input2.docx'), 'binary');
             var zip = new JSZip(content);
 
             var doc = new Docxtemplater();
