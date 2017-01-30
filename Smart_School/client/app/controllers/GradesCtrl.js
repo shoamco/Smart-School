@@ -74,17 +74,30 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService,students
             }
 
 
+                       $scope.findConfirmEducator = function(courseid) {///the function get student and course and return Evaluation of cours
+
+                            for (var i=0;i<$scope.ALLCourse.length;i++)
+                                   {
+                                     if($scope.ALLCourse[i].CourseId==courseid)
+                                         return $scope.ALLCourse[i].ConfirmEducator;
+                              }
+
+
+                                 }
 
 
             $scope.updateGreads = function() {
-       alert("in updateGreads");
+    //   alert("in ");
 
-                var StudentGreads1=[];
+                var StudentGreads2=[];
+          //alert(myGrade1.Grade);
                 // console.log(myGread);
-                for(var i=0;i<myGrade.Grade.length;i++)
-                {StudentGreads1.push({"StudentId":$scope.MyStudents[i].StudentId,"Grade":myGread.Grade[i].value,"Evaluation":myGrade.Evaluation[i].value});
+                for(var i=0;i<myGrade2.Grade.length;i++)
 
-                    
+                {
+                    StudentGreads2.push({"StudentId":$scope.MyStudents[i].StudentId,"Grade":myGrade2.Grade[i].value,"Evaluation":myGrade2.Evaluation[i].value});
+
+
                 }
 
                 if (window.XMLHttpRequest)
@@ -97,7 +110,7 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService,students
                     {
 
 
-                        "StudentGreads":StudentGreads1,
+                        "StudentGreads":StudentGreads2,
 
                         "CourseId":$scope.courseId,
                         "ClassId": $scope.id
@@ -121,6 +134,8 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService,students
             }
 
         });
+
+
 
 
 
