@@ -4,16 +4,16 @@ var http = require('http'),
     bodyParser = require('body-parser'),
     path = require('path'),
     url = require('url'),
-   // Docxtemplater=require('docxtemplater'),
+ Docxtemplater=require('docxtemplater'),
     mongoose = require("mongoose");
 
 
 /////////////
 var JSZip = require('jszip');
 var Docxtemplater = require('docxtemplater');
-//
-// var fs = require('fs');
-// var path = require('path');
+
+ var fs = require('fs');
+ var path = require('path');
 
 
 

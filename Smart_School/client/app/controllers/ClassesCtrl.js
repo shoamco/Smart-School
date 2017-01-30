@@ -1,12 +1,37 @@
 
-    app.controller('ClassesCtrl',function($scope,$routeParams,classesService,usersService) {
+    app.controller('ClassesCtrl',function($scope,$routeParams,$rootScope,classesService,usersService) {
 
-     $scope.UserId=9;
+        var userName=$rootScope.currentUser.UserName;
         var promise = classesService.getClasses();
         var promise2 = usersService.getUsers();
         promise.then(function (data)
         {
-            $scope.Classes=data.data;
+            var Classes=data.data;
+            var MyClasses=[];
+            var classIndex=[];
+             for (var i =0; i< Classes.length;i++)
+             {
+                if(Classes[i].Educator==userName){
+                    if(!classIndex[Classes[i].ClassId])
+                    {
+                        classIndex[Classes[i].ClassId]="1";
+                        MyClasses.push(Classes[i]);
+                    }
+                }
+                for(var j=0 ;j<Classes[i].Courses.length;j++)
+                {
+                    if(Classes[i].Courses[j].TeacherName==userName)
+                    {    
+                        if(!classIndex[Classes[i].ClassId])
+                        {
+                            classIndex[Classes[i].ClassId]="1";
+                             MyClasses.push(Classes[i]);
+                        }
+                    }
+                }
+             }
+             console.log("at the end ",MyClasses)
+            $scope.MyClasses=MyClasses;
             //  $scope.selectionGrade = function (myclass) {
             //   $scope.$parent.allStudents=data.data;/////////////////////
             //   $scope.$parent.Students=[];
@@ -19,7 +44,8 @@
             //          $scope.$parent.Students.push( $scope.$parent.allStudents[i]);
             //    }
             //     }
-            promise2.then(function (data)
+            
+            /*promise2.then(function (data)
             {
                 $scope.AllUsers=data.data;
 
@@ -29,14 +55,14 @@
                     }
                 }
 
-                //      $scope.MyClasses=[];///all course of this techear
-                //      for (var i = 0; i < $scope.ALLCourse.length; i++) {
-                //       if ($scope.AllClasses[i].TeacherName ==  "יאיר כהן") {////arry of course
-                //          $scope.MyClasses.push($scope.ALLCourse[i]);
-                //      }
-                // }
+                      $scope.MyTClasses=[];///all course of this techear
+                      for (var i = 0; i < $scope.ALLCourse.length; i++) {
+                       if (Classes[i].TeacherName ==  $rootScope.currentUser.U) {////arry of course
+                          $scope.MyTClasses.push($scope.ALLCourse[i]);
+                      }
+                 }
 
-            });
+            });*/
       });
 
     });
