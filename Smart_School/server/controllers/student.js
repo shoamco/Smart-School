@@ -1,6 +1,15 @@
 var Students = require('../models/students');
 // Wrap all the methods in an object
 var Classes  = require('../models/classes');
+
+var JSZip = require('jszip');
+var Docxtemplater = require('docxtemplater');
+//
+var fs = require('fs');
+var path = require('path');
+var http = require('http');
+// var express = require('express');
+// var router = express.Router();
 var student = {
   read: function(req, res, next){
     res.json({type: "Read", id: req.params.id});
@@ -55,6 +64,7 @@ var student = {
               }
           }
       });
+
   },
   update: function(req, res, next){
       Students.findOne({StudentId: req.body.StudentIdOriginal},function (err, data1) {
@@ -320,7 +330,84 @@ updateGreads:function(req,res,next) {
   } ,
 
     //////////////////
+    certificate: function(req, res, next) {
+        console.log("in server function Certificate");
 
+        Students. find(function(err, data) {
+
+            var allStudentGrades = [];
+            data.forEach(function (dataStudent, index){
+
+            var myCourses=[];
+
+                for (var j = 0; j < dataStudent.Courses.length; j++) {
+
+                    myCourses[j]={"CoursName":dataStudent.Courses[j].CoursName,"Grade":dataStudent.Courses[j].Grade,
+                        "Evaluation": dataStudent.Courses[j].Evaluation};
+
+
+
+                }
+
+
+if(dataStudent.ClassId<=3)//Until third grade without grade
+            var content = fs.readFileSync(path.resolve('certificate/input1.docx'), 'binary');
+else
+    var content = fs.readFileSync(path.resolve('certificate/input2.docx'), 'binary');
+            var zip = new JSZip(content);
+
+            var doc = new Docxtemplater();
+            doc.loadZip(zip);
+
+
+                doc.setData({
+                    FirstName: dataStudent.FirstName,
+             LastName: dataStudent.LastName,
+                    "myCourses":myCourses
+                });
+               // console.log("Student index"+index);
+            try {
+                // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
+                doc.render()
+            }
+            catch (error) {
+                var e = {
+                    message: error.message,
+                    name: error.name,
+                    stack: error.stack,
+                    properties: error.properties,
+                }
+                console.log(JSON.stringify({error: e}));
+                // The error thrown here contains additional information when logged with JSON.stringify (it contains a property object).
+                throw error;
+            }
+
+            var buf = doc.getZip()
+                .generate({type: 'nodebuffer'});
+
+// buf is a nodejs buffer, you can either write it to a file or do anything else with it.
+            fs.writeFileSync(path.resolve('certificate/' +dataStudent.FirstName+"_"+dataStudent.LastName+ '.docx'), buf);
+        });
+            console.log("certificate for all student");
+
+
+
+            // var file = fs.readFileSync('certificate/input2.docx', 'binary');
+            //
+            // res.setHeader('Content-Length', file.length);
+            // res.write(file, 'binary');
+         //   res.end();
+         //    var filePath = "certificate/input1.docx"; // Or format the path using the `id` rest param
+         //    var fileName = "input1.docx"; // The default name the browser will use
+         //
+         //    res.download(filePath, fileName);
+res.send("התעודות נוצרו")
+        })
+
+    },
+  download : function(url, dest, cb) {
+
+    },
 }
 
 

@@ -9,7 +9,7 @@ app.controller('CertificateCtrl',function($scope,$routeParams) {
 $scope.Certificate=function () {
 
 
-   alert("in Certificate client");
+
 
 
     if (window.XMLHttpRequest)
@@ -26,12 +26,13 @@ $scope.Certificate=function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             $scope.message1 =xmlhttp.responseText;
 
-            alert( $scope.message1);
+          //  alert($scope.message1);
             $scope.$apply();
 
 
         }
     }
+
 
     xmlhttp.open('POST', 'http://localhost:5000/certificate');
     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=utf-8");

@@ -17,7 +17,6 @@
     "express": "^4.14.0",
     "fs": "0.0.1-security",
     "jszip": "^2.6.1",
-    "mongoose": "^4.7.6",
     "mongoose": "^4.7.7",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",

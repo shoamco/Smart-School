@@ -1,5 +1,5 @@
 
-app.controller('GradesCtrl',function($scope,$routeParams,classesService,studentsService) {
+app.controller('GradesCtrl',function($scope,$routeParams,$rootScope,classesService,studentsService) {
     $scope.id = $routeParams.id;
 
     $scope.courseId=$routeParams.courseId;
@@ -19,7 +19,7 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService,students
         }
         $scope.MyCourse=[];///all course of this techear
         for (var i = 0; i < $scope.ALLCourse.length; i++) {
-            if ($scope.ALLCourse[i].TeacherName ==  "אבי כהן") {////arry of course
+            if ($scope.ALLCourse[i].TeacherName ==  $rootScope.currentUser.UserName) {////arry of course
                 $scope.MyCourse.push($scope.ALLCourse[i]);
             }
         }
@@ -33,28 +33,28 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService,students
 
 
 
-   $scope.findGread = function(studentid,courseid) {///the function get student and course and return gread of cours
+            $scope.findGread = function(studentid,courseid) {///the function get student and course and return gread of cours
 
-        for (var i = 0; i < $scope.AllStudents.length; i++) {
+            for (var i = 0; i < $scope.AllStudents.length; i++) {
 
-            if ($scope.AllStudents[i].StudentId ==  studentid) {
+                if ($scope.AllStudents[i].StudentId ==  studentid) {
 
-                for (var j = 0; j < $scope.AllStudents[i].Courses.length; j++) {
+                    for (var j = 0; j < $scope.AllStudents[i].Courses.length; j++) {
 
-                    if ($scope.AllStudents[i].Courses[j].CourseId ==courseid) {
+                        if ($scope.AllStudents[i].Courses[j].CourseId ==courseid) {
 
-                        return $scope.AllStudents[i].Courses[j].Grade;
+                            return $scope.AllStudents[i].Courses[j].Grade;
 
+                        }
                     }
                 }
             }
+
         }
 
-    }
 
 
-
-            $scope.findEvaluation = function(studentid,courseid) {///the function get student and course and return Evaluation of cours
+        $scope.findEvaluation = function(studentid,courseid) {///the function get student and course and return Evaluation of cours
 
 
                 for (var i = 0; i < $scope.AllStudents.length; i++) {
@@ -74,22 +74,46 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService,students
             }
 
 
+                       $scope.findConfirmEducator = function(courseid) {///the function get student and course and return Evaluation of cours
+
+                            for (var i=0;i<$scope.ALLCourse.length;i++)
+                                   {
+                                     if($scope.ALLCourse[i].CourseId==courseid)
+                                         return $scope.ALLCourse[i].ConfirmEducator;
+                              }
+
+
+                                 }
 
 
             $scope.updateGreads = function() {
-       alert("in updateGreads");
+    //   alert("in ");
+
+                var StudentGreads2=[];
+          //alert(myGrade1.Grade);
+                // console.log(myGread);
+                for(var i=0;i<myGrade2.Grade.length;i++)
+
+                {
+                    StudentGreads2.push({"StudentId":$scope.MyStudents[i].StudentId,"Grade":myGrade2.Grade[i].value,"Evaluation":myGrade2.Evaluation[i].value});
+
+
+                }
 
                 if (window.XMLHttpRequest)
                     var xmlhttp = new XMLHttpRequest();
                 else
                     var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 
+
                 var document =
                     {
 
-                        "StudentGreads":[],
-                        // "StudentId":myForm1.StudentId.value,
 
+                        "StudentGreads":StudentGreads2,
+
+                        "CourseId":$scope.courseId,
+                        "ClassId": $scope.id
                     };
 
                 xmlhttp.onreadystatechange = function () {
@@ -110,6 +134,8 @@ app.controller('GradesCtrl',function($scope,$routeParams,classesService,students
             }
 
         });
+
+
 
 
 
