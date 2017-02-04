@@ -99,7 +99,6 @@ router.post('/cancelConfirmCourse',student.cancelConfirmCourse);
 router.post('/login', user.getUser);
 router.post('/changePassword', user.updatePassword);
 
-=======
 router.post('/deleteCourse', classes.deleteCourse);
 
 
