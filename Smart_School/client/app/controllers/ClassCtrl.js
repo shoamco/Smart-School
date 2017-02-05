@@ -19,18 +19,29 @@ app.controller('ClassCtrl',function($scope,$routeParams,$rootScope,classesServic
         var myCourses=[];
         $scope.Classes=data.data;
         for (var i = 0; i < $scope.Classes.length; i++) {
-            if ($scope.Classes[i].ClassId ==  $scope.id)
+            if ($scope.Classes[i].ClassId == $scope.id) {
                 $scope.MyClass = $scope.Classes[i].Students;
-                for(var j=0 ;j<$scope.Classes[i].Courses.length;j++)
-                {
-                    if($scope.Classes[i].Courses[j].TeacherId==user.id)
-                    {    
+                $scope.thisClass=$scope.Classes[i];
+                for (var j = 0; j < $scope.Classes[i].Courses.length; j++) {
+                    if ($scope.Classes[i].Courses[j].TeacherId == user.id) {
                         myCourses.push($scope.Classes[i].Courses[j]);
                     }
                 }
+            }
         }
+        $scope.accessToConfirm= function() {
+           // alert($scope.thisClass.ClassId);
+            if($scope.thisClass.EducatorId==user.UserId)
+                return "1";
+            // else if($scope.thisClass.CoordinatorId==user.UserId)
+            //     return "1";
+            else
+                return "0";
+        }
+
         $scope.myCourses=myCourses
     });
+
 
     
     /*var promise = usersService.getUsers();
