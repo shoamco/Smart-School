@@ -22,6 +22,8 @@ app.controller('MainPageCtrl', function ($scope,$rootScope) {
             localStorage.setItem('currentUser','undefined');
             $rootScope.loginButton = {'visibility': 'visible'};
             $rootScope.signOutButton = {'visibility': 'hidden'};
+            window.open("http://localhost:5000/#","_self")
+
 
 
         }
