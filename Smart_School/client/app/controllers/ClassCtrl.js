@@ -29,12 +29,17 @@ app.controller('ClassCtrl',function($scope,$routeParams,$rootScope,classesServic
                 }
             }
         }
+        //access to option confirm only if you EducatorId/Coordinator/Principal
         $scope.accessToConfirm= function() {
            // alert($scope.thisClass.ClassId);
             if($scope.thisClass.EducatorId==user.UserId)
                 return "1";
             // else if($scope.thisClass.CoordinatorId==user.UserId)
             //     return "1";
+            else if(user.Type==3)
+                return "1";
+            else if(user.Type==4)
+                return "1";
             else
                 return "0";
         }
