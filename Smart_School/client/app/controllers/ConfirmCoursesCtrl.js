@@ -12,7 +12,7 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
     }
     else {
         var user=JSON.parse(current);
-
+        $scope.user=user;
 
     }
 
