@@ -14,6 +14,7 @@
     <div id="main-container-image">
         <section class="work">
             <figure class="white">
+            	<img  ng-if="course.ConfirmEducator==1" src="/mainTeacher.png" alt="המחנך אישר" />
                  <a ng-href="#/classes/{{id}}/confirmCourses/{{course.CourseId}}">
                     <img img src="/course.jpg" alt="{{student.FirstName}}" />
                 </a>
@@ -21,6 +22,7 @@
                     <div id="part-info">{{course.CoursName}}</div>
                 </div>
                 <a style="color: red" ng-if="course.ConfirmEducator==1">           המחנך אישר </a>
+
         		<a style="color: #66CC7A" ng-if="course.ConfirmCoordinator==1">הרכז שכבה אישר </a>
             </figure>
         </section>
