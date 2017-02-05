@@ -4,5 +4,6 @@
     <li> <a ng-href="#/classes/{{id}}/confirmCourses/{{course.CourseId}}">{{course.CoursName}}</a>
         <a style="color: red" ng-if="course.ConfirmEducator==1">           המחנך אישר        </a>
         <a style="color: #66CC7A" ng-if="course.ConfirmCoordinator==1">           הרכז שכבה אישר        </a>
+        <a style="color:aqua" ng-if="course.ConfirmPrincipal==1">           המהל אישר        </a>
     </li>
 </ul>

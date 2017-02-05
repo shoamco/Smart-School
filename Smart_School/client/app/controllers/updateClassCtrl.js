@@ -1,5 +1,16 @@
 app.controller('updateClassCtrl',function($scope,$routeParams,classesService,$http,$window) {
     $scope.ClassId = $routeParams.classId;
+    var current=localStorage.getItem('currentUser');
+    if (current== "undefined"||current==""||current==null){
+        window.open("http://localhost:5000/#/login", "_self");
+    }
+    else {
+        var user=JSON.parse(current);
+        console.log(user.UserId);
+
+        if(user.type!=5&&user.type!=4)
+            window.open("http://localhost:5000/#/", "_self");
+    }
     var promise = classesService.getClasses();
     promise.then(function (data) {
         $scope.Classes = data.data;

@@ -278,8 +278,15 @@ updateGreads:function(req,res,next) {
             for(var i=0;i<arr_course.length;i++)
                 if(arr_course[i].CourseId==req.body.CourseId)
                 {
-                    console.log("before ConfirmEducator "+ arr_course[i].ConfirmEducator);
-                    arr_course[i].ConfirmEducator=1;
+                    console.log("Type"+req.body.Type);
+                    console.log("before Confirm "+ arr_course[i].ConfirmEducator);
+                   // arr_course[i].ConfirmEducator=1;
+                    if(req.body.Type==2)
+                        arr_course[i].ConfirmEducator=1;
+                    else if (req.body.Type==3)
+                        arr_course[i].ConfirmCoordinator=1;
+                   else if (req.body.Type==4)
+                        arr_course[i].ConfirmPrincipal=1;
                 }
             Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {///
                 if (err) return console.error(err);

@@ -2,6 +2,17 @@
 
 app.controller('updateStudentCtrl',function($scope,$routeParams,studentsService,$http,$window) {
     $scope.StudenId = $routeParams.studentId;
+    var current=localStorage.getItem('currentUser');
+    if (current== "undefined"||current==""||current==null){
+        window.open("http://localhost:5000/#/login", "_self");
+    }
+    else {
+        var user=JSON.parse(current);
+        console.log(user.UserId);
+
+        if(user.type!=5&&user.type!=4)
+            window.open("http://localhost:5000/#/", "_self");
+    }
     var promise = studentsService.getStudents();
     promise.then(function (data)
     {
