@@ -13,7 +13,6 @@ app.controller('AdminClassesCtrl',function($scope,$routeParams,classesService) {
     }
     else {
         var user=JSON.parse(current);
-        console.log(user.UserId);
 
         if(user.type!=5&&user.type!=4)
         window.open("http://localhost:5000/#/", "_self");

@@ -29,7 +29,7 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
         xmlhttp.onreadystatechange = function () {
 
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                if (xmlhttp.responseText!='[]'){
+                if (xmlhttp.responseText!='[]'&&xmlhttp.responseText!="null"){
                     var currentUser =xmlhttp.responseText;
                    // console.log("currentUser~~~~~~~~~~~~",currentUser);
                     // var curret =JSON.parse(currentUser);
@@ -43,8 +43,8 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
                     //  $rootScope.$apply();
                     $rootScope.loginButton = {'visibility': 'hidden'};
                     $rootScope.signOutButton = {'visibility': 'visible'};
-
-                    window.open("http://localhost:5000/#","_self")
+                    var user=JSON.parse(currentUser);
+                    window.open("http://localhost:5000/#/classes","_self")
 
 
                 }
