@@ -1,9 +1,4 @@
-/**
- * Created by כהן on 28/01/2017.
- */
-/**
- * Created by כהן on 26/01/2017.
- */
+
 
 app.controller('CertificateCtrl',function($scope,$routeParams) {
 

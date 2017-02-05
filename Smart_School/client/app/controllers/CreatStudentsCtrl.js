@@ -1,6 +1,4 @@
-/**
- * Created by כהן on 19/01/2017.
- */
+
 
 app.controller("CreatStudentsCtrl", function ($scope, $http) {
 
