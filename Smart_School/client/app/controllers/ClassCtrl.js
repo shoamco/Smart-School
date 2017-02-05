@@ -1,9 +1,17 @@
 /**
- * Created by כהן on 18/01/2017.
+
  */
 app.controller('ClassCtrl',function($scope,$routeParams,$rootScope,classesService,usersService) {
+    var current=localStorage.getItem('currentUser');
+    if (current== "undefined"||current==""||current==null){
+        window.open("http://localhost:5000/#/login", "_self");
+    }
+    else {
+        var user=JSON.parse(current);
+    }
+
     $scope.id = $routeParams.id;
-    var userName=$rootScope.currentUser.UserName; 
+   // var userName=$rootScope.currentUser.UserName; 
     var promise = classesService.getClasses();
 
     promise.then(function (data)
@@ -15,7 +23,7 @@ app.controller('ClassCtrl',function($scope,$routeParams,$rootScope,classesServic
                 $scope.MyClass = $scope.Classes[i].Students;
                 for(var j=0 ;j<$scope.Classes[i].Courses.length;j++)
                 {
-                    if($scope.Classes[i].Courses[j].TeacherName==userName)
+                    if($scope.Classes[i].Courses[j].TeacherId==user.id)
                     {    
                         myCourses.push($scope.Classes[i].Courses[j]);
                     }

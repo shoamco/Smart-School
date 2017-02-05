@@ -1,4 +1,18 @@
+
+
 <h1>myCourses</h1>
-<ul  ng-repeat="course in MyCourse">
-    <li> <a ng-href="#/classes/{{id}}/grades/{{course.CourseId}}">{{course.CoursName}}</a></li>
-</ul>
+
+<div class="container object" ng-repeat="course in MyCourse">
+    <div id="main-container-image">
+        <section class="work">
+            <figure class="white">
+                 <a ng-href="#/classes/{{id}}/grades/{{course.CourseId}}">
+                    <img img src="/course.jpg" alt="{{student.FirstName}}" />
+                </a>
+                <div id="wrapper-part-info">
+                    <div id="part-info">{{course.CoursName}}</div>
+                </div>
+            </figure>
+        </section>
+    </div>
+</div>
