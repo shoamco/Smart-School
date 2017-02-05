@@ -32,12 +32,13 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
                 if (xmlhttp.responseText!='[]'){
                     var currentUser =xmlhttp.responseText;
                     console.log("currentUser~~~~~~~~~~~~",currentUser);
-                    // var curret =JSON.parse(currentUser);
+                     var curret =JSON.parse(currentUser);
                     // console.log("curret~~~~~~~~",curret);
-                    //curret=curret[0];
+                    curret=curret[0];
+
                     //alert (currentUser );
-                    //console.log("user____________",curret.UserName);
-                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                    console.log("user____________",curret.UserName);
+                    localStorage.setItem('currentUser', JSON.stringify(curret));
                     //$rootScope.currentUser=curret;
                     //  $rootScope.$apply();
                     $rootScope.loginButton = {'visibility': 'hidden'};
