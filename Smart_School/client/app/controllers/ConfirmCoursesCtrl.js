@@ -171,7 +171,8 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
 
 
                     "CourseId":$scope.courseId,
-                    "ClassId": $scope.id
+                    "ClassId": $scope.id,
+                    "Type": user.Type
                 };
 
             xmlhttp.onreadystatechange = function () {

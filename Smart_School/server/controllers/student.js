@@ -279,7 +279,7 @@ updateGreads:function(req,res,next) {
                 if(arr_course[i].CourseId==req.body.CourseId)
                 {
                     console.log("Type"+req.body.Type);
-                    console.log("before Confirm "+ arr_course[i].ConfirmEducator);
+                  //  console.log("before Confirm "+ arr_course[i].ConfirmEducator);
                    // arr_course[i].ConfirmEducator=1;
                     if(req.body.Type==2)
                         arr_course[i].ConfirmEducator=1;
@@ -290,7 +290,7 @@ updateGreads:function(req,res,next) {
                 }
             Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {///
                 if (err) return console.error(err);
-                console.log("ConfirmEducator=1");
+                console.log("Confirm=1");
             });
         });
         res.send("all student update and Confirm ")
@@ -307,15 +307,21 @@ updateGreads:function(req,res,next) {
             for(var i=0;i<arr_course.length;i++)
                 if(arr_course[i].CourseId==req.body.CourseId)///Finding the right course
                 {
-                    console.log("before ConfirmEducator "+ arr_course[i].ConfirmEducator);
-                    arr_course[i].ConfirmEducator=0;
+                    console.log("before");
+                  //  arr_course[i].ConfirmEducator=0;
+                    if(req.body.Type==2)
+                        arr_course[i].ConfirmEducator=0;
+                    else if (req.body.Type==3)
+                        arr_course[i].ConfirmCoordinator=0;
+                    else if (req.body.Type==4)
+                        arr_course[i].ConfirmPrincipal=0;
                 }
             Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {///cancel the ConfirmEducator
                 if (err) return console.error(err);
-                console.log("ConfirmEducator=0");
+               // console.log("ConfirmEducator=0");
             });
         });
-        res.send("cancel the ConfirmEducator ")
+        res.send("cancel the Confirm ")
 
 
     },
