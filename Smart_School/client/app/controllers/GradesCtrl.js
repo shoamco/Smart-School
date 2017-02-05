@@ -1,5 +1,14 @@
 
 app.controller('GradesCtrl',function($scope,$routeParams,$rootScope,classesService,studentsService) {
+    
+    var current=localStorage.getItem('currentUser');
+    if (current== "undefined"||current==""||current==null){
+        window.open("http://localhost:5000/#/login", "_self");
+    }
+    else {
+        var user=JSON.parse(current);
+    }
+
     $scope.id = $routeParams.id;
     $scope.courseId=$routeParams.courseId;
    // alert($scope.AllStudents);
@@ -19,7 +28,7 @@ app.controller('GradesCtrl',function($scope,$routeParams,$rootScope,classesServi
         $scope.MyCourse=[];///all course of this teacher
         for (var i = 0; i < $scope.ALLCourse.length; i++) 
         {
-            if ($scope.ALLCourse[i].TeacherName ==  $rootScope.currentUser.UserName) 
+            if ($scope.ALLCourse[i].TeacherId == user.id) 
             {////arry of course
                 $scope.MyCourse.push($scope.ALLCourse[i]);
             }
