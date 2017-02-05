@@ -14,6 +14,7 @@
     "angular": "^1.6.1",
     "body-parser": "^1.16.0",
     "docxtemplater": "^3.0.3",
+    "download-file": "^0.1.5",
     "express": "^4.14.0",
     "fs": "0.0.1-security",
     "jszip": "^2.6.1",
