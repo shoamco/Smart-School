@@ -29,6 +29,8 @@ app.controller('ClassCtrl',function($scope,$routeParams,$rootScope,classesServic
                 }
             }
         }
+
+
         //access to option confirm only if you EducatorId/Coordinator/Principal
         $scope.accessToConfirm= function() {
            // alert($scope.thisClass.ClassId);
