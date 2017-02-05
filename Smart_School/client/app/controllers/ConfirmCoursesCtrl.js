@@ -66,6 +66,15 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
                     }
                 }
             }
+            $scope.findConfirmPrincipal=function(courseid)
+            {
+                for (var i=0;i<$scope.ALLCourse.length;i++)
+                {
+                    if($scope.ALLCourse[i].CourseId==courseid)
+                        return $scope.ALLCourse[i].ConfirmPrincipal;
+                }
+
+            }
 
             $scope.findConfirmEducator = function(courseid) {///
 
