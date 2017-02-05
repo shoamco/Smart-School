@@ -31,14 +31,14 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 if (xmlhttp.responseText!='[]'){
                     var currentUser =xmlhttp.responseText;
-                    console.log("currentUser~~~~~~~~~~~~",currentUser);
-                     var curret =JSON.parse(currentUser);
+                   // console.log("currentUser~~~~~~~~~~~~",currentUser);
+                    // var curret =JSON.parse(currentUser);
                     // console.log("curret~~~~~~~~",curret);
-                    curret=curret[0];
+                   // curret=curret[0];
 
                     //alert (currentUser );
-                    console.log("user____________",curret.UserName);
-                    localStorage.setItem('currentUser', JSON.stringify(curret));
+                    //console.log("user____________",curret.UserName);
+                    localStorage.setItem('currentUser',currentUser);
                     //$rootScope.currentUser=curret;
                     //  $rootScope.$apply();
                     $rootScope.loginButton = {'visibility': 'hidden'};
