@@ -192,9 +192,7 @@ var classes = {
     },
     switchClasses: function (req, res, next) {
         console.log("in the server classes- switchClasses ");
-
-
-      / for (var i=1;i<=8;i++) {
+       for (var i=1;i<=8;i++) {
             Classes.findOne({ClassId:i}, function (err, data) {
 
                 if (err)
