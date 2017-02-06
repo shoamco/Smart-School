@@ -76,35 +76,64 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
                     }
                 }
             }
-            $scope.findConfirmPrincipal=function(courseid)
-            {
+            // $scope.findConfirmPrincipal=function(courseid)
+            // {
+            //     for (var i=0;i<$scope.ALLCourse.length;i++)
+            //     {
+            //         if($scope.ALLCourse[i].CourseId==courseid)
+            //             return $scope.ALLCourse[i].ConfirmPrincipal;
+            //     }
+            //
+            // }
+            //
+            // $scope.findConfirmEducator = function(courseid) {///
+            //
+            //     for (var i=0;i<$scope.ALLCourse.length;i++)
+            //     {
+            //         if($scope.ALLCourse[i].CourseId==courseid)
+            //             return $scope.ALLCourse[i].ConfirmEducator;
+            //     }
+            //
+            //
+            // }
+            // $scope.findConfirmCoordinator = function(courseid) {///
+            //
+            //     for (var i=0;i<$scope.ALLCourse.length;i++)
+            //     {
+            //         if($scope.ALLCourse[i].CourseId==courseid)
+            //             return $scope.ALLCourse[i].ConfirmCoordinator;
+            //     }
+            //
+            //
+            // }
+            $scope.findConfirm = function(courseid) {///
+
                 for (var i=0;i<$scope.ALLCourse.length;i++)
                 {
-                    if($scope.ALLCourse[i].CourseId==courseid)
-                        return $scope.ALLCourse[i].ConfirmPrincipal;
-                }
-
-            }
-
-            $scope.findConfirmEducator = function(courseid) {///
-
-                for (var i=0;i<$scope.ALLCourse.length;i++)
-                {
-                    if($scope.ALLCourse[i].CourseId==courseid)
+                    if($scope.ALLCourse[i].CourseId==courseid) {
+                        if(user.Type==2)
                         return $scope.ALLCourse[i].ConfirmEducator;
+                        else if(user.Type==3)
+                            return $scope.ALLCourse[i].ConfirmCoordinator;
+                        else if(user.Type==4)
+                            return $scope.ALLCourse[i].ConfirmPrincipal;
+                    }
                 }
 
 
             }
-            $scope.findConfirmCoordinator = function(courseid) {///the function get student and course and return Evaluation of cours
-
+            $scope.findConfirmAboveMe= function(courseid) {
                 for (var i=0;i<$scope.ALLCourse.length;i++)
                 {
-                    if($scope.ALLCourse[i].CourseId==courseid)
-                        return $scope.ALLCourse[i].ConfirmCoordinator;
+                    if($scope.ALLCourse[i].CourseId==courseid) {
+                        if(user.Type==2)
+                            return $scope.ALLCourse[i].ConfirmCoordinator;
+                        else if(user.Type==3)
+                            return $scope.ALLCourse[i].ConfirmPrincipal;
+                        else if(user.Type==4)
+                            return 0;
+                    }
                 }
-
-
             }
 /////need  change to globl
             $scope.confirmCourse = function() {

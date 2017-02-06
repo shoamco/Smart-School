@@ -4,7 +4,7 @@
 <h1>    {{user.Type}}הרשאה עבור אישור כיתה </h1>
 
 
-<form name="myGrade" ng-submit="confirmCourse(myGrade)" ng-if="findConfirmEducator(courseId)==0" >
+<form name="myGrade" ng-submit="confirmCourse(myGrade)" ng-if="findConfirm(courseId)==0" >
 
     <table>
         <tr>
@@ -28,7 +28,7 @@
     <input type="submit"   name="submit" value="אשר" />
 </form>
 
-<form name="myGrade2" ng-submit="cancelConfirmCourse()" ng-if="findConfirmEducator(courseId)==1">
+<form name="myGrade2" ng-submit="cancelConfirmCourse()" ng-if="findConfirm(courseId)==1">
     <table  >
         <tr>
             <th>תעודת זהות</th>
@@ -47,6 +47,6 @@
         </tr>
 
     </table>
-    <input type="submit"   name="submit" value="ביטול האישור" ng-if="findConfirmCoordinator(courseId)==0" />
+    <input type="submit"   name="submit" value="ביטול האישור" ng-if="findConfirmAboveMe(courseId)==0" />
 </form>
 <p style="color: red">{{message1}}</p>

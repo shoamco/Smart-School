@@ -307,7 +307,7 @@ updateGreads:function(req,res,next) {
             for(var i=0;i<arr_course.length;i++)
                 if(arr_course[i].CourseId==req.body.CourseId)///Finding the right course
                 {
-                    console.log("before");
+                  //  console.log("before ");
                   //  arr_course[i].ConfirmEducator=0;
                     if(req.body.Type==2)
                         arr_course[i].ConfirmEducator=0;
@@ -318,7 +318,7 @@ updateGreads:function(req,res,next) {
                 }
             Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {///cancel the ConfirmEducator
                 if (err) return console.error(err);
-               // console.log("ConfirmEducator=0");
+                console.log("Confirm=0");
             });
         });
         res.send("cancel the Confirm ")
