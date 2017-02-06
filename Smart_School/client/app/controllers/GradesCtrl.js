@@ -80,11 +80,15 @@ app.controller('GradesCtrl',function($scope,$routeParams,$rootScope,classesServi
             }
             $scope.updateGreads = function() 
             {
+
                 var StudentGreads2=[];
+              //  alert(myGrade2.Grade.length);
                 for(var i=0;i<myGrade2.Grade.length;i++)
                 {
                     StudentGreads2.push({"StudentId":$scope.MyStudents[i].StudentId,"Grade":myGrade2.Grade[i].value,"Evaluation":myGrade2.Evaluation[i].value});
+                   /// alert($scope.MyStudents[i].StudentId+" "+myGrade2.Grade[i].value+" "+myGrade2.Evaluation[i].value);
                 }
+             //   alert("StudentGreads2"+StudentGreads2);
                 if (window.XMLHttpRequest){
                     var xmlhttp = new XMLHttpRequest();
                 }else{
