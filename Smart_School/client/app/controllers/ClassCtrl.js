@@ -24,13 +24,14 @@ app.controller('ClassCtrl',function($scope,$routeParams,$rootScope,classesServic
                 $scope.MyClass = $scope.Classes[i].Students;
                 $scope.thisClass=$scope.Classes[i];
                 for (var j = 0; j < $scope.Classes[i].Courses.length; j++) {
-                    if ($scope.Classes[i].Courses[j].TeacherId == user.id) {
+                    if ($scope.Classes[i].Courses[j].TeacherId == user.UserId) {
+
                         myCourses.push($scope.Classes[i].Courses[j]);
                     }
                 }
             }
         }
-
+        $scope.myCourses=myCourses;
 
         //access to option confirm only if you EducatorId/Coordinator/Principal
         $scope.accessToConfirm= function() {
@@ -56,7 +57,7 @@ app.controller('ClassCtrl',function($scope,$routeParams,$rootScope,classesServic
                 return "0";
         }
 
-        $scope.myCourses=myCourses;
+
     });
 
 

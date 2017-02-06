@@ -28,7 +28,7 @@ app.controller('GradesCtrl',function($scope,$routeParams,$rootScope,classesServi
         $scope.MyCourse=[];///all course of this teacher
         for (var i = 0; i < $scope.ALLCourse.length; i++) 
         {
-            if ($scope.ALLCourse[i].TeacherId == user.id) 
+            if ($scope.ALLCourse[i].TeacherId == user.UserId)
             {////arry of course
                 $scope.MyCourse.push($scope.ALLCourse[i]);
             }
