@@ -76,36 +76,36 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
                     }
                 }
             }
-            // $scope.findConfirmPrincipal=function(courseid)
-            // {
-            //     for (var i=0;i<$scope.ALLCourse.length;i++)
-            //     {
-            //         if($scope.ALLCourse[i].CourseId==courseid)
-            //             return $scope.ALLCourse[i].ConfirmPrincipal;
-            //     }
-            //
-            // }
-            //
-            // $scope.findConfirmEducator = function(courseid) {///
-            //
-            //     for (var i=0;i<$scope.ALLCourse.length;i++)
-            //     {
-            //         if($scope.ALLCourse[i].CourseId==courseid)
-            //             return $scope.ALLCourse[i].ConfirmEducator;
-            //     }
-            //
-            //
-            // }
-            // $scope.findConfirmCoordinator = function(courseid) {///
-            //
-            //     for (var i=0;i<$scope.ALLCourse.length;i++)
-            //     {
-            //         if($scope.ALLCourse[i].CourseId==courseid)
-            //             return $scope.ALLCourse[i].ConfirmCoordinator;
-            //     }
-            //
-            //
-            // }
+            $scope.findConfirmPrincipal=function(courseid)
+            {
+                for (var i=0;i<$scope.ALLCourse.length;i++)
+                {
+                    if($scope.ALLCourse[i].CourseId==courseid)
+                        return $scope.ALLCourse[i].ConfirmPrincipal;
+                }
+
+            }
+
+            $scope.findConfirmEducator = function(courseid) {///
+
+                for (var i=0;i<$scope.ALLCourse.length;i++)
+                {
+                    if($scope.ALLCourse[i].CourseId==courseid)
+                        return $scope.ALLCourse[i].ConfirmEducator;
+                }
+
+
+            }
+            $scope.findConfirmCoordinator = function(courseid) {///
+
+                for (var i=0;i<$scope.ALLCourse.length;i++)
+                {
+                    if($scope.ALLCourse[i].CourseId==courseid)
+                        return $scope.ALLCourse[i].ConfirmCoordinator;
+                }
+
+
+            }
             $scope.findConfirm = function(courseid) {///
 
                 for (var i=0;i<$scope.ALLCourse.length;i++)

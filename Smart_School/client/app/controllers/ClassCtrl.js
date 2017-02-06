@@ -18,6 +18,7 @@ app.controller('ClassCtrl',function($scope,$routeParams,$rootScope,classesServic
     {
         var myCourses=[];
         $scope.Classes=data.data;
+
         for (var i = 0; i < $scope.Classes.length; i++) {
             if ($scope.Classes[i].ClassId == $scope.id) {
                 $scope.MyClass = $scope.Classes[i].Students;
@@ -45,8 +46,17 @@ app.controller('ClassCtrl',function($scope,$routeParams,$rootScope,classesServic
             else
                 return "0";
         }
+        $scope.accessToUpdate= function() {
 
-        $scope.myCourses=myCourses
+       if(user.Type==1)
+                return "1";
+            else if(user.Type==2)
+                return "1";
+            else
+                return "0";
+        }
+
+        $scope.myCourses=myCourses;
     });
 
 

@@ -31,6 +31,10 @@
                 }
                 console.log("at the end ", MyClasses)
                 $scope.MyClasses = MyClasses;
+                if(user.Type==4) {
+                    //alert("מנהל");
+                    $scope.MyClasses = Classes;
+                }
                 //  $scope.selectionGrade = function (myclass) {
                 //   $scope.$parent.allStudents=data.data;/////////////////////
                 //   $scope.$parent.Students=[];
