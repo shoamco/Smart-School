@@ -29,20 +29,22 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
         xmlhttp.onreadystatechange = function () {
 
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                if (xmlhttp.responseText!='[]'){
+                if (xmlhttp.responseText!='[]'&&xmlhttp.responseText!="null"){
                     var currentUser =xmlhttp.responseText;
-                    console.log("currentUser~~~~~~~~~~~~",currentUser);
-                    var curret =JSON.parse(currentUser);
-                    console.log("curret~~~~~~~~",curret);
-                    //curret=curret[0];
+                   // console.log("currentUser~~~~~~~~~~~~",currentUser);
+                    // var curret =JSON.parse(currentUser);
+                    // console.log("curret~~~~~~~~",curret);
+                   // curret=curret[0];
+
                     //alert (currentUser );
-            		console.log("user____________",curret.UserName);
-            		$rootScope.currentUser=curret;
-                    $rootScope.$apply();
+                    //console.log("user____________",curret.UserName);
+                    localStorage.setItem('currentUser',currentUser);
+                    //$rootScope.currentUser=curret;
+                    //  $rootScope.$apply();
                     $rootScope.loginButton = {'visibility': 'hidden'};
                     $rootScope.signOutButton = {'visibility': 'visible'};
-
-                    window.open("http://localhost:5000/#","_self")
+                    var user=JSON.parse(currentUser);
+                    window.open("http://localhost:5000/#/classes","_self")
 
 
                 }
@@ -85,7 +87,7 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 
                 alert(xmlhttp.responseText);
- 
+
         }
 
 

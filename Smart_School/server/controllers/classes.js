@@ -233,9 +233,51 @@ var classes = {
         });
     },
     switchClasses: function (req, res, next) {
-        console.log("in the server classes- switchClasses ")
+        console.log("in the server classes- switchClasses ");
+        Classes.findOne({ClassId:i}, function (err, data) {
+        });
+        /*
+       for (var i=8;i<=1;i--) {
+            Classes.findOne({ClassId:i}, function (err, data) {
 
-    },
+                if (err)
+                    return console.error(err);
+                else {
+                    var newStudents=data.Students;
+                }
+
+
+                Classes.findOneAndUpdate({ClassId: i+1}, {Students: newStudents}, function (err, data1) {
+                if (err)
+                    return console.error(err);
+                else {
+
+                    var idClass;
+                    if(i!=8)
+                        idClass=i;
+                    else
+                        idClass="graduate"
+
+                    newStudents.forEach(function (student) {
+                        Students.findOneAndUpdate({StudentId: student.StudentId}, {
+                            classId: idClass,
+                            courses: data1.courses
+                        }, function (err, data1) {
+                            if (err)
+                                return console.error(err);
+                        });
+                    })
+
+                }
+
+
+            });
+            });
+
+
+        }*/
+
+        },
 
 };
 

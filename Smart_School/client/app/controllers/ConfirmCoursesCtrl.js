@@ -6,6 +6,16 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
 
     $scope.courseId=$routeParams.courseId;
 
+    var current=localStorage.getItem('currentUser');
+    if (current== "undefined"||current==""||current==null){
+        window.open("http://localhost:5000/#/login", "_self");
+    }
+    else {
+        var user=JSON.parse(current);
+        $scope.user=user;
+
+    }
+
     var promise = classesService.getClasses();
     var promise2=studentsService.getStudents();
     promise.then(function (data)
@@ -66,6 +76,15 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
                     }
                 }
             }
+            $scope.findConfirmPrincipal=function(courseid)
+            {
+                for (var i=0;i<$scope.ALLCourse.length;i++)
+                {
+                    if($scope.ALLCourse[i].CourseId==courseid)
+                        return $scope.ALLCourse[i].ConfirmPrincipal;
+                }
+
+            }
 
             $scope.findConfirmEducator = function(courseid) {///
 
@@ -77,7 +96,7 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
 
 
             }
-            $scope.findConfirmCoordinator = function(courseid) {///the function get student and course and return Evaluation of cours
+            $scope.findConfirmCoordinator = function(courseid) {///
 
                 for (var i=0;i<$scope.ALLCourse.length;i++)
                 {
@@ -87,7 +106,36 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
 
 
             }
+            $scope.findConfirm = function(courseid) {///
 
+                for (var i=0;i<$scope.ALLCourse.length;i++)
+                {
+                    if($scope.ALLCourse[i].CourseId==courseid) {
+                        if(user.Type==2)
+                        return $scope.ALLCourse[i].ConfirmEducator;
+                        else if(user.Type==3)
+                            return $scope.ALLCourse[i].ConfirmCoordinator;
+                        else if(user.Type==4)
+                            return $scope.ALLCourse[i].ConfirmPrincipal;
+                    }
+                }
+
+
+            }
+            $scope.findConfirmAboveMe= function(courseid) {
+                for (var i=0;i<$scope.ALLCourse.length;i++)
+                {
+                    if($scope.ALLCourse[i].CourseId==courseid) {
+                        if(user.Type==2)
+                            return $scope.ALLCourse[i].ConfirmCoordinator;
+                        else if(user.Type==3)
+                            return $scope.ALLCourse[i].ConfirmPrincipal;
+                        else if(user.Type==4)
+                            return 0;
+                    }
+                }
+            }
+/////need  change to globl
             $scope.confirmCourse = function() {
                 // alert("in client confirmCourse");
 
@@ -113,7 +161,8 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
                         "StudentGreads":StudentGreads1,
 
                         "CourseId":$scope.courseId,
-                        "ClassId": $scope.id
+                        "ClassId": $scope.id,
+                       "Type": user.Type
                     };
 
                 xmlhttp.onreadystatechange = function () {
@@ -151,7 +200,8 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
 
 
                     "CourseId":$scope.courseId,
-                    "ClassId": $scope.id
+                    "ClassId": $scope.id,
+                    "Type": user.Type
                 };
 
             xmlhttp.onreadystatechange = function () {

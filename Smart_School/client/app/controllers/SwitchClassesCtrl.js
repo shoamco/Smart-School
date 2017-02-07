@@ -13,8 +13,6 @@ $scope.switchClasses= function(){
 
     var document =
         {
-
-
         };
 
     xmlhttp.onreadystatechange = function () {
