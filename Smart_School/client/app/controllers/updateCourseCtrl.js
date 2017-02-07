@@ -25,7 +25,7 @@ app.controller('updateCourseCtrl',function($scope,$routeParams,classesService,$h
         var document =
             {
 
-                "TeacherName": myForm.TeacherName.value,
+                "TeacherId": myForm.TeacherId.value,
                 "ClassIdOriginal": $scope.ClassId,
                 "CourseId": $scope.CourseId
             };

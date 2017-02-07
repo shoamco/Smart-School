@@ -1,8 +1,8 @@
 <h1>update staff </h1>
 
-<form >
+<form name="myForm1" ng-submit="updateStaff(myForm1)">
     <strong>שם : </strong><input   type ="text" value="{{user.UserName}}" name="UserName" required/></br>
-    <strong>תז : </strong><input   type ="text" value="{{user.UserId}}" name="UserId" required/></br>
+    <!--<strong>תז : </strong><input   type ="text" value="{{user.UserId}}" name="UserId" required/></br>-->
     <strong>הרשאה:</strong><select   name="Type"  required>
     <option value="{{user.UserType}}" selected>הרשאה</option>
         <option value="1" >מורה</option>

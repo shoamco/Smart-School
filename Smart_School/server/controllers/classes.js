@@ -9,16 +9,44 @@ var classes = {
     console.log("im in the server");
     Classes.findOne({ClassId: req.body.ClassIdOriginal},function (err, data1) {
         if (err) return console.error(err);
-        if (data1.Educator!= req.body.Educator)
+        if (data1.EducatorId!= req.body.EducatorId)
         {
-            Classes.findOneAndUpdate({ClassId: req.body.ClassIdOriginal}, {Educator:req.body.Educator}, function (err, data2) {
+            Users.findOne({UserId: req.body.EducatorId},function (err, data4) {
                 if (err) return console.error(err);
-                console.log("update course ");
-                console.log(data1.EducatorId);
+                if (data4 == null) {
+                    res.send("המשתמש לא קיים");
+                }
+                else {
+                    Classes.findOneAndUpdate({ClassId: req.body.ClassIdOriginal}, {EducatorId: req.body.EducatorId}, function (err, data2) {
+                        if (err) return console.error(err);
+
+                    });
+                    Users.findOneAndUpdate({UserId: req.body.EducatorId}, {Type: 2}, function (err, data2) {
+                        if (err) return console.error(err);
+
+                    });
+                }
+
             });
-            Users.findOneAndUpdate({UserId: data1.EducatorId}, {UserName:req.body.Educator}, function (err, data2) {//check!!!
+        }
+        if (data1.CoordinatorId!= req.body.CoordinatorId)
+        {
+            Users.findOne({UserId: req.body.CoordinatorId},function (err, data4) {
                 if (err) return console.error(err);
-                console.log("update Staff ");
+                if (data4 == null) {
+                    res.send("המשתמש לא קיים");
+                }
+                else {
+                    Classes.findOneAndUpdate({ClassId: req.body.ClassIdOriginal}, {CoordinatorId: req.body.CoordinatorId}, function (err, data2) {
+                        if (err) return console.error(err);
+
+                    });
+                    Users.findOneAndUpdate({UserId: req.body.CoordinatorId}, {Type: 2}, function (err, data2) {
+                        if (err) return console.error(err);
+                        res.send("הכיתה עודכנה");
+                    });
+                }
+
             });
         }
     });
@@ -38,40 +66,45 @@ var classes = {
         console.log("lm in the server ");
         Classes.findOne({ClassId: req.body.ClassIdOriginal},function (err, data1) {
             if (err) return console.error(err);
-           var courses=data1.Courses;
-           console.log(req.body.CourseId);
-           for(var i=0;i<courses.length;i++)
-           {
-               if(courses[i].CourseId==req.body.CourseId)
-               {
-                   courses[i].TeacherName=req.body.TeacherName;
-               }
-           }
-            Classes.findOneAndUpdate({ClassId: req.body.ClassIdOriginal}, {Courses:courses}, function (err, data2) {
-                    if (err) return console.error(err);
-                    console.log("update course ");
-                });
-        });
-          Students.find({ClassId: req.body.ClassIdOriginal},function (err, data3){
-              if (err) return console.error(err);
-              var studentInClass=data3;
-              for(var i=0;i<studentInClass.length;i++){
-                  var courses=studentInClass[i].Courses;
-                  for(var j=0;j<courses.length;j++)
-                  {
-                      console.log(req.body.CourseId);
-                    if(courses[j].CourseId==req.body.CourseId)
-                    {
-                          courses[j].TeacherName=req.body.TeacherName;
-                    }
-                  }
-                  Students.findOneAndUpdate({StudentId:studentInClass[i].StudentId }, {Courses:courses}, function (err, data2) {
-                      if (err) return console.error(err);
-                      console.log("update course ");
-                  });
-              }
-          });
+            var courses = data1.Courses;
+            console.log(req.body.CourseId);
+            Users.findOne({UserId: req.body.TeacherId}, function (err, data4) {
+                if (err) return console.error(err);
+                if (data4 == null) {
+                    res.send("המשתמש לא קיים");
+                }
+                else {
+                    for (var i = 0; i < courses.length; i++) {
+                        if (courses[i].CourseId == req.body.CourseId) {
 
+                            courses[i].TeacherId = req.body.TeacherId;
+                        }
+                    }
+                    Classes.findOneAndUpdate({ClassId: req.body.ClassIdOriginal}, {Courses: courses}, function (err, data2) {
+                        if (err) return console.error(err);
+                        res.send("הקורס עודכן");
+                    });
+
+                    Students.find({ClassId: req.body.ClassIdOriginal}, function (err, data3) {
+                        if (err) return console.error(err);
+                        var studentInClass = data3;
+                        for (var i = 0; i < studentInClass.length; i++) {
+                            var courses = studentInClass[i].Courses;
+                            for (var j = 0; j < courses.length; j++) {
+                                console.log(req.body.CourseId);
+                                if (courses[j].CourseId == req.body.CourseId) {
+                                    courses[j].TeacherId = req.body.TeacherId;
+                                }
+                            }
+                            Students.findOneAndUpdate({StudentId: studentInClass[i].StudentId}, {Courses: courses}, function (err, data2) {
+                                if (err) return console.error(err);
+                                console.log("update course ");
+                            });
+                        }
+                    });
+                }
+            });
+        });
 
     },
     CreateCourse: function(req, res, next) {
@@ -80,70 +113,79 @@ var classes = {
             if (err) return console.error(err);
            var courses = data1.Courses;
            var flag=0;
-            for (var i = 0; i < courses.length; i++){
-                    if (courses[i].CourseId == req.body.CodeCourse) {
-                        flag=1;
-                    }
-            }
-             if(flag==1)///if the id course is exist
-                 {console.log("the course is already exist");
-                     res.send("שגיאה:הקורס עם הקוד: " + req.body.CodeCourse + " כבר קיים במערכת ");
-                 }
-             else {
-                    console.log("the course is not exist");
-                    Classes.findOne({ClassId: req.body.ClassId}, function (err, data) {
-                        if (err) return console.error(err);
-
-
-                        courses.push({
-                            "Evaluation": "",
-                            "Grade": "",
-                            "TeacherName":  req.body.TeacherName,
-                            "CoursName": req.body.CourseName,
-                            "CourseId": req.body.CodeCourse,
-                            "ConfirmEducator": "0",
-                            "ConfirmCoordinator": "0",
-                            "ConfirmPrincipal": "0"
-                        });
-                        Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses:courses}, function (err, data) {///add student  from the class
-                            if (err) return console.error(err);
-                            console.log("add a course to list course in class");
-                        });
-
-                   });
-
-
-        console.log("waanna update on std");
-
-        Students.find({ClassId: req.body.ClassId},function (err, data3){
-            console.log("i am in std");
-            if (err) return console.error(err);
-            var studentInClass=data3;
-            console.log(data3);
-            for(var i=0;i<studentInClass.length;i++){
-                var courses=studentInClass[i].Courses;
-            //find all course of class id
-                courses.push({
-                    "Evaluation": "",
-                    "Grade": "",
-                    "TeacherName":  req.body.TeacherName,
-                    "CoursName": req.body.CourseName,
-                    "CourseId": req.body.CodeCourse,
-                    "ConfirmEducator": "0",
-                    "ConfirmCoordinator": "0",
-                    "ConfirmPrincipal": "0"
-                });
-
-
-                Students.findOneAndUpdate({StudentId:studentInClass[i].StudentId }, {Courses:courses}, function (err, data2) {
+                Users.findOne({UserId: req.body.TeacherId}, function (err, data4) {
                     if (err) return console.error(err);
-                    console.log("update course on students");
-                });
-            }
+                if (data4 == null) {
+                        console.log("the user is not exist");
+                        res.send("המשתמש לא קיים");
+                    }
+                else {
+                    for (var i = 0; i < courses.length; i++){
+                            if (courses[i].CourseId == req.body.CodeCourse) {
+                                flag=1;
+                            }
+                    }
+                     if(flag==1)///if the id course is exist
+                         {console.log("the course is already exist");
+                             res.send("שגיאה:הקורס עם הקוד: " + req.body.CodeCourse + " כבר קיים במערכת ");
+                         }
+                     else {
+                         console.log("the course is not exist");
+                         Classes.findOne({ClassId: req.body.ClassId}, function (err, data) {
+                             if (err) return console.error(err);
 
-        });
-    }
+
+                             courses.push({
+                                 "Evaluation": "",
+                                 "Grade": "",
+                                 "TeacherId": req.body.TeacherId,
+                                 "CoursName": req.body.CourseName,
+                                 "CourseId": req.body.CodeCourse,
+                                 "ConfirmEducator": "0",
+                                 "ConfirmCoordinator": "0",
+                                 "ConfirmPrincipal": "0"
+                             });
+                             Classes.findOneAndUpdate({ClassId: req.body.ClassId}, {Courses: courses}, function (err, data) {///add student  from the class
+                                 if (err) return console.error(err);
+                                 console.log("add a course to list course in class");
+                             });
+
+                         });
+
+
+                         console.log("waanna update on std");
+
+                         Students.find({ClassId: req.body.ClassId}, function (err, data3) {
+                             console.log("i am in std");
+                             if (err) return console.error(err);
+                             var studentInClass = data3;
+                             console.log(data3);
+                             for (var i = 0; i < studentInClass.length; i++) {
+                                 var courses = studentInClass[i].Courses;
+                                 //find all course of class id
+                                 courses.push({
+                                     "Evaluation": "",
+                                     "Grade": "",
+                                     "TeacherId": req.body.TeacherId,
+                                     "CoursName": req.body.CourseName,
+                                     "CourseId": req.body.CodeCourse,
+                                     "ConfirmEducator": "0",
+                                     "ConfirmCoordinator": "0",
+                                     "ConfirmPrincipal": "0"
+                                 });
+
+
+                                 Students.findOneAndUpdate({StudentId: studentInClass[i].StudentId}, {Courses: courses}, function (err, data2) {
+                                     if (err) return console.error(err);
+                                     console.log("update course on students");
+                                 });
+                             }
+
+                         });
+                     }
+                }
     });
+        });
 
 
 

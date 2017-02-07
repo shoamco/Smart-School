@@ -7,6 +7,9 @@ var Docxtemplater = require('docxtemplater');
 //
 var fs = require('fs');
 var path = require('path');
+var http = require('http');
+// var express = require('express');
+// var router = express.Router();
 var student = {
   read: function(req, res, next){
     res.json({type: "Read", id: req.params.id});
@@ -61,6 +64,7 @@ var student = {
               }
           }
       });
+
   },
   update: function(req, res, next){
       Students.findOne({StudentId: req.body.StudentIdOriginal},function (err, data1) {
@@ -77,7 +81,7 @@ var student = {
                   Students.findOneAndUpdate({StudentId: req.body.StudentIdOriginal}, {Courses:courses}, function (err, data) {
                       if (err) return console.error(err);
                       console.log("update course ");
-                  })
+                  });
                   var arr_student=data.Students;
                   arr_student.push({
                       "StudentId": req.body.StudentId,
@@ -330,47 +334,38 @@ updateGreads:function(req,res,next) {
         console.log("in server function Certificate");
 
         Students. find(function(err, data) {
-            var english="אנגלית";
-            console.log(data.length);
+
             var allStudentGrades = [];
-            for (var i = 0; i < data.length; i++) {
-                console.log("i" + i);
+            data.forEach(function (dataStudent, index){
 
-                for (var j = 0; j < data[i].Courses.length; j++) {
-                    console.log("Courses"+data[i].Courses[j].CoursName);
-               if (data[i].Courses[j].CoursName == english ) {
-                        console.log("YES");
-                        allStudentGrades[i] = {
-                            "FirstName": data[i].FirstName,
-                            "LastName": data[i].LastName,
-                            "StudentId": data[i].StudentId,
-                            "english_grade": data[i].Courses[j].Grade,
-                            "english_evaluation": data[i].Courses[j].Evaluation
-                        };
-                    //    console.log(allStudentGrades[i]);
+            var myCourses=[];
+
+                for (var j = 0; j < dataStudent.Courses.length; j++) {
+
+                    myCourses[j]={"CoursName":dataStudent.Courses[j].CoursName,"Grade":dataStudent.Courses[j].Grade,
+                        "Evaluation": dataStudent.Courses[j].Evaluation};
+
+
 
                 }
-                }
-               /// console.log(allStudentGrades);
-//Load the docx file as a binary
 
+
+if(dataStudent.ClassId<=3)//Until third grade without grade
             var content = fs.readFileSync(path.resolve('certificate/input1.docx'), 'binary');
+else
+    var content = fs.readFileSync(path.resolve('certificate/input2.docx'), 'binary');
             var zip = new JSZip(content);
 
             var doc = new Docxtemplater();
             doc.loadZip(zip);
 
-//set the templateVariables
-            doc.setData({
-                FirstName: allStudentGrades[i].FirstName,
-                LastName: allStudentGrades[i].LastName,
-                StudentId: allStudentGrades[i].StudentId,
-                English_grade: allStudentGrades[i].english_grade,
-                English_evaluation: allStudentGrades[i].english_evaluation
 
-
-            });
-                console.log("data i"+i);
+                doc.setData({
+                    FirstName: dataStudent.FirstName,
+             LastName: dataStudent.LastName,
+                    "myCourses":myCourses
+                });
+               // console.log("Student index"+index);
             try {
                 // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
                 doc.render()
@@ -391,10 +386,26 @@ updateGreads:function(req,res,next) {
                 .generate({type: 'nodebuffer'});
 
 // buf is a nodejs buffer, you can either write it to a file or do anything else with it.
-            fs.writeFileSync(path.resolve('certificate/student' + i + '.docx'), buf);
-        }
+            fs.writeFileSync(path.resolve('certificate/' +dataStudent.FirstName+"_"+dataStudent.LastName+ '.docx'), buf);
+        });
+            console.log("certificate for all student");
+
+
+
+            // var file = fs.readFileSync('certificate/input2.docx', 'binary');
+            //
+            // res.setHeader('Content-Length', file.length);
+            // res.write(file, 'binary');
+         //   res.end();
+         //    var filePath = "certificate/input1.docx"; // Or format the path using the `id` rest param
+         //    var fileName = "input1.docx"; // The default name the browser will use
+         //
+         //    res.download(filePath, fileName);
 res.send("התעודות נוצרו")
         })
+
+    },
+  download : function(url, dest, cb) {
 
     },
 }

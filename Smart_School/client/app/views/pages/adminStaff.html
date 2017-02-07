@@ -12,6 +12,7 @@
         <td>{{staff.UserId}}</td>
         <td>{{staff.Type}}</td>
         <td><a ng-href="#/admin/staff/updateStaff/{{staff.UserId}}">עדכון</a></td>
+        <th> <input type="submit" value="מחיקה" ng-click="deleteUser(staff.UserId)"></th>
     </tr>
 </table>
 
