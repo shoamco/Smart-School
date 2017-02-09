@@ -17,6 +17,7 @@ app.controller('ClassCtrl',function($scope,$routeParams,$rootScope,classesServic
     promise.then(function (data)
     {
         var myCourses=[];
+        var flag=0;
         $scope.Classes=data.data;
 
         for (var i = 0; i < $scope.Classes.length; i++) {
@@ -25,7 +26,7 @@ app.controller('ClassCtrl',function($scope,$routeParams,$rootScope,classesServic
                 $scope.thisClass=$scope.Classes[i];
                 for (var j = 0; j < $scope.Classes[i].Courses.length; j++) {
                     if ($scope.Classes[i].Courses[j].TeacherId == user.UserId) {
-
+                        flag=1;
                         myCourses.push($scope.Classes[i].Courses[j]);
                     }
                 }
@@ -51,7 +52,7 @@ app.controller('ClassCtrl',function($scope,$routeParams,$rootScope,classesServic
 
        if(user.Type==1)
                 return "1";
-            else if(user.Type==2)
+            else if(user.Type==2&& flag==1)
                 return "1";
             else
                 return "0";

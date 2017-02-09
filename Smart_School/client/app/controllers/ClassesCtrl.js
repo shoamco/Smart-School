@@ -53,7 +53,7 @@
 
 
                 if(user.Type==3) {
-                    alert("רכז שכבה");
+                //    alert("רכז שכבה");
                     for (var i = 0; i < Classes.length; i++) {
                         if (Classes[i].CoordinatorId == user.UserId) {
                             if (!classIndex[Classes[i].ClassId]) {
