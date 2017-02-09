@@ -28,8 +28,9 @@ app.controller('updateClassCtrl',function($scope,$routeParams,classesService,$ht
         var document =
             {
 
-                "Educator": myForm.Educator.value,
-                "ClassIdOriginal": $scope.ClassId
+                "EducatorId": myForm.EducatorId.value,
+                "ClassIdOriginal": $scope.ClassId,
+                "CoordinatorId":myForm.CoordinatorId.value
             };
         xmlhttp.onreadystatechange = function () {
 

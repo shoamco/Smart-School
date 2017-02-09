@@ -14,6 +14,7 @@ var Docxtemplater = require('docxtemplater');
 
  var fs = require('fs');
  var path = require('path');
+//var download = require('download-file');
 
 
 
@@ -104,6 +105,8 @@ router.post('/login', user.getUser);
 router.post('/changePassword', user.updatePassword);
 
 
+
+
 router.post('/deleteCourse', classes.deleteCourse);
 
 
@@ -115,6 +118,10 @@ router.post('/updateGreads', student.updateGreads);
 router.post('/confirmCourse', student.confirmCourse);
 router.post('/cancelConfirmCourse',student.cancelConfirmCourse);
 router.post('/switchClasses',classes.switchClasses);
+router.post('/updateStaff',user.updateStaff);
+router.post('/createStuff',user.createStuff);
+router.post('/deleteUser',user.deleteUser);
+
 
 
 
@@ -122,16 +129,45 @@ router.post('/switchClasses',classes.switchClasses);
 //router.post('/confirmCourse', student.confirmCourse);
 //router.post('/cancelConfirmCourse',student.cancelConfirmCourse);
 router.post('/login', user.getUser);
-router.post('/certificate',  student.certificate);
+router.post('/admin/Certificate',  student.certificate);
 
-router.get('/download', function (req, res, next) {
-  //  for(var i=0;i<)
-    var filePath = "certificate/input1.docx"; // Or format the path using the `id` rest param
-    var fileName = "1.docx"; // The default name the browser will use
 
-    res.download(filePath, fileName);
-});
+router.get('/admin/download',student.download);
 
+// router.get('/download', function (req, res, next) {
+//     console.log("in server-download");
+//   for(var i=1;i<=2;i++) {
+//
+//          console.log("i" + i);
+//          var filePath = "certificate/input" + i + ".docx"; // Or format the path using the `id` rest param
+//          var fileName = "ans" + i + ".docx"; // The default name the browser will use
+//
+//        //  res.download(filePath, fileName);
+//       res.download(filePath, fileName, function(err){
+//           if (err) {
+//               // Handle error, but keep in mind the response may be partially-sent
+//               // so check res.headersSent
+//           } else {
+//               console.log("ans" + i);
+//           }
+//       });
+//
+//   }
+// });
+// router.get('/download2', function (req, res, next) {
+//     var url = 'certificate/input1.docx';
+//
+//     var options = {
+//         directory: 'certificate',
+//       //  filename: "/anss1.docx",
+//
+//     }
+//
+//     res.download(url, options, function (err) {
+//         if (err) throw err
+//         console.log("meow")
+//     })
+// });
 ////////////////////////////////////////////
 // app.post('/updateCompany', function (req, res,next) {
 // app.post('/certificate', function (req, res) {

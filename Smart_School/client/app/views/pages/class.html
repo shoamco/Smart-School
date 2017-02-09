@@ -5,9 +5,9 @@
 
 
 
-<a ng-href="#/classes/{{id}}/courses">עדכון ציונים לקורסים</a><br>
+<a ng-href="#/classes/{{id}}/courses" ng-if="accessToUpdate()==1">עדכון ציונים לקורסים</a><br>
 
 
-<a ng-href="#/classes/{{id}}/confirmCourses">אישור ציונים</a>
+<a ng-href="#/classes/{{id}}/confirmCourses" ng-if="accessToConfirm()==1">אישור ציונים</a>
 
 

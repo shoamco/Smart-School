@@ -13,7 +13,7 @@ app.config(function ($routeProvider) {
                 templateUrl: "classes.html",
                 controller: "ClassesCtrl"
             })
-        // $routeparams in controller
+
         .when('/classes/:id',
             {
                 templateUrl: "class.html",
@@ -60,7 +60,7 @@ app.config(function ($routeProvider) {
         .when('/admin',
             {
                 templateUrl: "admin.html",
-              //  controller: "AdminClassesCtrl"
+              //  controller: "AdminClasssesCtrl"
             })
         .when('/admin/classes',
        {

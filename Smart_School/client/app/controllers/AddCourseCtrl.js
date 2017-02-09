@@ -24,7 +24,7 @@ app.controller('AddCourseCtrl',function($scope,$routeParams,classesService,$http
         var document =
             {
                 "CourseName":myForm.CourseName.value,
-                "TeacherName": myForm.TeacherName.value,
+                "TeacherId": myForm.TeacherId.value,
                 "CodeCourse": myForm.CourseCode.value,
                 "ClassId": $scope.ClassId
             };
@@ -33,6 +33,7 @@ app.controller('AddCourseCtrl',function($scope,$routeParams,classesService,$http
 
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 $scope.message1 =xmlhttp.responseText;
+                alert( $scope.message1);
                 $scope.$apply();
 
 
