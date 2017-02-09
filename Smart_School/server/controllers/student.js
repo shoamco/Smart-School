@@ -201,6 +201,7 @@ updateGreads:function(req,res,next) {
    //console.log(req.body.StudentGreads[0].StudentId);
  //  console.log(req.body.StudentGreads[s].Grade);
 //console.log(req.body.StudentGreads);
+
     req.body.StudentGreads.forEach(function (eachName, index){
 
       //  console.log("eachName"+eachName+"id "+req.body.StudentGreads[index].StudentId);
