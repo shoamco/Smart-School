@@ -1,6 +1,6 @@
 
 
-app.controller("CreatStudentsCtrl", function ($scope, $http) {
+app.controller("CreatStudentsCtrl", function ($scope,$rootScope, $http) {
 
    //
     $scope.createStudent = function() {
@@ -27,6 +27,7 @@ app.controller("CreatStudentsCtrl", function ($scope, $http) {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
               $scope.message1 =xmlhttp.responseText;
                 $scope.$apply();
+                $rootScope.edit=true;
                 setTimeout(function() {
                     window.open("http://localhost:5000/#/admin/students","_self");
                 }, 1000);

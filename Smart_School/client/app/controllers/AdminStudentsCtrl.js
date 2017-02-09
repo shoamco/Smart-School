@@ -4,13 +4,21 @@
 
 
 
-app.controller('AdminStudentsCtrl',function($scope,$routeParams,studentsService) {
+app.controller('AdminStudentsCtrl',function($scope,$routeParams,$rootScope,studentsService) {
+
+    if($rootScope.edit==true) {
+        $rootScope.edit = false;
+        location.reload();
+    }
+
     $scope.StudentId = $routeParams.studentId;
 
     var promise = studentsService.getStudents();
     promise.then(function (data)
     {
         $scope.AllStudents=data.data;
+
+
 
 
     });
@@ -35,6 +43,7 @@ app.controller('AdminStudentsCtrl',function($scope,$routeParams,studentsService)
                     alert( $scope.message1);
                   //  $scope.companyList=JSON.parse(xmlhttp.responseText);
                     $scope.$apply();
+
                 }
 
             }

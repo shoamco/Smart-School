@@ -1,7 +1,7 @@
 /**
  * Created by כהן on 27/01/2017.
  */
-app.controller('updateStaffCtrl',function($scope,$routeParams,usersService) {
+app.controller('updateStaffCtrl',function($scope,$routeParams,$rootScope,usersService) {
     $scope.UserId = $routeParams.UserId;
     var current=localStorage.getItem('currentUser');
     if (current== "undefined"||current==""||current==null){
@@ -52,6 +52,8 @@ app.controller('updateStaffCtrl',function($scope,$routeParams,usersService) {
 
                     alert( $scope.message1);
                     $scope.$apply();
+                    $rootScope.edit=true;
+
                     setTimeout(function() {
                         window.open("http://localhost:5000/#/admin/staff","_self");
                     }, 1000);

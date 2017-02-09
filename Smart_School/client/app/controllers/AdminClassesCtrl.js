@@ -6,7 +6,11 @@
  */
 
 
-app.controller('AdminClassesCtrl',function($scope,$routeParams,classesService) {
+app.controller('AdminClassesCtrl',function($scope,$routeParams,$rootScope,classesService) {
+    if($rootScope.edit==true) {
+        $rootScope.edit = false;
+        location.reload();
+    }
     // var current=localStorage.getItem('currentUser');
     // if (current== "undefined"||current==""||current==null){
     //     window.open("http://localhost:5000/#/login", "_self");

@@ -1,4 +1,4 @@
-app.controller('updateClassCtrl',function($scope,$routeParams,classesService,$http,$window) {
+app.controller('updateClassCtrl',function($scope,$routeParams,$rootScope,classesService,$http,$window) {
     // $scope.ClassId = $routeParams.classId;
     // var current=localStorage.getItem('currentUser');
     // if (current== "undefined"||current==""||current==null){
@@ -39,6 +39,8 @@ app.controller('updateClassCtrl',function($scope,$routeParams,classesService,$ht
 
                 alert($scope.message);
                 $scope.$apply();
+                $rootScope.edit=true;
+
                 setTimeout(function() {
                     window.open("http://localhost:5000/#/admin/classes","_self");
                 }, 1000);

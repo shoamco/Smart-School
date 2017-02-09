@@ -53,6 +53,7 @@ app.controller('updateStudentCtrl',function($scope,$routeParams,studentsService,
 
                 alert( $scope.message1);
                 $scope.$apply();
+                $rootScope.edit=true;
                 setTimeout(function() {
                     window.open("http://localhost:5000/#/admin/students","_self");
                 }, 1000);
