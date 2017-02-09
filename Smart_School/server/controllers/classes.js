@@ -234,54 +234,63 @@ var classes = {
             }
         });
     },
+
+    var: switchClasses_help = exports.switchClasses_help = function(i){
+        Classes.findOne({ClassId:i}, function (err, data) {
+
+            if (err)
+                return console.error(err);
+            else {
+                var newStudents = data.Students;
+
+                Classes.findOneAndUpdate({ClassId: (i + 1)}, {Students: newStudents}, function (err, data1) {
+                    if (err)
+                        return console.error(err);
+                    else {
+                        var idClass;
+                        if (i != 7)
+                            idClass = i+1;
+                        else
+                            idClass = "graduate"
+                        console.log("class id is "+idClass);
+
+                        newStudents.forEach(function (student) {
+                            Students.findOneAndUpdate({StudentId: student.StudentId}, {
+                                ClassId: idClass,
+                                Courses: data1.Courses
+                            }, function (err, data2) {
+                                if (err)
+                                    return console.error(err);
+                                else
+                                    console.log(data2);
+
+                            });
+                        })
+
+                    }
+
+
+                });
+            }
+        });
+
+    },
     switchClasses: function (req, res, next) {
         console.log("in the server classes- switchClasses ");
-        Classes.findOne({ClassId:i}, function (err, data) {
+        for (var i = 7; i > 0; i--) {
+            switchClasses_help(i);
+
+        }
+
+        Classes.findOneAndUpdate({ClassId: 1}, {Students: '[]'}, function (err, data) {
+
+            if (err)
+                return console.error(err);
+
+
         });
-        /*
-       for (var i=8;i<=1;i--) {
-            Classes.findOne({ClassId:i}, function (err, data) {
-
-                if (err)
-                    return console.error(err);
-                else {
-                    var newStudents=data.Students;
-                }
-
-
-                Classes.findOneAndUpdate({ClassId: i+1}, {Students: newStudents}, function (err, data1) {
-                if (err)
-                    return console.error(err);
-                else {
-
-                    var idClass;
-                    if(i!=8)
-                        idClass=i;
-                    else
-                        idClass="graduate"
-
-                    newStudents.forEach(function (student) {
-                        Students.findOneAndUpdate({StudentId: student.StudentId}, {
-                            classId: idClass,
-                            courses: data1.courses
-                        }, function (err, data1) {
-                            if (err)
-                                return console.error(err);
-                        });
-                    })
-
-                }
-
-
-            });
-            });
-
-
-        }*/
-
-        },
-
-};
+    },
+    };
 
 
 // Return the object
