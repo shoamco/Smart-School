@@ -232,7 +232,21 @@ updateGreads:function(req,res,next) {
             }
         });
     });
+            Classes.findOne({ClassId: req.body.ClassId}, function (err, data3) {
+                if (err) return console.error(err);
 
+                var arr_course=data3.Courses;
+                for(var i=0;i<arr_course.length;i++)
+                    if(arr_course[i].CourseId==req.body.CourseId)
+                    {
+
+                            arr_course[i].ConfirmTeacher="1";
+                    }
+                Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {///
+                    if (err) return console.error(err);
+                    console.log("Confirm=1");
+                });
+            });
 
 
    res.send("all student update")
