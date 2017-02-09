@@ -135,6 +135,37 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
                     }
                 }
             }
+
+
+            $scope.findConfirmUnderMe= function(courseid) {
+                for (var i=0;i<$scope.ALLCourse.length;i++)
+                {
+                    if($scope.ALLCourse[i].CourseId==courseid) {
+                        if(user.Type==4)///Principal
+                        {
+                            if($scope.ALLCourse[i].ConfirmTeacher==0)
+                                $scope.message2 = "המורה עדין לא עידכן ציונים בקורס זה";
+                            else if($scope.ALLCourse[i].ConfirmEducator==0)
+                                 $scope.message2="המחנך עדין לא אישר קורס זה";
+                            else if($scope.ALLCourse[i].ConfirmCoordinator==0)
+                                $scope.message2="הרכז שגבה עדין לא אישר קורס זה";
+                            return $scope.ALLCourse[i].ConfirmCoordinator&&$scope.ALLCourse[i].ConfirmEducator&&$scope.ALLCourse[i].ConfirmTeacher;
+                        }
+                        else if(user.Type==3) {//Coordinator
+                            if ($scope.ALLCourse[i].ConfirmTeacher == 0)
+                                $scope.message2 = "המורה עדין לא עידכן ציונים בקורס זה";
+                            else if ($scope.ALLCourse[i].ConfirmEducator == 0)
+                                $scope.message2 = "המחנך עדין לא אישר קורס זה";
+                            return $scope.ALLCourse[i].ConfirmEducator && $scope.ALLCourse[i].ConfirmTeacher;
+                        }
+                    else if(user.Type==2) {//Educator
+                            if ($scope.ALLCourse[i].ConfirmTeacher == 0)
+                                $scope.message2 = "המורה עדין לא עידכן ציונים בקורס זה";
+                            return $scope.ALLCourse[i].ConfirmTeacher;
+                        }
+                    }
+                }
+            }
 /////need  change to globl
             $scope.confirmCourse = function() {
                 // alert("in client confirmCourse");

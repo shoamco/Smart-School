@@ -143,7 +143,8 @@ var classes = {
                                  "CourseId": req.body.CodeCourse,
                                  "ConfirmEducator": "0",
                                  "ConfirmCoordinator": "0",
-                                 "ConfirmPrincipal": "0"
+                                 "ConfirmPrincipal": "0",
+                                 "ConfirmTeacher": "0",
                              });
                              Classes.findOneAndUpdate({ClassId: req.body.ClassId}, {Courses: courses}, function (err, data) {///add student  from the class
                                  if (err) return console.error(err);
@@ -171,7 +172,8 @@ var classes = {
                                      "CourseId": req.body.CodeCourse,
                                      "ConfirmEducator": "0",
                                      "ConfirmCoordinator": "0",
-                                     "ConfirmPrincipal": "0"
+                                     "ConfirmPrincipal": "0",
+                                     "ConfirmTeacher": "0",
                                  });
 
 
