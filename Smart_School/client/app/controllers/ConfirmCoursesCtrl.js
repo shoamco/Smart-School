@@ -148,15 +148,16 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
                             else if($scope.ALLCourse[i].ConfirmEducator==0)
                                  $scope.message2="המחנך עדין לא אישר קורס זה";
                             else if($scope.ALLCourse[i].ConfirmCoordinator==0)
-                                $scope.message2="הרכז שגבה עדין לא אישר קורס זה";
-                            return $scope.ALLCourse[i].ConfirmCoordinator&&$scope.ALLCourse[i].ConfirmEducator&&$scope.ALLCourse[i].ConfirmTeacher;
+                                $scope.message2="הרכז שכבה עדין לא אישר קורס זה";
+                            return $scope.ALLCourse[i].ConfirmCoordinator*$scope.ALLCourse[i].ConfirmEducator*$scope.ALLCourse[i].ConfirmTeacher;
                         }
                         else if(user.Type==3) {//Coordinator
                             if ($scope.ALLCourse[i].ConfirmTeacher == 0)
                                 $scope.message2 = "המורה עדין לא עידכן ציונים בקורס זה";
                             else if ($scope.ALLCourse[i].ConfirmEducator == 0)
                                 $scope.message2 = "המחנך עדין לא אישר קורס זה";
-                            return $scope.ALLCourse[i].ConfirmEducator && $scope.ALLCourse[i].ConfirmTeacher;
+                           // alert($scope.ALLCourse[i].ConfirmEducator*$scope.ALLCourse[i].ConfirmTeacher);
+                            return $scope.ALLCourse[i].ConfirmEducator* $scope.ALLCourse[i].ConfirmTeacher;
                         }
                     else if(user.Type==2) {//Educator
                             if ($scope.ALLCourse[i].ConfirmTeacher == 0)
@@ -217,7 +218,7 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
 
         });
         $scope.cancelConfirmCourse=function () {
-            alert("in client confirmCourse");
+          //  alert("in client confirmCourse");
 
 
             if (window.XMLHttpRequest)
