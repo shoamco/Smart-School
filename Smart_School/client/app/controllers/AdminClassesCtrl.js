@@ -14,7 +14,7 @@ app.controller('AdminClassesCtrl',function($scope,$routeParams,classesService) {
     // else {
     //     var user=JSON.parse(current);
     //
-    //     if(user.type!=5&&user.type!=4)
+    //     if(user.Type!=5&&user.Type!=4)
     //     window.open("http://localhost:5000/#/", "_self");
     // }
 

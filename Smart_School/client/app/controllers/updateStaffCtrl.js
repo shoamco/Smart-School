@@ -11,7 +11,7 @@ app.controller('updateStaffCtrl',function($scope,$routeParams,usersService) {
         var user=JSON.parse(current);
         console.log(user.UserId);
 
-        if(user.type!=5&&user.type!=4)
+        if(user.Type!=5&&user.Type!=4)
             window.open("http://localhost:5000/#/", "_self");
     }
     var promise = usersService.getUsers();

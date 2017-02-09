@@ -246,7 +246,7 @@ var classes = {
                         return console.error(err);
                     else {
                         var idClass;
-                        if (i != 7)
+                        if (i != 8)
                             idClass = i+1;
                         else
                             idClass = "graduate"
@@ -275,6 +275,7 @@ var classes = {
     },
     switchClasses: function (req, res, next) {
         console.log("in the server classes- switchClasses ");
+        switchClasses_help8();
         for (var i = 7; i > 0; i--) {
             switchClasses_help(i);
 
@@ -288,7 +289,31 @@ var classes = {
 
         });
     },
-    };
+    var: switchClasses_help8 = exports.switchClasses_help8=function(){
+        Classes.findOne({ClassId:8}, function (err, data) {
+
+            if (err)
+                return console.error(err);
+            else {
+                var newStudents = data.Students;
+
+
+                newStudents.forEach(function (student) {
+                    Students.findOneAndUpdate({StudentId: student.StudentId}, {
+                        ClassId: "graduate",
+                        Courses: '[]'
+                    }, function (err, data2) {
+                        if (err)
+                            return console.error(err);
+                        else
+                            console.log(data2);
+
+                    });
+                });
+            }
+        });
+    },
+};
 
 
 // Return the object
