@@ -39,6 +39,10 @@ app.controller('AdminStaffCtrl',function($scope,$routeParams,usersService) {
 
                     alert( $scope.message1);
                     $scope.$apply();
+                    setTimeout(function() {
+                        window.open("http://localhost:5000/#/admin/staff","_self");
+                    }, 1000);
+
 
 
                 }
@@ -71,7 +75,6 @@ app.controller('AdminStaffCtrl',function($scope,$routeParams,usersService) {
 
                         alert($scope.message);
                         $scope.$apply();
-
 
                     }
                 };

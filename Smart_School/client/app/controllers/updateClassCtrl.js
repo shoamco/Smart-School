@@ -39,6 +39,9 @@ app.controller('updateClassCtrl',function($scope,$routeParams,classesService,$ht
 
                 alert($scope.message);
                 $scope.$apply();
+                setTimeout(function() {
+                    window.open("http://localhost:5000/#/admin/classes","_self");
+                }, 1000);
 
 
             }

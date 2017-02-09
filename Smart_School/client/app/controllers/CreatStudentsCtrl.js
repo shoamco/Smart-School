@@ -27,6 +27,10 @@ app.controller("CreatStudentsCtrl", function ($scope, $http) {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
               $scope.message1 =xmlhttp.responseText;
                 $scope.$apply();
+                setTimeout(function() {
+                    window.open("http://localhost:5000/#/admin/students","_self");
+                }, 1000);
+
                 //alert(xmlhttp.responseText);
 
 
