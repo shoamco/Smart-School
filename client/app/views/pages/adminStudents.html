@@ -1,0 +1,22 @@
+<h1>all student admin </h1>
+<table>
+    <tr>
+        <th>שם פרטי</th>
+        <th>שם משפחה</th>
+        <th>תעודת זהות</th>
+        <th>ClassId</th>
+        <th>עדכון</th>
+        <th>מחיקה</th>
+    </tr>
+    <tr ng-repeat="student in AllStudents">
+        <td>{{student.FirstName}}</td>
+        <td>{{ student.LastName }}</td>
+        <td>{{ student.StudentId }}</td>
+        <td>{{ student.ClassId }}</td>
+        <th><a ng-href="#/admin/students/updateStudent/{{student.StudentId}}">עדכון</a></th>
+        <th> <input type="submit" value="מחיקה" ng-click="deleteStudent(student.StudentId)"></th>
+    </tr>
+</table>
+
+<a ng-href="#/admin/students/creatStudent">הוספת סטודנט</a></br>
+<!--<a ng-href="#/admin/students/updateStudents">עדכון</a></br>-->
