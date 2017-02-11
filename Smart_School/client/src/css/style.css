@@ -883,12 +883,12 @@ h1{
 .studentInfo
 {
     text-align: center;
-    width:85%;
+    width:70%;
     height:600px;
     position: relative;
     padding: 0px !important;
     margin: 15px;
-    margin-right: 7.5% !important;
+    margin-right: 15% !important;
     -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
     box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
     background-color:#FFF;
@@ -934,7 +934,7 @@ ul,ol{
     background-color: #2E2D30;
     border: 0px;
     float: left;
-    margin-left: 3px;
+    /*margin-left: 3px;*/
 }
 .loginButton:hover{
     color: white;
