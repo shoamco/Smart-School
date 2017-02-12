@@ -1,13 +1,5 @@
 app.controller('updateClassCtrl',function($scope,$routeParams,$rootScope,classesService,$http,$window) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-     $scope.ClassId = $routeParams.classId;
-=======
     // $scope.ClassId = $routeParams.classId;
->>>>>>> a9b24075f49689838547c6b0b99578ac7df313b4
-=======
-    // $scope.ClassId = $routeParams.classId;
->>>>>>> a9b24075f49689838547c6b0b99578ac7df313b4
     // var current=localStorage.getItem('currentUser');
     // if (current== "undefined"||current==""||current==null){
     //     window.open("http://localhost:5000/#/login", "_self");

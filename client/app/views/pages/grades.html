@@ -1,0 +1,48 @@
+
+<h1>  הקורס:{{courseId}}</h1>
+
+<h1>    המורה: "יאיר כהן"</h1>
+
+<form name="myGrade2" ng-submit="updateGreads(myGrade2)" ng-if="findConfirmEducator(courseId)==0" >
+
+    <table>
+        <tr>
+            <th>תעודת זהות</th>
+            <th>שם פרטי</th>
+            <th>שם משפחה</th>
+            <th >ציון</th>
+            <th >הערכה מילולית</th>
+        </tr>
+        <tr ng-repeat="student in MyStudents" >
+            <td>{{student.StudentId}}</td>
+            <td>{{student.FirstName}}</td>
+            <td>{{student.LastName }}</td>
+            <td><input  type ="text"  value="{{findGread(student.StudentId,courseId)}}" required  name="Grade"/></td>
+            <td><textarea rows="4" cols="50"  type ="text"    name="Evaluation">{{findEvaluation(student.StudentId,courseId)}}</textarea></td>
+
+        </tr>
+
+    </table>
+    <input type="submit"   name="submit" value="עדכן" />
+</form>
+
+<table ng-if="findConfirmEducator(courseId)==1">
+    <tr>
+        <th>תעודת זהות</th>
+        <th>שם פרטי</th>
+        <th>שם משפחה</th>
+        <th >ציון</th>
+        <th >הערכה מילולית</th>
+    </tr>
+    <tr ng-repeat="student in MyStudents"  >
+        <td>{{student.StudentId}}</td>
+        <td>{{student.FirstName}}</td>
+        <td>{{student.LastName }}</td>
+        <td>{{findGread(student.StudentId,courseId)}}</td>
+        <td>{{findEvaluation(student.StudentId,courseId)}}</td>
+
+    </tr>
+
+</table>
+
+<p style="color: red">{{message1}}</p>

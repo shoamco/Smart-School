@@ -1,0 +1,20 @@
+<h1>staff admin </h1>
+
+<table>
+    <tr>
+        <th>שם </th>
+        <th>תעודת זהות</th>
+        <th>Type</th>
+        <th>עדכון</th>
+    </tr>
+    <tr ng-repeat="staff in AllUsers">
+        <td>{{staff.UserName}}</td>
+        <td>{{staff.UserId}}</td>
+        <td>{{staff.Type}}</td>
+        <td><a ng-href="#/admin/staff/updateStaff/{{staff.UserId}}">עדכון</a></td>
+        <th> <input type="submit" value="מחיקה" ng-click="deleteUser(staff.UserId)"></th>
+    </tr>
+</table>
+
+<a ng-href="#/admin/staff/creatStaff">הוספת איש צוות</a></br>
+

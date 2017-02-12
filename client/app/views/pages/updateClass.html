@@ -1,0 +1,40 @@
+
+<h1>עדכון כיתה</h1>
+
+<form name="myForm" ng-submit="updateClass(myForm)" >
+
+
+<ul>
+
+    <li >{{myClass.ClassName}}</li>
+    <li><strong>תעודת זהות המחנך: </strong><input  id="EducatorId" type ="text" value="{{myClass.EducatorId}}" name="EducatorId" required/></li>
+    <li><strong>תעודת זהות רכז שכבה: </strong><input  id="CoordinatorId" type ="text" value="{{myClass.CoordinatorId}}" name="CoordinatorId" required/></li>
+</ul>
+
+
+
+
+<h1>קורסים</h1>
+
+    <table>
+        <tr>
+            <th>שם הקורס</th>
+        </tr>
+
+        <tr ng-repeat="course in myClass.Courses" ng-model="course">
+            <td>{{course.CoursName}}</td>
+            <td><a ng-href="#/admin/classes/updateClass/{{myClass.ClassId}}/updateCourse/{{course.CourseId}}">עדכון</a></td>
+            <th> <input type="submit" value="מחיקה" ng-click="deleteCourse(course.CourseId)"></th>
+
+        </tr>
+    </table>
+
+    <input type="submit"   name="submit" value="עדכן" />
+
+</form>
+<a ng-href="#/admin/classes/updateClass/{{myClass.ClassId}}/AddCourse">הוספה</a>
+
+<p style="color: red">{{message}}</p>
+
+
+
