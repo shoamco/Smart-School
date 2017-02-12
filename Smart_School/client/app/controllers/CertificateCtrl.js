@@ -90,9 +90,9 @@ $scope.Certificate=function () {
         document.body.removeChild(element);
     }
     download('demo.text', 'Hello world!');
+   // download("hello world", "dlText.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
 
-
-    download('demo2.text', 'Hello world!');
+  // download('demo2.docx', 'Hello world!');
 
 
 
