@@ -16,6 +16,32 @@ Text Domain: platz
 /* SOCIAM FONT ICON */
 /*-------------------------*/
 
+#signIn
+{
+    height:400px;
+    font-size:26px;
+    color:cadetblue;
+    margin-right: 30%;
+    margin-top:2%;
+    width:40%;
+    display:block;
+    background-color:white;
+    text-align:center;
+    border-radius:2%;
+    align-items:center;
+}
+#user,#password ,#enter
+{
+    background-color: white !important;
+    height: 38px;
+    width: 350px;
+    font-size: 20px;
+    text-align: center;
+    color: cadetblue;
+    border-radius: 5%;
+    border-color: cadetblue;
+}
+
 @font-face {
     font-family: 'socialicoregular';
     src: url('../font/socialico-webfont.eot');
@@ -1094,31 +1120,3 @@ ul,ol{
     text-decoration: none;
     cursor: pointer;
 }
-    /*----------------------------*/
-    /* signIn */
-    /*----------------------------*/
-
-    #signIn
-    {
-        height:400px;
-        font-size:26px;
-        color:cadetblue;
-        margin-right: 30%;
-        margin-top:2%;
-        width:40%;
-        display:block;
-        background-color:white;
-        text-align:center;
-        border-radius:2%;
-        align-items:center;
-    }
-    #user,#password ,#enter
-    {
-        background-color: white !important;
-        height: 38px;
-        width: 350px;
-        font-size: 20px;
-        text-align: center;
-        color: cadetblue;
-        border-radius: 5%;
-        border-color: cadetblue;
