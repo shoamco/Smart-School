@@ -5,10 +5,10 @@
 
 app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService) {
     /* var promise = usersService.login();
-    promise.then(function (data)
-    {
+     promise.then(function (data)
+     {
 
-    });*/
+     });*/
 
     $scope.login = function() {
 
@@ -31,10 +31,10 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 if (xmlhttp.responseText!='[]'&&xmlhttp.responseText!="null"){
                     var currentUser =xmlhttp.responseText;
-                   // console.log("currentUser~~~~~~~~~~~~",currentUser);
+                    // console.log("currentUser~~~~~~~~~~~~",currentUser);
                     // var curret =JSON.parse(currentUser);
                     // console.log("curret~~~~~~~~",curret);
-                   // curret=curret[0];
+                    // curret=curret[0];
 
                     //alert (currentUser );
                     //console.log("user____________",curret.UserName);
@@ -88,7 +88,7 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
 
                 alert(xmlhttp.responseText);
 
-        }
+            }
 
 
 
@@ -102,5 +102,3 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
     }
 
 });
-
-
