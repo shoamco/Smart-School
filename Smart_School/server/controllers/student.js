@@ -201,6 +201,7 @@ updateGreads:function(req,res,next) {
    //console.log(req.body.StudentGreads[0].StudentId);
  //  console.log(req.body.StudentGreads[s].Grade);
 //console.log(req.body.StudentGreads);
+
     req.body.StudentGreads.forEach(function (eachName, index){
 
       //  console.log("eachName"+eachName+"id "+req.body.StudentGreads[index].StudentId);
@@ -232,6 +233,22 @@ updateGreads:function(req,res,next) {
             }
         });
     });
+            Classes.findOne({ClassId: req.body.ClassId}, function (err, data3) {
+                if (err) return console.error(err);
+
+                var arr_course=data3.Courses;
+                for(var i=0;i<arr_course.length;i++)
+                    if(arr_course[i].CourseId==req.body.CourseId)
+                    {
+
+                            arr_course[i].ConfirmTeacher="1";
+                    }
+                Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {///
+                    if (err) return console.error(err);
+                    console.log("Confirm=1");
+                });
+            });
+
 
    res.send("all student update")
     },
@@ -280,11 +297,11 @@ updateGreads:function(req,res,next) {
                   //  console.log("before Confirm "+ arr_course[i].ConfirmEducator);
                    // arr_course[i].ConfirmEducator=1;
                     if(req.body.Type==2)
-                        arr_course[i].ConfirmEducator=1;
+                        arr_course[i].ConfirmEducator="1";
                     else if (req.body.Type==3)
-                        arr_course[i].ConfirmCoordinator=1;
+                        arr_course[i].ConfirmCoordinator="1";
                    else if (req.body.Type==4)
-                        arr_course[i].ConfirmPrincipal=1;
+                        arr_course[i].ConfirmPrincipal="1";
                 }
             Classes.findOneAndUpdate({ClassId: req.body.ClassId},{Courses: arr_course}, function (err, data) {///
                 if (err) return console.error(err);
@@ -400,56 +417,66 @@ updateGreads:function(req,res,next) {
 // buf is a nodejs buffer, you can either write it to a file or do anything else with it.
                 fs.writeFileSync(path.resolve('certificate/' + dataStudent.FirstName + "_" + dataStudent.LastName + '.docx'), buf);
 
-                var filePath = 'certificate/input1.docx'; // Or format the path using the `id` rest param
-                var fileName = "ans.docx"; // The default name the browser will use
-                res.download('certificate/input1.docx', 'ans4.docx', function (err) {
-                    if (err) {
-                        // Handle error, but keep in mind the response may be partially-sent
-                        // so check res.headersSent
-
-                        console.log("no");
-                    } else {
-                        console.log("ans");
-                    }
-                    //   res.download(filePath, fileName);
-                    //  console.log(dataStudent.FirstName+"_"+dataStudent.LastName);
-                });
+                // var filePath = 'certificate/input1.docx'; // Or format the path using the `id` rest param
+                // var fileName = "ans.docx"; // The default name the browser will use
+                // res.download('certificate/input1.docx', 'ans4.docx', function (err) {
+                //     if (err) {
+                //         // Handle error, but keep in mind the response may be partially-sent
+                //         // so check res.headersSent
+                //
+                //         console.log("no");
+                //     } else {
+                //         console.log("ans");
+                //     }
+                //     //   res.download(filePath, fileName);
+                //     //  console.log(dataStudent.FirstName+"_"+dataStudent.LastName);
+                // });
             });
+
             console.log("certificate for all student");
 
 
-            res.download('certificate/input1.docx', 'a.docx');
+            res.download('certificate/input1.docx', 'sss.docx');
 res.send("התעודות נוצרו")
         })
 
     },
  download: function(req, res, next) {
-     console.log(" download");
+    console.log(" download");
 
-    // Students.find(function(err, data) {
+   //Students.find(function(err, data) {
 
 
 //for(var i=0;i<3;i++) {
-    //data.forEach(function (dataStudent, index) {
-    var url = 'certificate/input1.docx';
+   // data.forEach(function (dataStudent, index) {
 
-    var filePath = 'certificate/input1.docx'; // Or format the path using the `id` rest param
-    var fileName = "ans.docx"; // The default name the browser will use
-   // console.log("i"+i);
-    res.download('certificate/input1.docx', 'a.docx');
-    // res.download('certificate/input1.docx', 'a'+i+'.docx', function (err) {
-    //     if (err) {
-    //         // Handle error, but keep in mind the response may be partially-sent
-    //         // so check res.headersSent
-    //
-    //         console.log("no");
-    //     } else {
-    //         console.log("ans");
-    //     }
-        //});
-  //  });
-    // });
-    // });
+
+ //res.download('certificate/input1.docx', 't.docx');
+     //   console.log(dataStudent.StudentId);
+//}
+    res.download('certificate/input2.docx', 'word1.docx', function (err) {
+        if (err) {
+
+
+            console.log("no");
+        } else {
+            console.log("word1.docx");
+
+        }
+        });
+     res.download('certificate/input2.docx', 'word2.docx', function (err) {
+         if (err) {
+             // Handle error, but keep in mind the response may be partially-sent
+             // so check res.headersSent
+
+             console.log("no");
+         } else {
+             console.log("word2.docx");
+            // console.log("2"+dataStudent.StudentId);
+         }
+     });
+   //});
+ //});
 
      },
 

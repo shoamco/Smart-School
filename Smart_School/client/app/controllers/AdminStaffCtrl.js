@@ -1,8 +1,12 @@
 
 
 
-app.controller('AdminStaffCtrl',function($scope,$routeParams,usersService) {
+app.controller('AdminStaffCtrl',function($scope,$routeParams,$rootScope,usersService) {
     //$scope.UserId = $routeParams.UserId;
+    if($rootScope.edit==true) {
+        $rootScope.edit = false;
+        location.reload();
+    }
     var promise = usersService.getUsers();
     promise.then(function (data)
     {
@@ -39,6 +43,11 @@ app.controller('AdminStaffCtrl',function($scope,$routeParams,usersService) {
 
                     alert( $scope.message1);
                     $scope.$apply();
+                    $rootScope.edit=true;
+                    setTimeout(function() {
+                        window.open("http://localhost:5000/#/admin/staff","_self");
+                    }, 1000);
+
 
 
                 }
@@ -71,7 +80,7 @@ app.controller('AdminStaffCtrl',function($scope,$routeParams,usersService) {
 
                         alert($scope.message);
                         $scope.$apply();
-
+                        location.reload();
 
                     }
                 };

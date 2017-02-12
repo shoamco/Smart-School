@@ -1,7 +1,7 @@
 /**
  * Created by כהן on 27/01/2017.
  */
-app.controller('updateStaffCtrl',function($scope,$routeParams,usersService) {
+app.controller('updateStaffCtrl',function($scope,$routeParams,$rootScope,usersService) {
     $scope.UserId = $routeParams.UserId;
     var current=localStorage.getItem('currentUser');
     if (current== "undefined"||current==""||current==null){
@@ -11,7 +11,7 @@ app.controller('updateStaffCtrl',function($scope,$routeParams,usersService) {
         var user=JSON.parse(current);
         console.log(user.UserId);
 
-        if(user.type!=5&&user.type!=4)
+        if(user.Type!=5&&user.Type!=4)
             window.open("http://localhost:5000/#/", "_self");
     }
     var promise = usersService.getUsers();
@@ -52,6 +52,12 @@ app.controller('updateStaffCtrl',function($scope,$routeParams,usersService) {
 
                     alert( $scope.message1);
                     $scope.$apply();
+                    $rootScope.edit=true;
+
+                    setTimeout(function() {
+                        window.open("http://localhost:5000/#/admin/staff","_self");
+                    }, 1000);
+
 
 
                 }
