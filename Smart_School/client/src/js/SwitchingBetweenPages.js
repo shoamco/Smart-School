@@ -60,7 +60,7 @@ app.config(function ($routeProvider) {
         .when('/admin',
             {
                 templateUrl: "admin.html",
-              //  controller: "AdminClasssesCtrl"
+                controller: "AdminCtrl"
             })
         .when('/admin/classes',
        {

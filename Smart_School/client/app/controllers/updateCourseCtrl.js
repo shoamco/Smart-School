@@ -1,6 +1,19 @@
 app.controller('updateCourseCtrl',function($scope,$routeParams,classesService,$http,$window) {
 
     $scope.ClassId = $routeParams.classId;
+   $scope.CourseId = $routeParams.courseId;
+    // var current=localStorage.getItem('currentUser');
+    // if (current== "undefined"||current==""||current==null){
+    //     window.open("http://localhost:5000/#/login", "_self");
+    // }
+    // else {
+    //     var user=JSON.parse(current);
+    //     console.log(user.UserId);
+    //
+    //     if(user.Type!=5&&user.Type!=4)
+    //         window.open("http://localhost:5000/#/", "_self");
+    // }
+
     $scope.CourseId = $routeParams.courseId;
     var current=localStorage.getItem('currentUser');
     if (current== "undefined"||current==""||current==null){
