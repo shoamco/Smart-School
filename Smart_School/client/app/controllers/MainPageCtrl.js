@@ -41,17 +41,37 @@ app.controller('MainPageCtrl', function ($scope,$rootScope) {
 
     }
 
-    //alert(user.Type);
+
+
+    //
+    // if( user.Type==4|| user.Type==5)
+    // {
+    //     // alert("yes");
+    //     $scope.adminType1=1;
+    // }
+    // else
+    //     $scope.adminType1=0;
+    // $scope.refresh=1;
+    //
+
     $scope.adminType= function() {
 //alert("admin"+user.Type);
+       // $rootScope.edit==true;
+       // location.reload();
+        $scope.refresh=1;
         if( user.Type==4|| user.Type==5)
         {
-            alert("yes");
+           // alert("yes");
             return 1;
         }
      else
          return 0;
+
     }
+    if( $scope.refresh==1) {
+        $scope.refresh = 0;
+              location.reload();
+           }
     $scope.admin= function() {
         window.open("http://localhost:5000/#admin","_self")
     }
