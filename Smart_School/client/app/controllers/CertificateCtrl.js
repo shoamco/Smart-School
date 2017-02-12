@@ -45,7 +45,7 @@ alert("download");
 $scope.Certificate=function () {
 
 
-    alert("admin/Certificate");
+   // alert("admin/Certificate");
     if (window.XMLHttpRequest)
         var xmlhttp = new XMLHttpRequest();
     else
@@ -75,4 +75,25 @@ $scope.Certificate=function () {
 
 
 }
+
+
+    function download(filename, text) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+    }
+    download('demo.text', 'Hello world!');
+
+
+    download('demo2.text', 'Hello world!');
+
+
+
 });

@@ -432,11 +432,11 @@ updateGreads:function(req,res,next) {
                 //     //  console.log(dataStudent.FirstName+"_"+dataStudent.LastName);
                 // });
             });
+           // saveAs('certificate/input1.docx','sss.docx');
+                console.log("certificate for all student");
 
-            console.log("certificate for all student");
 
-
-            res.download('certificate/input1.docx', 'sss.docx');
+        //    res.download('certificate/input1.docx', 'sss.docx');
 res.send("התעודות נוצרו")
         })
 
