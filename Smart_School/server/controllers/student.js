@@ -94,24 +94,26 @@ var student = {
                   });
               });
 
-
-              Classes.findOne({ClassId: data1.ClassId}, function (err, data2) {
-                  if (err) return console.error(err);
-
-                  var arr_student=data2.Students;
-                  var index;
-                  for(var i=0;i<arr_student.length;i++)
-                      if(arr_student[i].StudentId==data1.StudentId)
-                          index=i;
-                  //  console.log("index"+index);
-
-                  arr_student.splice(index,1);
-                  //    console.log(" arr_student"+ arr_student);
-                  Classes.findOneAndUpdate({ClassId: data1.ClassId},{Students:arr_student}, function (err, data) {///delete student from list student in class
+              if(data1.ClassId!="graduate") {
+                  Classes.findOne({ClassId: data1.ClassId}, function (err, data2) {
                       if (err) return console.error(err);
-                      console.log("delete student from list student in class"+data1.ClassId);
+
+                      var arr_student = data2.Students;
+                      var index;
+                      for (var i = 0; i < arr_student.length; i++)
+                          if (arr_student[i].StudentId == data1.StudentId)
+                              index = i;
+                      //  console.log("index"+index);
+
+                      arr_student.splice(index, 1);
+                      //    console.log(" arr_student"+ arr_student);
+                      Classes.findOneAndUpdate({ClassId: data1.ClassId}, {Students: arr_student}, function (err, data) {///delete student from list student in class
+                          if (err) return console.error(err);
+                          console.log("delete student from list student in class" + data1.ClassId);
+                      });
                   });
-              });
+              }
+
               }
               else {
               Classes.findOne({ClassId: data1.ClassId}, function (err, data2) {
