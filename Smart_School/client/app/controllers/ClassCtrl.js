@@ -2,13 +2,13 @@
 
  */
 app.controller('ClassCtrl',function($scope,$routeParams,$rootScope,classesService,usersService) {
-    var current=localStorage.getItem('currentUser');
-    if (current== "undefined"||current==""||current==null){
-        window.open("http://localhost:5000/#/login", "_self");
-    }
-    else {
-        var user=JSON.parse(current);
-    }
+    // var current=localStorage.getItem('currentUser');
+    // if (current== "undefined"||current==""||current==null){
+    //     window.open("http://localhost:5000/#/login", "_self");
+    // }
+    // else {
+    //     var user=JSON.parse(current);
+    // }
 
     $scope.id = $routeParams.id;
    // var userName=$rootScope.currentUser.UserName; 
