@@ -1,19 +1,22 @@
 <h1>עדכון קורס</h1>
 
+<div class="studentInfo">
+<div class="tableInfo">
+
 <form name="myForm" ng-submit="updateCourse(myForm)" >
 
+ <div>
+     <h1>{{myCourse.CoursName}}</h1><br />
 
-    <ul>
-
-        <li >{{myCourse.CoursName}}</li>
-        <li><strong>תעודת הזהות של המורה: </strong><input  id="TeacherId" type ="text" value="{{myCourse.TeacherId}}" name="TeacherId" required/></li>
-    </ul>
-
-
+        <strong>תעודת הזהות של המורה </strong><br />
+     <input  id="TeacherId" type ="text" value="{{myCourse.TeacherId}}" name="TeacherId" required/>
+    <br /><br /><br /><input class="submit" type="submit"   name="submit" value="עדכן" /><br /><br /><br /><br /><br />
 
 
-
-    <input type="submit"   name="submit" value="עדכן" />
+ </div>
 </form>
 
+
 <p style="color: red">{{message}}</p>
+</div>
+</div>

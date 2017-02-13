@@ -42,24 +42,15 @@ Text Domain: platz
     border-color: cadetblue;
 }
 
-@font-face {
-    font-family: 'socialicoregular';
-    src: url('../font/socialico-webfont.eot');
-    src: url('../font/socialico-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../font/socialico-webfont.woff2') format('woff2'),
-    url('../font/socialico-webfont.woff') format('woff'),
-    url('../font/socialico-webfont.ttf') format('truetype'),
-    url('../font/socialico-webfont.svg#socialicoregular') format('svg');
+#cert{
+    margin-right: 16%;
+    width: 100%;
 }
-
-@font-face {
-    font-family: 'socialico_plusregular';
-    src: url('../font/socialico_plus-webfont.eot');
-    src: url('../font/socialico_plus-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../font/socialico_plus-webfont.woff2') format('woff2'),
-    url('../font/socialico_plus-webfont.woff') format('woff'),
-    url('../font/socialico_plus-webfont.ttf') format('truetype'),
-    url('../font/socialico_plus-webfont.svg#socialico_plusregular') format('svg');
+#pmes
+{
+    clear: both;
+    text-align: center;
+    font-size: xx-large;
 }
 
 /*-------------------------*/
@@ -157,10 +148,10 @@ body,html{
     margin-top:0.6%;
     width: 15%;
     height: 7%;
-    opacity: 0.6%;
+    opacity: 0.6;
 }
 #stripes{
-    background: url(img/stripes.svg) no-repeat;
+    /*background: url(img/stripes.svg) no-repeat;*/
     position:absolute;
     width:27px;
     height:20px;
@@ -298,7 +289,7 @@ body,html{
     height:18px;
     right:25px;
     margin-top:25px;
-    background: url(img/cross-menu.svg) no-repeat;
+    /*background: url(img/cross-menu.svg) no-repeat;*/
     cursor:pointer;
 }
 
@@ -319,7 +310,7 @@ body,html{
     height:53px;
     left:50%;
     margin-left:-65.5px;
-    background: url(img/small-logo.svg) no-repeat;
+    /*background: url(img/small-logo.svg) no-repeat;*/
 }
 
 /*----------------------------*/
@@ -443,7 +434,20 @@ body,html{
     margin-left:10px;
     height:44px;
 }
-
+.submitC
+{
+    float: none;
+    margin-right: 8%;
+    width: calc(100% - 53px);
+    text-align: center;
+    line-height: 44px;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 15px;
+    font-weight: 400;
+    background-color: white;
+    border: none;
+    height: 44px;
+}
 
 /*----------------------------*/
 /* RESPONSIVE MENU LIST  */
@@ -540,8 +544,8 @@ h1{
     cursor:pointer;
 }
 
-#oldnew-next{background: url(img/next.svg) no-repeat;margin-left:25px;float:left;}
-#oldnew-prev{background: url(img/prev.svg) no-repeat;margin-right:25px;float:right;}
+/*#oldnew-next{background: url(img/next.svg) no-repeat;margin-left:25px;float:left;}*/
+/*#oldnew-prev{background: url(img/prev.svg) no-repeat;margin-right:25px;float:right;}*/
 
 /*----------------------------*/
 /* FOOTER */
@@ -606,7 +610,7 @@ h1{
     -webkit-appearance: none;
     box-shadow: none;
     outline: 0;
-    background: url(img/icon-newsletter.svg) no-repeat 10px 9px;
+    /*background: url(img/icon-newsletter.svg) no-repeat 10px 9px;*/
     margin:auto;
     vertical-align:central;
     font-weight:400;
@@ -637,7 +641,7 @@ h1{
     box-shadow: none;
     outline: 0;
     margin: 0;
-    background: url(img/icon-search.svg) no-repeat 12px 7px;
+    /*background: url(img/icon-search.svg) no-repeat 12px 7px;*/
     vertical-align:center;
     margin-left:-40px;
     background-color:#FFF;
@@ -645,7 +649,7 @@ h1{
 
 #loupe{
     position:absolute;
-    background: url(img/loupe.svg) no-repeat;
+    /*background: url(img/loupe.svg) no-repeat;*/
     width:28px;
     height:30px;
     right:20px;
@@ -910,7 +914,6 @@ h1{
 {
     text-align: center;
     width:70%;
-    height:600px;
     position: relative;
     padding: 0px !important;
     margin: 15px;
@@ -921,17 +924,17 @@ h1{
     border: gray solid;
     margin-top:50px;
 }
-.studentInfo table{
-    clear: both;
-    margin-bottom: 0px;
-    position: relative;
-    right: 5%;
-    margin-top: 10px;
+/*.studentInfo table{*/
+    /*clear: both;*/
+    /*margin-bottom: 0px;*/
+    /*position: relative;*/
+    /*right: 5%;*/
+    /*margin-top: 10px;*/
 
-}
+/*}*/
 .studentInfo table td{
     margin: 3px !important;
-    padding: 3px !important;
+    padding: 9px !important;
     border: gray solid;
 }
 html{
@@ -944,8 +947,8 @@ body{
     font-size:14px;
     line-height:1.42857143;
     color:#333;
-    background-color:#fff
-    width:80%;
+    background-color:#fff;
+    /*width:80%;*/
 }
 figure{margin:0}
 ul,ol{
@@ -968,13 +971,13 @@ ul,ol{
     background-color: #726f6b;
     border: 0px;
 }
-@media (min-width:768px).container
+@media (min-width:768px){.container
 {
     padding-right:15px;
     padding-left:15px;
     margin-right:auto;
     margin-left:auto
-    }
+    }}
 @media (min-width:768px){.container{width:750px}}
 @media (min-width:992px){.container{width:970px}}
 @media (min-width:1200px){.container{width:1170px}}
@@ -1079,9 +1082,98 @@ ul,ol{
     width: 100%;
     clear: both;
     position: relative;
-    top:50px;
+    margin: auto;
+}
+#admin_class{
+margin: 10%;
+}
+#class
+{
+    margin-right: 17%;
+}
+#Uclass
+{
+    margin-right: 41%;
+}
+#up{
+    margin-bottom: 3%;
+}
+#imgClass{
+    width: 23%;
+    float: left;
+    margin-left: 16%;
+}
+#imgStaff{
+    width: 46%;
+    float: left;
+    margin-left: 0%;
+    margin-top: 20%;
+
+}
+#imgStudent
+{
+    width: 39%;
+    float: left;
+    margin-left: 0%;
+    margin-top: 20%;
+}
+#my_c{
+    width: 23%;
+    float: left;
+    margin-left: 16%;
+}
+#confirm{
+ width: 23%;
+}
+.confirm{
+    margin-left: 2.5%;
+    margin-top: 4%;
+    margin-right: 10.5%;
+
+}
+.confirmAf{
+    margin-left: 2.5%;
+    margin-top: 4%;
+    margin-right: 2.5%;
+}
+.grades{
+    margin-left: 2.5%;
+    margin-top: 4%;
+    margin-right: 2.5%;
+
+}
+#gradesAfter{
+    margin-left: 10.5%;
+    margin-top: 4%;
+    margin-right: 12.5%;
+
 }
 
+.submit {
+    width: 7%;
+    height: 7%;
+    background-color: white;
+    color: black;
+    border: 2px solid rgba(102, 204, 171, 0.95);
+}
+
+.submit:hover {
+    background-color: rgba(102, 204, 171, 0.95);
+    color: white;
+}
+#addStaff{
+    margin-right: -37%;
+    margin-bottom: 10%;
+    width: 14%;
+}
+#deleteCourse{
+    background-color: white;
+    color: black;
+
+}
+#addCourse{
+    margin-right:  40%;
+}
 /* The Modal (background) */
 .modal1,.modal2,.modal3,.modal14,.modal5,.modal6,.modal7,.modal8,.modal {
     display: none; /* Hidden by default */

@@ -3,38 +3,48 @@
 
 <form name="myForm" ng-submit="updateClass(myForm)" >
 
+<div class="studentInfo" >
+    <div class="tableInfo">
+    <ul>
+        <table id="class">
+            <br/><br/>
+            <h1 >{{myClass.ClassName}}</h1>
+            <br/>
+            <tr>
 
-<ul>
-
-    <li >{{myClass.ClassName}}</li>
-    <li><strong>תעודת זהות המחנך: </strong><input  id="EducatorId" type ="text" value="{{myClass.EducatorId}}" name="EducatorId" required/></li>
-    <li><strong>תעודת זהות רכז שכבה: </strong><input  id="CoordinatorId" type ="text" value="{{myClass.CoordinatorId}}" name="CoordinatorId" required/></li>
-</ul>
-
-
+                   <td> <li><strong>תעודת זהות המחנך: </strong><input  id="EducatorId" type ="text" value="{{myClass.EducatorId}}" name="EducatorId" required/></li></td>
+                    <td><li><strong>תעודת זהות רכז שכבה: </strong><input  id="CoordinatorId" type ="text" value="{{myClass.CoordinatorId}}" name="CoordinatorId" required/></li></td>
+            </tr>
+        </table>
+    </ul>
+    </div>
 
 
-<h1>קורסים</h1>
 
-    <table>
-        <tr>
-            <th>שם הקורס</th>
-        </tr>
+    <br/>
+    <input class="submit" type="submit"   name="submit" value="עדכן" />
+    <br/><br/><br/>
+    <h1 >קורסים</h1>
 
-        <tr ng-repeat="course in myClass.Courses" ng-model="course">
-            <td>{{course.CoursName}}</td>
-            <td><a ng-href="#/admin/classes/updateClass/{{myClass.ClassId}}/updateCourse/{{course.CourseId}}">עדכון</a></td>
-            <th> <input type="submit" value="מחיקה" ng-click="deleteCourse(course.CourseId)"></th>
-
-        </tr>
-    </table>
-
+        <table id="Uclass">
     <input type="submit"   name="submit" value="עדכן" />
 
+            <tr ng-repeat="course in myClass.Courses" ng-model="course">
+                <td>{{course.CoursName}}</td>
+                <td><a ng-href="#/admin/classes/updateClass/{{myClass.ClassId}}/updateCourse/{{course.CourseId}}">עדכון</a></td>
+                <td> <input id="deleteCourse" type="submit" value="מחיקה" ng-click="deleteCourse(course.CourseId)"></td>
+
+            </tr>
+        </table>
+
+
+
+    <br />
+    <button id="add" class="submit"><a ng-href="#/admin/classes/updateClass/{{myClass.ClassId}}/AddCourse">הוספה</a></button>
+
+
+    <p style="color: red">{{message}}</p>
+</div>
 </form>
-<a ng-href="#/admin/classes/updateClass/{{myClass.ClassId}}/AddCourse">הוספה</a>
-
-<p style="color: red">{{message}}</p>
-
 
 

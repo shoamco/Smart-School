@@ -5,13 +5,13 @@
 <div class="studentInfo">
 <form name="myGrade2" ng-submit="updateGreads(myGrade2)" ng-if="findConfirmEducator(courseId)==0" >
 
-    <table>
+    <table class="grades">
         <tr>
-            <th>תעודת זהות</th>
-            <th>שם פרטי</th>
-            <th>שם משפחה</th>
-            <th >ציון</th>
-            <th >הערכה מילולית</th>
+            <td><h1>תעודת זהות</h1></td>
+            <td><h1>שם פרטי</h1></td>
+            <td><h1>שם משפחה</h1></td>
+            <td><h1>ציון</h1></td>
+            <td><h1>הערכה מילולית</h1></td>
         </tr>
         <tr ng-repeat="student in MyStudents" >
             <td>{{student.StudentId}}</td>
@@ -23,16 +23,17 @@
         </tr>
 
     </table>
-    <input type="submit"   name="submit" value="עדכן" />
+    <br />
+    <input id="up" class="submit" type="submit"   name="submit" value="עדכן" />
 </form>
 
-<table ng-if="findConfirmEducator(courseId)==1">
+<table id="gradesAfter" ng-if="findConfirmEducator(courseId)==1">
     <tr>
-        <th>תעודת זהות</th>
-        <th>שם פרטי</th>
-        <th>שם משפחה</th>
-        <th >ציון</th>
-        <th >הערכה מילולית</th>
+        <td><h1>תעודת זהות</h1></td>
+        <td><h1>שם פרטי</h1></td>
+        <td><h1>שם משפחה</h1></td>
+        <td><h1>ציון</h1></td>
+        <td><h1>הערכה מילולית</h1></td>
     </tr>
     <tr ng-repeat="student in MyStudents"  >
         <td>{{student.StudentId}}</td>

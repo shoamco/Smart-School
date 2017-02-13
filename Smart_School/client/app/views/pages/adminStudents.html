@@ -1,22 +1,30 @@
-<h1>all student admin </h1>
-<table>
-    <tr>
-        <th>שם פרטי</th>
-        <th>שם משפחה</th>
-        <th>תעודת זהות</th>
-        <th>ClassId</th>
-        <th>עדכון</th>
-        <th>מחיקה</th>
-    </tr>
-    <tr ng-repeat="student in AllStudents">
-        <td>{{student.FirstName}}</td>
-        <td>{{ student.LastName }}</td>
-        <td>{{ student.StudentId }}</td>
-        <td>{{ student.ClassId }}</td>
-        <th><a ng-href="#/admin/students/updateStudent/{{student.StudentId}}">עדכון</a></th>
-        <th> <input type="submit" value="מחיקה" ng-click="deleteStudent(student.StudentId)"></th>
-    </tr>
-</table>
 
-<a ng-href="#/admin/students/creatStudent">הוספת סטודנט</a></br>
+<div class="studentInfo">
+    <div class="tableInfo">
+        <div>
+            <div >
+                <img src="/bus.jpg" id="imgStudent"></div>
+            <table id="admin_class">
+                <tr >
+                    <td><h3>שם פרטי</h3></td>
+                    <td><h3>שם משפחה</h3></td>
+                    <td><h3>תעודת זהות</h3></td>
+                    <td><h3>ClassId</h3></td>
+                    <td><h3>עדכון</h3></td>
+                    <td><h3>מחיקה</h3></td>
+                </tr>
+                <tr data-ng-repeat="student in AllStudents" class="ng-scope">
+                    <td>{{student.FirstName}}</td>
+                    <td>{{ student.LastName }}</td>
+                    <td>{{ student.StudentId }}</td>
+                    <td>{{ student.ClassId }}</td>
+                    <td><a ng-href="#/admin/students/updateStudent/{{student.StudentId}}">עדכון</a></td>
+                    <td> <input id="deleteCourse" type="submit" value="מחיקה" ng-click="deleteStudent(student.StudentId)"></td>
+                </tr>
+            </table>
+
+            <button id="addStaff" class="submit"><a ng-href="#/admin/students/creatStudent">הוספת סטודנט</a></br></button>
+        </div>
+    </div>
+</div>
 <!--<a ng-href="#/admin/students/updateStudents">עדכון</a></br>-->

@@ -1,20 +1,35 @@
-<h1>staff admin </h1>
+<h1>צוות </h1>
 
-<table>
-    <tr>
-        <th>שם </th>
-        <th>תעודת זהות</th>
-        <th>Type</th>
-        <th>עדכון</th>
-    </tr>
-    <tr ng-repeat="staff in AllUsers">
-        <td>{{staff.UserName}}</td>
-        <td>{{staff.UserId}}</td>
-        <td>{{staff.Type}}</td>
-        <td><a ng-href="#/admin/staff/updateStaff/{{staff.UserId}}">עדכון</a></td>
-        <th> <input type="submit" value="מחיקה" ng-click="deleteUser(staff.UserId)"></th>
-    </tr>
-</table>
 
-<a ng-href="#/admin/staff/creatStaff">הוספת איש צוות</a></br>
+<div class="studentInfo">
+    <div class="tableInfo">
+        <div>
+            <div >
+                <img src="/staffB.jpg" id="imgStaff"></div>
+            <table id="admin_class">
+                <tr >
+                    <td><h3>שם המורה</h3></td>
+                    <td><h3>תעודת זהות</h3></td>
+                    <td><h3>מספר הרשאה</h3></td>
+                    <td><h3>עדכון</h3></td>
+                    <td><h3>מחיקה</h3></td>
+                </tr>
+                <tr data-ng-repeat="staff in AllUsers" class="ng-scope">
+                    <td>{{staff.UserName}}</td>
+                    <td>{{staff.UserId}}</td>
+                    <td>{{staff.Type}}</td>
+                    <td><a ng-href="#/admin/staff/updateStaff/{{staff.UserId}}">עדכון</a></td>
+                    <td> <input id="deleteCourse" type="submit" value="מחיקה" ng-click="deleteUser(staff.UserId)"></td>
+                </tr>
+            </table>
+            <button id="addStaff" class="submit"><a ng-href="#/admin/staff/creatStaff">הוספת איש צוות</a></br></button>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
 

@@ -1,9 +1,18 @@
-<h1>update staff </h1>
+
 
 <form name="myForm1" ng-submit="updateStaff(myForm1)">
-    <strong>שם : </strong><input   type ="text" value="{{user.UserName}}" name="UserName" required/></br>
+    <div class="studentInfo">
+        <div class="tableInfo">
+
+            <h1>עדכון איש צוות </h1>
+            <table id="addCourse">
+                <tr><td> <br />
+
+            <strong>שם</strong> <br /><input   type ="text" value="{{user.UserName}}" name="UserName" required/></br>
     <!--<strong>תז : </strong><input   type ="text" value="{{user.UserId}}" name="UserId" required/></br>-->
-    <strong>הרשאה:</strong><select   name="Type"  required>
+    <strong>הרשאה</strong>
+    <br />
+    <select   name="Type"  required>
     <option value="{{user.UserType}}" selected>הרשאה</option>
         <option value="1" >מורה</option>
         <option value="2"  > מחנך</option>
@@ -12,5 +21,10 @@
         <option value="5"  >מזכירה</option>
 
     </select></br>
-    <input type="submit" value="עדכן"></td>
+                   </td></tr></table>
+            <br />
+            <input id="up" class="submit" type="submit" value="עדכן">
+            <br />
+        </div>
+    </div>
 </form>

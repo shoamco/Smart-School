@@ -1,10 +1,19 @@
-<h3>איש צוות חדש: </h3>
+
 
 <form name="myForm1" ng-submit="createStuff(myForm1)">
-    <strong>שם : </strong><input   type ="text"  name="UserName" required/></br>
-    <strong>תז : </strong><input   type ="text"  name="UserId" required/></br>
-    <strong>סיסמא : </strong><input   type ="text"  name="password" required/></br>
-    <strong>הרשאה:</strong><select   name="Type"  required>
+
+    <div class="studentInfo">
+        <div class="tableInfo">
+            <br />
+            <h1>איש צוות חדש: </h1>
+
+
+    <table id="addCourse">
+        <tr><td> <br />
+            <strong>שם </strong><br /><input   type ="text"  name="UserName" required/></br>
+    <strong>תז </strong><br /><input   type ="text"  name="UserId" required/></br>
+    <strong>סיסמא </strong><br /><input   type ="text"  name="password" required/></br>
+    <strong>הרשאה</strong><br /><select   name="Type"  required>
 
     <option value="1" >מורה</option>
     <option value="2"  > מחנך</option>
@@ -12,6 +21,16 @@
     <option value="4">מנהל</option>
     <option value="5"  >מזכירה</option>
 
-</select></br>
-    <input type="submit" value="אישור"></td>
+            </select>
+            <br />
+           </td></tr></br>
+    </table>
+            <br />
+
+    <input class="submit" type="submit" value="אישור"></td>
+            <br />
+            <br />
+            <br />
+        </div>
+    </div>
 </form>
