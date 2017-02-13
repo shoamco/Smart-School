@@ -1,0 +1,105 @@
+
+<div class="studentInfo">
+    <div style="background-color:red">
+        <div class="col-xs-12 col-sm-4">
+            <figure class="studentFi">
+                <img class=" studentIm" img src="/1.jpg" alt="{{student.FirstName}}" />
+                <figcaption>{{student.FirstName}}</figcaption>
+            </figure>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <p><strong>שם פרטי: </strong>{{student.FirstName}}</p> 
+            <p><strong>משפחה : </strong>{{student.LastName}}</p>
+            <p><strong>כיתה : </strong>{{student.ClassName}}</p>
+            <p><strong>שנתון : </strong>{{student.year}}</p>
+            <p><strong>שם המורה : </strong>{{student.TeacherName}}</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+        <div class="tableInfo">
+            <div>
+                <table>
+                    <tr>
+                        <td>שם הקורס</td>
+                        <td>קוד הקורס</td>
+                        <td>מרצה הקורס</td>
+                        <td>הערכה מילולית</td>
+                        <td>ציון קורס</td>
+                    <tr>
+                    <tr data-ng-repeat="course in student.Courses">
+                        <td>{{course.CoursName}}</td>
+                        <td>{{course.CourseId}}</td>
+                        <td>{{course.TeacherName}}</td>
+                        <td>{{course.Evaluation}}</td>
+                        <td>{{course.Grade}}</td>
+                    <tr>
+                </table>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div>
+    <div class="row">
+        <div class="col-s-4 col-md-8" style="background-color:lavenderblush; height:250px;text-align: center;">
+            <section class="work">
+                <figure class="white">
+                    <a ng-href="#/classes/{{id}}/students/{{student.StudentId}}"   >
+                        <img img src="/1.jpg" alt="{{student.FirstName}}" />
+                    </a>
+                    <div id="wrapper-part-info">
+                        <div id="part-info">{{student.FirstName + " " + student.LastName }}</div>
+                    </div>
+                </figure>
+            </section>
+        </div>
+        <div class="col-s-4 col-md-8">
+            <p >{{student.FirstName}}</p>
+            <p ng-data>{{student.LastName}}</p>
+            <p>{{student.ClassName}}</p>
+            <p>{{student.TeacherName}}</p>
+        </div>
+    </div>-->
+
+
+
+
+
+
+
+
+
+
+

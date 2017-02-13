@@ -22,6 +22,7 @@
     <script src="StudentCtrl.js" ></script>
     <script src="StudentsCtrl.js" ></script>
     <script src="MainPageCtrl.js" ></script>
+    <script src="adminCtrl.js" ></script>
     <script src="AdminStaffCtrl.js" ></script>
     <script src="AdminClassesCtrl.js" ></script>
     <script src="AdminStudentsCtrl.js" ></script>
@@ -59,21 +60,27 @@
 
     <link href='style.css' rel='stylesheet' type='text/css'>
 </head>
+
 <body ng-controller="MainPageCtrl">
 <a name="ancre"></a>    <!-- CACHE -->
 <div class="cache"></div>
 
 <div id="wrapper-header">
     <div id="main-header" class="object">
-        <div class="logo"><img src="/logo.jpg" alt="logo platz" height="38" width="90"></div>
+        <div class="logo"> <!--<img img src="/logo.jpg"/>--></div>
 
     </div>
+<!--<button class="loginButton" ng-style= "loginButton" ng-click="signInOut()">login</button>-->
+
+<button   class="loginButton" ng-style="signOutButton" ng-click="signInOut()">sign out</button>
+    <button class="loginButton"  ng-style="adminButton" ng-click="admin()"   >admin</button>
 
 </div>
-<button ng-style= "loginButton" ng-click="signInOut()">login</button>
-<button  ng-style="signOutButton" ng-click="signInOut()">sign out</button>
+
 
 <!---->
+
+
 <div id="wrapper-container">
     <div ng-view>
         <div id="main-container-footer">
@@ -108,16 +115,17 @@
 <div id="wrapper-copyright" data-spy="affix-bottom">
     <div class="copyright">
         <div class="copy-text object">
-            Copyright © 2016. Template by <a style="color:#D0D1D4;" href="https://dcrazed.com/">Dcrazed</a>
+            Copyright © 2016.Smart-School</a>
         </div>
-        <div class="wrapper-navbouton">
+        <!--<div class="wrapper-navbouton">
             <a href="https://www.google.co.il/webhp?as_qdr=all&gws_rd=ssl" class="google object">g</a>
             <a href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fhome.php" class="facebook object">f</a>
             <a href="https://www.linkedin.com/" class="linkin object">i</a>
-        </div>
+        </div>-->
     </div>
 
 </div>
+
 
 
 <!-- SCRIPT -->

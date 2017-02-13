@@ -1,11 +1,11 @@
 
-<h1>  הקורס:{{courseId}}</h1>
-
-<h1>    {{user.Type}}הרשאה עבור אישור כיתה </h1>
+<!---->
 
 
 <form name="myGrade" ng-submit="confirmCourse(myGrade)" ng-if="findConfirm(courseId)==0" >
 
+    <!--<div class="tableInfo">-->
+        <!--<div>-->
     <table>
         <tr>
             <th>תעודת זהות</th>
@@ -25,10 +25,15 @@
 
 
     </table>
+
     <input type="submit"   name="submit" value="אשר" ng-if="findConfirmUnderMe(courseId)==1"/>
+    <!--</div>-->
+    <!--</div>-->
+
 </form>
 
 <form name="myGrade2" ng-submit="cancelConfirmCourse()" ng-if="findConfirm(courseId)==1">
+
     <table  >
         <tr>
             <th>תעודת זהות</th>
@@ -48,6 +53,8 @@
 
     </table>
     <input type="submit"   name="submit" value="ביטול האישור" ng-if="findConfirmAboveMe(courseId)==0" />
+
 </form>
+
 <p style="color: red">{{message2}}</p>
 <p style="color: red">{{message1}}</p>

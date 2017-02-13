@@ -16,6 +16,32 @@ Text Domain: platz
 /* SOCIAM FONT ICON */
 /*-------------------------*/
 
+#signIn
+{
+    height:400px;
+    font-size:26px;
+    color:cadetblue;
+    margin-right: 30%;
+    margin-top:2%;
+    width:40%;
+    display:block;
+    background-color:white;
+    text-align:center;
+    border-radius:2%;
+    align-items:center;
+}
+#user,#password ,#enter
+{
+    background-color: white !important;
+    height: 38px;
+    width: 350px;
+    font-size: 20px;
+    text-align: center;
+    color: cadetblue;
+    border-radius: 5%;
+    border-color: cadetblue;
+}
+
 @font-face {
     font-family: 'socialicoregular';
     src: url('../font/socialico-webfont.eot');
@@ -74,8 +100,8 @@ ul {
 body,html{
     padding:0;margin:0;
     background-color:#F4F4F4;
-}
 
+}
 .cache{
     width:100%;
     height:100%;
@@ -227,6 +253,7 @@ body,html{
     float:left;
     width:100%;
     height:auto;
+
 }
 
 .container,.container-footer {
@@ -882,12 +909,12 @@ h1{
 .studentInfo
 {
     text-align: center;
-    width:85%;
+    width:70%;
     height:600px;
     position: relative;
     padding: 0px !important;
     margin: 15px;
-    margin-right: 7.5% !important;
+    margin-right: 15% !important;
     -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
     box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
     background-color:#FFF;
@@ -918,14 +945,29 @@ body{
     line-height:1.42857143;
     color:#333;
     background-color:#fff
+    width:80%;
 }
-
 figure{margin:0}
 ul,ol{
     margin-top:0;
     margin-bottom:10px
 }
 
+.loginButton{
+    height: 100%;
+    width: 10%;
+    color: white;
+    background-color: #2E2D30;
+    border: 0px;
+    float: left;
+    /*margin-left: 3px;*/
+}
+.loginButton:hover{
+    color: white;
+    font-size: 15px;
+    background-color: #726f6b;
+    border: 0px;
+}
 @media (min-width:768px).container
 {
     padding-right:15px;
@@ -1040,3 +1082,41 @@ ul,ol{
     top:50px;
 }
 
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+   position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+   left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgb(0,0,0); /* Fallback color */
+   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

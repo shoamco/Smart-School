@@ -11,9 +11,9 @@
         <div class="col-xs-12 col-sm-4">
             <p><strong>שם פרטי: </strong>{{student.FirstName}}</p> 
             <p><strong>משפחה : </strong>{{student.LastName}}</p>
-            <p><strong>כיתה : </strong>{{student.ClassName}}</p>
-            <p><strong>שנתון : </strong>{{student.year}}</p>
-            <p><strong>שם המורה : </strong>{{student.TeacherName}}</p>
+            <p><strong>כיתה : </strong>{{myClass.ClassName}}</p>
+            <!--<p><strong>שנתון : </strong>{{student.year}}</p>-->
+            <p><strong>שם המורה : </strong>{{findTeacher(myClass.EducatorId)}}</p>
         </div>
     </div>
 
@@ -31,7 +31,7 @@
                     <tr data-ng-repeat="course in student.Courses">
                         <td>{{course.CoursName}}</td>
                         <td>{{course.CourseId}}</td>
-                        <td>{{course.TeacherName}}</td>
+                        <td>{{findTeacher(course.TeacherId)}}</td>
                         <td>{{course.Evaluation}}</td>
                         <td>{{course.Grade}}</td>
                     <tr>

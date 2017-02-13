@@ -94,24 +94,26 @@ var student = {
                   });
               });
 
-
-              Classes.findOne({ClassId: data1.ClassId}, function (err, data2) {
-                  if (err) return console.error(err);
-
-                  var arr_student=data2.Students;
-                  var index;
-                  for(var i=0;i<arr_student.length;i++)
-                      if(arr_student[i].StudentId==data1.StudentId)
-                          index=i;
-                  //  console.log("index"+index);
-
-                  arr_student.splice(index,1);
-                  //    console.log(" arr_student"+ arr_student);
-                  Classes.findOneAndUpdate({ClassId: data1.ClassId},{Students:arr_student}, function (err, data) {///delete student from list student in class
+              if(data1.ClassId!="graduate") {
+                  Classes.findOne({ClassId: data1.ClassId}, function (err, data2) {
                       if (err) return console.error(err);
-                      console.log("delete student from list student in class"+data1.ClassId);
+
+                      var arr_student = data2.Students;
+                      var index;
+                      for (var i = 0; i < arr_student.length; i++)
+                          if (arr_student[i].StudentId == data1.StudentId)
+                              index = i;
+                      //  console.log("index"+index);
+
+                      arr_student.splice(index, 1);
+                      //    console.log(" arr_student"+ arr_student);
+                      Classes.findOneAndUpdate({ClassId: data1.ClassId}, {Students: arr_student}, function (err, data) {///delete student from list student in class
+                          if (err) return console.error(err);
+                          console.log("delete student from list student in class" + data1.ClassId);
+                      });
                   });
-              });
+              }
+
               }
               else {
               Classes.findOne({ClassId: data1.ClassId}, function (err, data2) {
@@ -160,23 +162,26 @@ var student = {
               console.log("the student " + req.params.id + " not  exists");
           //}
           else{
-              Classes.findOne({ClassId: data.ClassId}, function (err, data1) {
-                  if (err) return console.error(err);
+              console.log("ClassId"+data.ClassId);
+              if(data.ClassId!="graduate") {
+                  Classes.findOne({ClassId: data.ClassId}, function (err, data1) {
+                      if (err) return console.error(err);
 
-                  var arr_student=data1.Students;
-                  var index;
-                for(var i=0;i<arr_student.length;i++)
-                    if(arr_student[i].StudentId==data.StudentId)
-                        index=i;
-                //  console.log("index"+index);
+                      var arr_student = data1.Students;
+                      var index;
+                      for (var i = 0; i < arr_student.length; i++)
+                          if (arr_student[i].StudentId == data.StudentId)
+                              index = i;
+                      //  console.log("index"+index);
 
-            arr_student.splice(index,1);
-              //    console.log(" arr_student"+ arr_student);
-              Classes.findOneAndUpdate({ClassId: data.ClassId},{Students:arr_student}, function (err, data) {///delete student from list student in class
-                  if (err) return console.error(err);
-                  console.log("delete student from list student in class");
-              });
-          });
+                      arr_student.splice(index, 1);
+                      //    console.log(" arr_student"+ arr_student);
+                      Classes.findOneAndUpdate({ClassId: data.ClassId}, {Students: arr_student}, function (err, data) {///delete student from list student in class
+                          if (err) return console.error(err);
+                          console.log("delete student from list student in class");
+                      });
+                  });
+              }
               Students.remove({StudentId: data.StudentId}, function(err) {
                   if (!err) {
                       console.log("the student "+req.params.id+ " delete from the student list");
@@ -417,56 +422,67 @@ updateGreads:function(req,res,next) {
 // buf is a nodejs buffer, you can either write it to a file or do anything else with it.
                 fs.writeFileSync(path.resolve('certificate/' + dataStudent.FirstName + "_" + dataStudent.LastName + '.docx'), buf);
 
-                var filePath = 'certificate/input1.docx'; // Or format the path using the `id` rest param
-                var fileName = "ans.docx"; // The default name the browser will use
-                res.download('certificate/input1.docx', 'ans4.docx', function (err) {
-                    if (err) {
-                        // Handle error, but keep in mind the response may be partially-sent
-                        // so check res.headersSent
-
-                        console.log("no");
-                    } else {
-                        console.log("ans");
-                    }
-                    //   res.download(filePath, fileName);
-                    //  console.log(dataStudent.FirstName+"_"+dataStudent.LastName);
-                });
+                // var filePath = 'certificate/input1.docx'; // Or format the path using the `id` rest param
+                // var fileName = "ans.docx"; // The default name the browser will use
+                // res.download('certificate/input1.docx', 'ans4.docx', function (err) {
+                //     if (err) {
+                //         // Handle error, but keep in mind the response may be partially-sent
+                //         // so check res.headersSent
+                //
+                //         console.log("no");
+                //     } else {
+                //         console.log("ans");
+                //     }
+                //     //   res.download(filePath, fileName);
+                //     //  console.log(dataStudent.FirstName+"_"+dataStudent.LastName);
+                // });
             });
-            console.log("certificate for all student");
+           // saveAs('certificate/input1.docx','sss.docx');
+                console.log("certificate for all student");
 
 
-            res.download('certificate/input1.docx', 'a.docx');
+        //    res.download('certificate/input1.docx', 'sss.docx');
 res.send("התעודות נוצרו")
         })
 
     },
  download: function(req, res, next) {
-     console.log(" download");
+    console.log(" download");
 
-    // Students.find(function(err, data) {
+
+   //Students.find(function(err, data) {
 
 
 //for(var i=0;i<3;i++) {
-    //data.forEach(function (dataStudent, index) {
-    var url = 'certificate/input1.docx';
+   // data.forEach(function (dataStudent, index) {
 
-    var filePath = 'certificate/input1.docx'; // Or format the path using the `id` rest param
-    var fileName = "ans.docx"; // The default name the browser will use
-   // console.log("i"+i);
-    res.download('certificate/input1.docx', 'a.docx');
-    // res.download('certificate/input1.docx', 'a'+i+'.docx', function (err) {
-    //     if (err) {
-    //         // Handle error, but keep in mind the response may be partially-sent
-    //         // so check res.headersSent
-    //
-    //         console.log("no");
-    //     } else {
-    //         console.log("ans");
-    //     }
-        //});
-  //  });
-    // });
-    // });
+
+ //res.download('certificate/input1.docx', 't.docx');
+     //   console.log(dataStudent.StudentId);
+//}
+    res.download('certificate/input2.docx', 'word1.docx', function (err) {
+        if (err) {
+
+
+            console.log("no");
+        } else {
+            console.log("word1.docx");
+
+        }
+        });
+     res.download('certificate/input2.docx', 'word2.docx', function (err) {
+         if (err) {
+             // Handle error, but keep in mind the response may be partially-sent
+             // so check res.headersSent
+
+             console.log("no");
+         } else {
+             console.log("word2.docx");
+            // console.log("2"+dataStudent.StudentId);
+         }
+     });
+   //});
+ //});
 
      },
 
