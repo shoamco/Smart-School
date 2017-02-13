@@ -23,6 +23,7 @@ var classes = {
                     });
                     Users.findOneAndUpdate({UserId: req.body.EducatorId}, {Type: 2}, function (err, data2) {
                         if (err) return console.error(err);
+                        res.send("הכיתה עודכנה");
 
                     });
                 }
@@ -283,7 +284,7 @@ var classes = {
 
         }
 
-        Classes.findOneAndUpdate({ClassId: 1}, {Students: '[]'}, function (err, data) {
+        Classes.findOneAndUpdate({ClassId: 1}, {Students: ''}, function (err, data) {
 
             if (err)
                 return console.error(err);
@@ -303,7 +304,7 @@ var classes = {
                 newStudents.forEach(function (student) {
                     Students.findOneAndUpdate({StudentId: student.StudentId}, {
                         ClassId: "graduate",
-                        Courses: '[]'
+                        Courses: ''
                     }, function (err, data2) {
                         if (err)
                             return console.error(err);

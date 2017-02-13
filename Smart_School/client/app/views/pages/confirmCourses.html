@@ -1,6 +1,6 @@
 
 <!---->
-<div class="studentInfo" ng-if="findConfirm(courseId)==0">
+
 
 <form name="myGrade" ng-submit="confirmCourse(myGrade)" ng-if="findConfirm(courseId)==0" >
 
@@ -31,8 +31,7 @@
     <!--</div>-->
 
 </form>
-</div>
-<div class="studentInfo" ng-if="findConfirm(courseId)==1" >
+
 <form name="myGrade2" ng-submit="cancelConfirmCourse()" ng-if="findConfirm(courseId)==1">
 
     <table  >
@@ -56,6 +55,6 @@
     <input type="submit"   name="submit" value="ביטול האישור" ng-if="findConfirmAboveMe(courseId)==0" />
 
 </form>
-</div>
+
 <p style="color: red">{{message2}}</p>
 <p style="color: red">{{message1}}</p>
