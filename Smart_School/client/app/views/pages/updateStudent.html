@@ -9,7 +9,7 @@
 
 
                 <td><select id ="studentclass"  name="ClassId"   name="ClassId" >
-                  <option value="{{student.ClassId}}" selected>כיתה</option>
+                  <!--<option value="{{student.ClassId}}" selected>כיתה</option>-->
                     <option value="1" >א</option>
                     <option value="2"  > ב</option>
                     <option value="3">ג</option>
@@ -24,30 +24,30 @@
 
 
 
-<h1>קורסים</h1>
+<!--<h1>קורסים</h1>-->
 
 
 
 
-<table>
-    <tr>
-        <th>שם הקורס</th>
-        <td>CourseId</td>
-        <th>ציון</th>
-        <th>הערכה מילולית</th>
+<!--<table>-->
+    <!--<tr>-->
+        <!--<th>שם הקורס</th>-->
+        <!--<td>CourseId</td>-->
+        <!--<th>ציון</th>-->
+        <!--<th>הערכה מילולית</th>-->
 
-    </tr>
-    <tr ng-repeat="course in student.Courses" ng-model="course">
+    <!--</tr>-->
+    <!--<tr ng-repeat="course in student.Courses" ng-model="course">-->
 
 
 
-        <td>{{course.CoursName}} </td>
-        <td> {{course.CourseId}}</td>
-        <td>{{ course.Grade }}</td>
-        <td>{{ course.Evaluation}}</td>
+        <!--<td>{{course.CoursName}} </td>-->
+        <!--<td> {{course.CourseId}}</td>-->
+        <!--<td>{{ course.Grade }}</td>-->
+        <!--<td>{{ course.Evaluation}}</td>-->
 
-    </tr>
-</table>
+    <!--</tr>-->
+<!--</table>-->
 
     <input type="submit"   name="submit" value="עדכן" />
 </form>

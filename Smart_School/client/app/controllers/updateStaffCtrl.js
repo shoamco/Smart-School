@@ -22,7 +22,7 @@ app.controller('updateStaffCtrl',function($scope,$routeParams,$rootScope,usersSe
         for (var i = 0; i < $scope.AllUsers.length; i++) {
 
             if ($scope.AllUsers[i].UserId ==  $scope.UserId){
-                alert("I am in if");
+              //  alert("I am in if");
                 $scope.user = $scope.AllUsers[i];}
         }
 
@@ -30,7 +30,7 @@ app.controller('updateStaffCtrl',function($scope,$routeParams,$rootScope,usersSe
 
 //alert("updateStaff in controller");
 
-        alert(myForm1.Type.value);
+       // alert(myForm1.Type.value);
             if (window.XMLHttpRequest)
                 var xmlhttp = new XMLHttpRequest();
             else
