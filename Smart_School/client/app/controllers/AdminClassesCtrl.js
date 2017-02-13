@@ -41,8 +41,6 @@ app.controller('AdminClassesCtrl',function($scope,$routeParams,$rootScope,classe
     $scope.findTeacher = function(teacherid) {
        // alert(teacherid);
         for (var i = 0; i < $scope.Users.length; i++) {
-            alert("ggg");
-           alert( $scope.Users[i].UserId);
            if (teacherid==  $scope.Users[i].UserId) {
                return  $scope.Users[i].UserName;
 
