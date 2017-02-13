@@ -1,5 +1,6 @@
 <h1>תעודה</h1>
-<p style="color: red;margin: auto">{{message1}}</p>
+<div id="cert">
+
 <form name="myForm" ng-submit="Certificate()" id="main-container-image">
     <section class="work">
         <figure class="white">
@@ -7,7 +8,7 @@
                 <img img src="/cert.jpg" />
             </a>
             <div id="wrapper-part-info">
-               <input type="submit" id="part-info" value="יצירת תעודות">
+               <input type="submit" class="submitC" value="יצירת תעודות">
             </div>
         </figure>
     </section>
@@ -21,18 +22,13 @@
                 <img img src="/d.jpg" />
             </a>
             <div id="wrapper-part-info">
-                <input type="submit" id="part-info" value="הורדת תעודות">
+                <input type="submit" class="submitC" value="הורדת תעודות">
             </div>
         </figure>
     </section>
 </form>
-
-
-
-
-
-
-
+</div>
+<p  id="pmes" style="color: red">{{message1}}</p>
 
 
 

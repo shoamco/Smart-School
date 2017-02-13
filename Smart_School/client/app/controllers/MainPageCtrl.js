@@ -1,23 +1,25 @@
 app.controller('MainPageCtrl', function ($scope,$rootScope) {
     var current=localStorage.getItem("currentUser");
 
-    if(current== "undefined"||current==""||current==null)
+    if(current== "undefined"||current==""||current==null) {
         $rootScope.signOutButton = {'visibility': 'hidden'};
-
+        $rootScope.adminButton = {'visibility': 'hidden'};
+    }
 
     $rootScope.signInOut = function() {
         //  if (JSON.parse(current)== null) {
         var current=localStorage.getItem("currentUser");
         if (current== "undefined"||current==""||current==null) {
-            window.open("http://localhost:5000/#/classes", "_self");
+
             $rootScope.signOutButton = {'visibility': 'hidden'};
-
-
+            $rootScope.adminButton = {'visibility': 'hidden'};
+            window.open("http://localhost:5000/#/classes", "_self");
         }
         else
         {
             localStorage.setItem('currentUser','undefined');
             $rootScope.signOutButton = {'visibility': 'hidden'};
+            $rootScope.adminButton = {'visibility': 'hidden'};
             window.open("http://localhost:5000/#/login","_self")
 
 
@@ -57,10 +59,7 @@ app.controller('MainPageCtrl', function ($scope,$rootScope) {
     //
 
     $scope.adminType= function() {
-//alert("admin"+user.Type);
-        // $rootScope.edit==true;
-        // location.reload();
-        $scope.refresh=1;
+
         if( user.Type==4|| user.Type==5)
         {
             // alert("yes");
@@ -70,10 +69,7 @@ app.controller('MainPageCtrl', function ($scope,$rootScope) {
             return 0;
 
     }
-    if( $scope.refresh==1) {
-        $scope.refresh = 0;
-        location.reload();
-    }
+
     $scope.admin= function() {
         window.open("http://localhost:5000/#admin","_self")
     }
