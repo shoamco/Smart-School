@@ -44,6 +44,13 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
                     $rootScope.loginButton = {'visibility': 'hidden'};
                     $rootScope.signOutButton = {'visibility': 'visible'};
                     var user=JSON.parse(currentUser);
+
+                    if (user.Type == 4 || user.Type == 5)
+                        $rootScope.adminButton = {'visibility': 'visible'};
+                    else
+                        $rootScope.adminButton = {'visibility': 'hidden'};
+
+
                     window.open("http://localhost:5000/#/classes","_self")
 
 
