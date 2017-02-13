@@ -1083,7 +1083,7 @@ ul,ol{
 }
 
 /* The Modal (background) */
-.modal {
+.modal1,.modal2,.modal3,.modal14,.modal5,.modal6,.modal7,.modal8,.modal {
     display: none; /* Hidden by default */
    position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */

@@ -7,6 +7,8 @@ app.controller('ClassesCtrl',function($scope,$routeParams,$rootScope,classesServ
     else {
         var user = JSON.parse(current);
         var userName = user.UserName;
+        $scope.AccessToUpdate=false;
+        $scope.AccessToUpdate=false;
         var promise = classesService.getClasses();
         var promise2 = usersService.getUsers();
         promise.then(function (data) {
@@ -62,24 +64,29 @@ app.controller('ClassesCtrl',function($scope,$routeParams,$rootScope,classesServ
                 $scope.MyClasses = Classes;
              }
 
-             $timeout(function() {
+         $timeout(function() {
                 if(document.getElementById("myBtn")){
                 var modal = document.getElementById('myModal');
 
                 // Get the button that opens the modal
                 var btn = document.getElementById("myBtn");
-                console.log("##########",btn);
                 // Get the <span> element that closes the modal
                 var span = document.getElementsByClassName("close")[0];
-
                 // When the user clicks the button, open the modal 
-                btn.onclick = function() {
-                    modal.style.display = "block";
+                $scope.display = function(id) {
+                    console.log("id",id);
+
+                    var classname="modal"+id;
+                    console.log("Classname",document.getElementsByClassName(classname)[0]);
+                    document.getElementsByClassName(classname)[0].style.display = "block";
+
                 }
 
                 // When the user clicks on <span> (x), close the modal
-                span.onclick = function() {
-                    modal.style.display = "none";
+                $scope.exit = function(id) {
+                    var classname="modal"+id;
+                    console.log("##########");
+                    document.getElementsByClassName(classname)[0].style.display  = "none";
                 }
 
                 // When the user clicks anywhere outside of the modal, close it
@@ -89,7 +96,65 @@ app.controller('ClassesCtrl',function($scope,$routeParams,$rootScope,classesServ
                     }
                 }
             }
-             }, 10);
+             }, 10); 
+
+
+        var GetClass = function(id)
+        {
+            for (var i = 0; i < $scope.MyClasses.length; i++) {
+                if($scope.MyClasses[i].ClassId==id)
+                {
+                    $scope.thisClass=$scope.MyClasses[i];
+                }
+            }
+
+        }
+        $scope.accessToConfirm= function(id) {
+           // alert($scope.thisClass.ClassId);
+
+           GetClass(id);
+           if($scope.thisClass){
+            if($scope.thisClass.EducatorId==user.UserId){
+                return "1";
+                $scope.AccessToUpdate==true;
+            }
+            // else if($scope.thisClass.CoordinatorId==user.UserId)
+            //     return "1";
+            else if(user.Type==3){
+                return "1";
+                 $scope.AccessToUpdate==true;
+            }
+            else if(user.Type==4){
+                return "1";
+                 $scope.AccessToUpdate==true;
+            }
+            else{
+                return "0";
+                 $scope.AccessToUpdate==false;
+
+            }
+            }
+        }
+        $scope.accessToUpdate= function(id) {
+            var flag=0;
+            GetClass(id);
+
+            if(user.Type==1){
+                return "1";
+                $scope.AccessToUpdate=true;
+            }
+            else if(user.Type==2 && flag==1){
+                return "1";
+                $scope.AccessToUpdate=true;
+            }
+            else{
+                return "0";
+                $scope.AccessToUpdate=false;
+            }
+        }
+
+
+        
             
         });
 

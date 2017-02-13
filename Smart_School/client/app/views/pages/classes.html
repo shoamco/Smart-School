@@ -7,15 +7,15 @@
     <div id="main-container-image">
         <section class="work">
             <figure class="white">
-                <a  id="myBtn" > <!--ng-href="#/classes/{{class.ClassId}}" -->
+                <a  id="myBtn" ng-click="display(class.ClassId)">
                     <img img src="/class.jpg" alt="" />
                 </a>
-                <div id="myModal" class="modal">
-                    <div class="modal-content"  ng-controller="classCtrl">
-                        <span class="close">&times;</span>
+                <div id="myModal" class="modal{{class.ClassId}}" >
+                    <div class="modal-content">
+                        <span class="close" ng-click="exit(class.ClassId)">&times;</span>
                         <a ng-href="#/classes/{{class.ClassId}}/students">תלמידים</a>
-                        <a ng-href="#/classes/{{class.ClassId}}/courses" ng-if="accessToUpdate()==1">עדכון ציונים לקורסים</a>
-                        <a ng-href="#/classes/{{class.ClassId}}/confirmCourses" ng-if="accessToConfirm()==1">אישור ציונים</a>
+                       <a ng-href="#/classes/{{class.ClassId}}/courses" ng-if="accessToUpdate(class.ClassId)==1|| AccessToUpdate">עדכון ציונים לקורסים</a>
+                        <a ng-href="#/classes/{{class.ClassId}}/confirmCourses" ng-if="accessToConfirm(class.ClassId)==1 || AccessToConfirm">אישור ציונים</a>
                     </div>
                 </div>
                 <div id="wrapper-part-info">

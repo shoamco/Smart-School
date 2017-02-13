@@ -3,25 +3,23 @@ app.controller('MainPageCtrl', function ($scope,$rootScope) {
     var current=localStorage.getItem("currentUser");
 
     if(current== "undefined"||current==""||current==null)
-         $rootScope.signOutButton = {'visibility': 'hidden'};
-     else
-         $rootScope.loginButton = {'visibility': 'hidden'};
+        $rootScope.signOutButton = {'visibility': 'hidden'};
+
 
     $rootScope.signInOut = function() {
-      //  if (JSON.parse(current)== null) {
+        //  if (JSON.parse(current)== null) {
         var current=localStorage.getItem("currentUser");
         if (current== "undefined"||current==""||current==null) {
-            window.open("http://localhost:5000/#/login", "_self");
-          $rootScope.signOutButton = {'visibility': 'hidden'};
+            window.open("http://localhost:5000/#/classes", "_self");
+            $rootScope.signOutButton = {'visibility': 'hidden'};
 
 
         }
         else
         {
             localStorage.setItem('currentUser','undefined');
-          $rootScope.loginButton = {'visibility': 'visible'};
-          $rootScope.signOutButton = {'visibility': 'hidden'};
-            window.open("http://localhost:5000/#","_self")
+            $rootScope.signOutButton = {'visibility': 'hidden'};
+            window.open("http://localhost:5000/#/login","_self")
 
 
 
@@ -54,22 +52,22 @@ app.controller('MainPageCtrl', function ($scope,$rootScope) {
 
     $scope.adminType= function() {
 //alert("admin"+user.Type);
-       // $rootScope.edit==true;
-       // location.reload();
+        // $rootScope.edit==true;
+        // location.reload();
         $scope.refresh=1;
         if( user.Type==4|| user.Type==5)
         {
-           // alert("yes");
+            // alert("yes");
             return 1;
         }
-     else
-         return 0;
+        else
+            return 0;
 
     }
     if( $scope.refresh==1) {
         $scope.refresh = 0;
-              location.reload();
-           }
+        location.reload();
+    }
     $scope.admin= function() {
         window.open("http://localhost:5000/#admin","_self")
     }
