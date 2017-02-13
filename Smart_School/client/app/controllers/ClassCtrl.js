@@ -61,7 +61,10 @@ app.controller('ClassCtrl',function($scope,$routeParams,$rootScope,classesServic
 
     });
 
-
+    $scope.getnumber= function() {
+       // alert("f");
+   return Math.floor(Math.random() * 6);;
+    }
     
     /*var promise = usersService.getUsers();
      promise.then(function (data)
