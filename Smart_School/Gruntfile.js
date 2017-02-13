@@ -9,8 +9,12 @@ module.exports = function(grunt) {
             dist: {
                 src: ['src/**/*.js'],
                 dest: 'dist/<%= pkg.name %>.js'
-            }
-        },
+            },
+
+        build: {
+            src: 'src/<%= pkg.name %>.js',
+            dest: 'build/<%= pkg.name %>.min.js'
+        }},
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
@@ -44,11 +48,8 @@ module.exports = function(grunt) {
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-            },
-            build: {
-                src: 'src/<%= pkg.name %>.js',
-                dest: 'build/<%= pkg.name %>.min.js'
             }
+
         }
     });
 
