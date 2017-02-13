@@ -1,22 +1,55 @@
 <h1>תעודה</h1>
-<form name="myForm" ng-submit="Certificate()" >
+<div id="cert">
 
-    <input type="submit" value="תעודה">
+<form name="myForm" ng-submit="Certificate()" id="main-container-image">
+    <section class="work">
+        <figure class="white">
+            <a ng-href="#/admin/Certificate">
+                <img img src="/cert.jpg" />
+            </a>
+            <div id="wrapper-part-info">
+               <input type="submit" class="submitC" value="יצירת תעודות">
+            </div>
+        </figure>
+    </section>
 </form>
-<p style="color: red">{{message1}}</p>
 
 
-
-<form name="myForm2" ng-submit="download()" >
-
-    <input type="submit" value="הורדה">
+<form name="myForm2"ng-submit="download()" id="main-container-image">
+    <section class="work">
+        <figure class="white">
+            <a ng-href="#/admin/Certificate">
+                <img img src="/d.jpg" />
+            </a>
+            <div id="wrapper-part-info">
+                <input type="submit" class="submitC" value="הורדת תעודות">
+            </div>
+        </figure>
+    </section>
 </form>
+</div>
+<p  id="pmes" style="color: red">{{message1}}</p>
 
-<!--<form onsubmit="download(this['name'].value, this['text'].value)">-->
-    <!--<input type="text" name="name" value="test.txt">-->
-    <!--<textarea name="text"></textarea>-->
-    <!--<input type="submit" value="Download">-->
+
+
+
+
+
+
+
+
+<!--<form name="myForm" ng-submit="Certificate()" >-->
+
+    <!--<input type="submit" value="תעודה">-->
 <!--</form>-->
 
-<!--<input type="submit" value="download" ng-click="download()">-->
-<a href="data:text/plain,this is some text" download="some-filename.txt" target="_blank"> Download </a>
+<!--<form name="myForm2" ng-submit="download()" >-->
+
+    <!--<input type="submit" value="הורדה">-->
+<!--</form>-->
+
+
+
+
+
+

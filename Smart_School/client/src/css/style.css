@@ -42,6 +42,16 @@ Text Domain: platz
     border-color: cadetblue;
 }
 
+#cert{
+    margin-right: 16%;
+    width: 100%;
+}
+#pmes
+{
+    clear: both;
+    text-align: center;
+    font-size: xx-large;
+}
 
 /*-------------------------*/
 /* DON'T TOUCH  */
@@ -424,7 +434,20 @@ body,html{
     margin-left:10px;
     height:44px;
 }
-
+.submitC
+{
+    float: none;
+    margin-right: 8%;
+    width: calc(100% - 53px);
+    text-align: center;
+    line-height: 44px;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 15px;
+    font-weight: 400;
+    background-color: white;
+    border: none;
+    height: 44px;
+}
 
 /*----------------------------*/
 /* RESPONSIVE MENU LIST  */

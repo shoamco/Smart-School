@@ -1,22 +1,22 @@
-app.controller('updateClassCtrl',function($scope,$routeParams,$rootScope,classesService,$http,$window) {
+app.controller('updateClassCtrl',function($scope,$rootScope,$routeParams,classesService,$http,$window) {
+    var current=localStorage.getItem('currentUser');
+    if (current== "undefined"||current==""||current==null){
+        window.open("http://localhost:5000/#/login", "_self");
+    }
+    else {
 
+        var user=JSON.parse(current);
+
+        if(user.Type!=5&&user.Type!=4)
+            window.open("http://localhost:5000/#/", "_self");
+    }
      $scope.ClassId = $routeParams.classId;
 
     // $scope.ClassId = $routeParams.classId;
 
     // $scope.ClassId = $routeParams.classId;
 
-    // var current=localStorage.getItem('currentUser');
-    // if (current== "undefined"||current==""||current==null){
-    //     window.open("http://localhost:5000/#/login", "_self");
-    // }
-    // else {
-    //     var user=JSON.parse(current);
-    //     console.log(user.UserId);
-    //
-    //     if(user.Type!=5&&user.Type!=4)
-    //         window.open("http://localhost:5000/#/", "_self");
-    // }
+
     var promise = classesService.getClasses();
     promise.then(function (data) {
         $scope.Classes = data.data;
@@ -83,6 +83,9 @@ app.controller('updateClassCtrl',function($scope,$routeParams,$rootScope,classes
                     alert($scope.message);
                     $scope.$apply();
 
+                    setTimeout(function() {
+                       location.reload();
+                    }, 1000);
 
                 }
             };

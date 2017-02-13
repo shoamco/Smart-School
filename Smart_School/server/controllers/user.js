@@ -22,15 +22,21 @@ var user = {
     })
   },   
   getUser: function(req, res, next){
+      console.log("in login");
+
       Users.findOne({UserId:req.body.user,password:req.body.password},function(err, data){
         if(err) console.error;
         res.json(data);
         })
     } ,
     updatePassword: function(req, res, next){
-        Users.find({user:req.body.user,password:req.body.password},function(err, data){
+      console.log("in change password");
+        Users.findOneAndUpdate({UserId:req.body.user,password:req.body.password},{password:req.body.newPassword},function(err, data){
             if(err) console.error;
-            res.json({type: "Update", id: data.id, password: req.body.newPassword });
+            if(data==null)
+                res.send("שגיאה בהכנסת הנתונים")
+           else
+                res.send("הסיסמה הוחלפה בהצלחה.כנס עם הסיסמה החדשה שלך.")
 
         });
             //res.json(data)

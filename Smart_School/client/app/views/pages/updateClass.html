@@ -27,6 +27,7 @@
     <h1 >קורסים</h1>
 
         <table id="Uclass">
+    <input type="submit"   name="submit" value="עדכן" />
 
             <tr ng-repeat="course in myClass.Courses" ng-model="course">
                 <td>{{course.CoursName}}</td>
@@ -40,6 +41,7 @@
 
     <br />
     <button id="add" class="submit"><a ng-href="#/admin/classes/updateClass/{{myClass.ClassId}}/AddCourse">הוספה</a></button>
+
 
     <p style="color: red">{{message}}</p>
 </div>

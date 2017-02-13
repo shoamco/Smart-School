@@ -9,6 +9,12 @@ app.controller('ClassesCtrl',function($scope,$routeParams,$rootScope,classesServ
         var userName = user.UserName;
         var promise = classesService.getClasses();
         var promise2 = usersService.getUsers();
+
+
+       // alert(user.Type);
+        if(user.Type==5){
+
+            window.open("http://localhost:5000/#admin","_self")}
         promise.then(function (data) {
             var Classes = data.data;
             var MyClasses = [];
