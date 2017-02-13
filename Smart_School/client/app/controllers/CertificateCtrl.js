@@ -4,12 +4,27 @@
             $scope.done=0;
 
 
+
         $scope.download=function () {
     if(  $scope.done==1)
             window.open('http://localhost:5000/admin/download', "_self");
     else
         $scope.message1 ="לא יצרת תעודות";
                 }
+
+
+   /* var current=localStorage.getItem('currentUser');
+    if (current== "undefined"||current==""||current==null){
+        window.open("http://localhost:5000/#/login", "_self");
+    }
+    else {
+
+        var user=JSON.parse(current);
+
+        if(user.Type!=5&&user.Type!=4)
+            window.open("http://localhost:5000/#/", "_self");
+    }*/
+
 
 
     $scope.Certificate=function () {

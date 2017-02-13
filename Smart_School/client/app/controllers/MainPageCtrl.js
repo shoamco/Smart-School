@@ -25,6 +25,13 @@ app.controller('MainPageCtrl', function ($scope,$rootScope) {
         }
     }
 
+    $rootScope.changePassword = function() {
+        //  if (JSON.parse(current)== null) {
+
+            window.open("http://localhost:5000/#/changePassword", "_self");
+
+
+    }
 
     var current1 = localStorage.getItem('currentUser');
     if (current1 == "undefined" || current1 == "" || current1 == null) {

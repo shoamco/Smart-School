@@ -23,6 +23,7 @@ var classes = {
                     });
                     Users.findOneAndUpdate({UserId: req.body.EducatorId}, {Type: 2}, function (err, data2) {
                         if (err) return console.error(err);
+                        res.send("הכיתה עודכנה");
 
                     });
                 }
@@ -252,7 +253,8 @@ var classes = {
                             idClass = i+1;
                         else
                             idClass = "graduate"
-                        console.log("class id is "+idClass);
+                        if(i==1)
+                            console.log('i=1');
 
                         newStudents.forEach(function (student) {
                             Students.findOneAndUpdate({StudentId: student.StudentId}, {
@@ -261,7 +263,8 @@ var classes = {
                             }, function (err, data2) {
                                 if (err)
                                     return console.error(err);
-                                else
+
+                                else if(i==1)
                                     console.log(data2);
 
                             });
@@ -282,14 +285,8 @@ var classes = {
             switchClasses_help(i);
 
         }
-
-        Classes.findOneAndUpdate({ClassId: 1}, {Students: '[]'}, function (err, data) {
-
-            if (err)
-                return console.error(err);
-
-
-        });
+        switchClasses_help1();
+        res.send("classes updated");
     },
     var: switchClasses_help8 = exports.switchClasses_help8=function(){
         Classes.findOne({ClassId:8}, function (err, data) {
@@ -303,7 +300,7 @@ var classes = {
                 newStudents.forEach(function (student) {
                     Students.findOneAndUpdate({StudentId: student.StudentId}, {
                         ClassId: "graduate",
-                        Courses: '[]'
+                        Courses: []
                     }, function (err, data2) {
                         if (err)
                             return console.error(err);
@@ -314,6 +311,14 @@ var classes = {
                 });
             }
         });
+    },
+    var: switchClasses_help1 = exports.switchClasses_help8=function() {
+         Classes.findOneAndUpdate({ClassId: 1}, {Students: []}, function (err, data) {
+
+             if (err)
+                 return console.error(err);
+
+         });
     },
 };
 
