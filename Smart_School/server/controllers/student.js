@@ -94,24 +94,26 @@ var student = {
                   });
               });
 
-
-              Classes.findOne({ClassId: data1.ClassId}, function (err, data2) {
-                  if (err) return console.error(err);
-
-                  var arr_student=data2.Students;
-                  var index;
-                  for(var i=0;i<arr_student.length;i++)
-                      if(arr_student[i].StudentId==data1.StudentId)
-                          index=i;
-                  //  console.log("index"+index);
-
-                  arr_student.splice(index,1);
-                  //    console.log(" arr_student"+ arr_student);
-                  Classes.findOneAndUpdate({ClassId: data1.ClassId},{Students:arr_student}, function (err, data) {///delete student from list student in class
+              if(data1.ClassId!="graduate") {
+                  Classes.findOne({ClassId: data1.ClassId}, function (err, data2) {
                       if (err) return console.error(err);
-                      console.log("delete student from list student in class"+data1.ClassId);
+
+                      var arr_student = data2.Students;
+                      var index;
+                      for (var i = 0; i < arr_student.length; i++)
+                          if (arr_student[i].StudentId == data1.StudentId)
+                              index = i;
+                      //  console.log("index"+index);
+
+                      arr_student.splice(index, 1);
+                      //    console.log(" arr_student"+ arr_student);
+                      Classes.findOneAndUpdate({ClassId: data1.ClassId}, {Students: arr_student}, function (err, data) {///delete student from list student in class
+                          if (err) return console.error(err);
+                          console.log("delete student from list student in class" + data1.ClassId);
+                      });
                   });
-              });
+              }
+
               }
               else {
               Classes.findOne({ClassId: data1.ClassId}, function (err, data2) {
@@ -160,23 +162,26 @@ var student = {
               console.log("the student " + req.params.id + " not  exists");
           //}
           else{
-              Classes.findOne({ClassId: data.ClassId}, function (err, data1) {
-                  if (err) return console.error(err);
+              console.log("ClassId"+data.ClassId);
+              if(data.ClassId!="graduate") {
+                  Classes.findOne({ClassId: data.ClassId}, function (err, data1) {
+                      if (err) return console.error(err);
 
-                  var arr_student=data1.Students;
-                  var index;
-                for(var i=0;i<arr_student.length;i++)
-                    if(arr_student[i].StudentId==data.StudentId)
-                        index=i;
-                //  console.log("index"+index);
+                      var arr_student = data1.Students;
+                      var index;
+                      for (var i = 0; i < arr_student.length; i++)
+                          if (arr_student[i].StudentId == data.StudentId)
+                              index = i;
+                      //  console.log("index"+index);
 
-            arr_student.splice(index,1);
-              //    console.log(" arr_student"+ arr_student);
-              Classes.findOneAndUpdate({ClassId: data.ClassId},{Students:arr_student}, function (err, data) {///delete student from list student in class
-                  if (err) return console.error(err);
-                  console.log("delete student from list student in class");
-              });
-          });
+                      arr_student.splice(index, 1);
+                      //    console.log(" arr_student"+ arr_student);
+                      Classes.findOneAndUpdate({ClassId: data.ClassId}, {Students: arr_student}, function (err, data) {///delete student from list student in class
+                          if (err) return console.error(err);
+                          console.log("delete student from list student in class");
+                      });
+                  });
+              }
               Students.remove({StudentId: data.StudentId}, function(err) {
                   if (!err) {
                       console.log("the student "+req.params.id+ " delete from the student list");
@@ -432,17 +437,18 @@ updateGreads:function(req,res,next) {
                 //     //  console.log(dataStudent.FirstName+"_"+dataStudent.LastName);
                 // });
             });
+           // saveAs('certificate/input1.docx','sss.docx');
+                console.log("certificate for all student");
 
-            console.log("certificate for all student");
 
-
-            res.download('certificate/input1.docx', 'sss.docx');
+        //    res.download('certificate/input1.docx', 'sss.docx');
 res.send("התעודות נוצרו")
         })
 
     },
  download: function(req, res, next) {
     console.log(" download");
+
 
    //Students.find(function(err, data) {
 

@@ -5,10 +5,10 @@
 
 app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService) {
     /* var promise = usersService.login();
-    promise.then(function (data)
-    {
+     promise.then(function (data)
+     {
 
-    });*/
+     });*/
 
     $scope.login = function() {
 
@@ -35,7 +35,6 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
                     //var curret =JSON.parse(currentUser);
                     //console.log("curret~~~~~~~~",curret);
                    // curret=curret[0];
-
                     //alert (currentUser );
                     //console.log("user____________",curret.UserName);
                     localStorage.setItem('currentUser',currentUser);
@@ -88,7 +87,7 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
 
                 alert(xmlhttp.responseText);
 
-        }
+            }
 
 
 
@@ -102,5 +101,3 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
     }
 
 });
-
-
