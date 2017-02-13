@@ -1,7 +1,13 @@
 {
-  "name": "smart",
-  "version": "1.0.0",
-  "description": "",
+  "name": "smart_school",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^2.1.0",
+    "grunt-contrib-watch": "^1.0.0"
+  },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,6 +26,7 @@
     "express": "^4.14.1",
     "fs": "0.0.1-security",
     "fstream": "^1.0.10",
+    "gruntfile": "^0.1.0",
     "gzippo": "^0.2.0",
     "jszip": "^2.6.1",
     "mongoose": "^4.7.7",
@@ -29,5 +36,6 @@
     "request": "^2.79.0",
     "tar": "^2.2.1",
     "url": "^0.11.0"
-  }
+  },
+  "description": ""
 }
