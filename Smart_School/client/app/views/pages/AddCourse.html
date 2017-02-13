@@ -2,18 +2,28 @@
 
 <form name="myForm" ng-submit="CreateCourse(myForm)" >
 
+    <div class="studentInfo">
+        <div class="tableInfo">
+            <br />
+            <br />
+            <br />
+            <div>
+    <table id="addCourse">
+        <tr><td> <br /><strong>שם הקורס </strong> <br /><input  id="CourseName" type ="text"  name="CourseName" required/> <br />
+         <br /><strong>תעודת הזהות של מורה הקורס </strong> <br /><input  id="TeacherId" type ="text"  name="TeacherId" required/><br />
+         <br /><strong>קוד הקורס </strong> <br /><input  id="CourseCode" type ="text"  name="CourseCode" required/> <br /><br /><br /></td></tr>
+    </table>
 
-    <ul>
-        <li><strong>שם הקורס: </strong><input  id="CourseName" type ="text"  name="CourseName" required/></li>
-        <li><strong>תעודת הזהות של מורה הקורס: </strong><input  id="TeacherId" type ="text"  name="TeacherId" required/></li>
-        <li><strong>קוד הקורס: </strong><input  id="CourseCode" type ="text"  name="CourseCode" required/></li>
-    </ul>
 
 
+            </div>
+        </div>
 
 
+        <br /> <br /> <br />
+        <input class="submit" type="submit"   name="submit" value="עדכן" />
 
-    <input type="submit"   name="submit" value="עדכן" />
-</form>
 
 <p style="color: red">{{message1}}</p>
+</div>
+</form>

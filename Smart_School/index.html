@@ -22,6 +22,7 @@
     <script src="StudentCtrl.js" ></script>
     <script src="StudentsCtrl.js" ></script>
     <script src="MainPageCtrl.js" ></script>
+    <script src="adminCtrl.js" ></script>
     <script src="AdminStaffCtrl.js" ></script>
     <script src="AdminClassesCtrl.js" ></script>
     <script src="AdminStudentsCtrl.js" ></script>
@@ -69,11 +70,11 @@
         <div class="logo"> <!--<img img src="/logo.jpg"/>--></div>
 
     </div>
-<button class="loginButton" ng-style= "loginButton" ng-click="signInOut()">login</button>
+<!--<button class="loginButton" ng-style= "loginButton" ng-click="signInOut()">login</button>-->
 
 <button   class="loginButton" ng-style="signOutButton" ng-click="signInOut()">sign out</button>
+    <button class="loginButton"  ng-style="adminButton" ng-click="admin()"   >admin</button>
 
-    <button class="loginButton"  ng-click="admin()"  ng-if="adminType()==1" >admin</button>
 </div>
 
 

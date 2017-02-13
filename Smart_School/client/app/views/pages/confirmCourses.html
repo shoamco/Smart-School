@@ -1,18 +1,14 @@
 
-<h1>  הקורס:{{courseId}}</h1>
 
-<h1>    {{user.Type}}הרשאה עבור אישור כיתה </h1>
-
-
+<div class="studentInfo">
 <form name="myGrade" ng-submit="confirmCourse(myGrade)" ng-if="findConfirm(courseId)==0" >
-
-    <table>
+    <table class="confirmAf">
         <tr>
-            <th>תעודת זהות</th>
-            <th>שם פרטי</th>
-            <th>שם משפחה</th>
-            <th >ציון</th>
-            <th >הערכה מילולית</th>
+            <td><h1>תעודת זהות</h1></td>
+            <td><h1>שם פרטי</h1></td>
+            <td><h1>שם משפחה</h1></td>
+            <td><h1>ציון</h1></td>
+            <td><h1>הערכה מילולית</h1></td>
         </tr>
         <tr ng-repeat="student in MyStudents" >
             <td>{{student.StudentId}}</td>
@@ -25,17 +21,20 @@
 
 
     </table>
-    <input type="submit"   name="submit" value="אשר" ng-if="findConfirmUnderMe(courseId)==1"/>
+
+    <input type="submit"  class="sbmit" name="submit" value="אשר" ng-if="findConfirmUnderMe(courseId)==1"/>
+
 </form>
 
 <form name="myGrade2" ng-submit="cancelConfirmCourse()" ng-if="findConfirm(courseId)==1">
-    <table  >
+
+    <table class="confirm">
         <tr>
-            <th>תעודת זהות</th>
-            <th>שם פרטי</th>
-            <th>שם משפחה</th>
-            <th >ציון</th>
-            <th >הערכה מילולית</th>
+            <td><h1>תעודת זהות</h1></td>
+            <td><h1>שם פרטי</h1></td>
+            <td><h1>שם משפחה</h1></td>
+            <td><h1>ציון</h1></td>
+            <td><h1>הערכה מילולית</h1></td>
         </tr>
         <tr ng-repeat="student in MyStudents" >
             <td>{{student.StudentId}}</td>
@@ -47,7 +46,11 @@
         </tr>
 
     </table>
-    <input type="submit"   name="submit" value="ביטול האישור" ng-if="findConfirmAboveMe(courseId)==0" />
+    <br />
+    <input  id="confirm" class="submit" type="submit"   name="submit" value="ביטול האישור" ng-if="findConfirmAboveMe(courseId)==0" />
+
 </form>
+
 <p style="color: red">{{message2}}</p>
 <p style="color: red">{{message1}}</p>
+</div>

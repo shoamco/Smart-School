@@ -1,55 +1,30 @@
-<h1>עדכון סטודנט </h1>
-<form name="myForm1" ng-submit="updateStudent(myForm1)" >
+<form name="myForm1" ng-submit="updateStaff(myForm1)">
+    <div class="studentInfo">
+        <div class="tableInfo">
+            <h1>עדכון תלמיד</h1>
 
+            <table id="addCourse">
+                <tr><td><br /> <br />
+                    <strong>ת.ז.: </strong><br /><input    type ="text" value="{{student.StudentId}}" name="StudentId" required/><br /><br />
+                    <strong>שם פרטי: </strong><br /><input  id="FirstName1" type ="text" value="{{student.FirstName}}" name="FirstName" required/><br /><br />
+                    <strong>משפחה : </strong><br /><input  type ="text"  value="{{student.LastName }}" name="LastName" required /><br /><br />
+                    <select id ="studentclass"  name="ClassId"   name="ClassId" >
+                      <option value="{{student.ClassId}}" selected>כיתה</option>
+                        <option value="1" >א</option>
+                        <option value="2"  > ב</option>
+                        <option value="3">ג</option>
+                        <option value="4">ד</option>
+                        <option value="5"  >ה</option>
+                        <option value="6"  >ו</option>
+                        <option value="7" >ז</option>
+                        <option value="8"  >ח</option>
+                    </select></br></td>
+                </tr></table>
+            <br />
+            <input id="up" class="submit" type="submit"   name="submit" value="עדכן" />
 
-            <ul>
-                <li><strong>ת.ז.: </strong><input    type ="text" value="{{student.StudentId}}" name="StudentId" required/></li>
-                <li><strong>שם פרטי: </strong><input  id="FirstName1" type ="text" value="{{student.FirstName}}" name="FirstName" required/></li>
-                <li><strong>משפחה : </strong><input  type ="text"  value="{{student.LastName }}" name="LastName" required /></li>
-
-
-                <td><select id ="studentclass"  name="ClassId"   name="ClassId" >
-                  <option value="{{student.ClassId}}" selected>כיתה</option>
-                    <option value="1" >א</option>
-                    <option value="2"  > ב</option>
-                    <option value="3">ג</option>
-                    <option value="4">ד</option>
-                    <option value="5"  >ה</option>
-                    <option value="6"  >ו</option>
-                    <option value="7" >ז</option>
-                    <option value="8"  >ח</option>
-                </select></td>
-            </ul>
-
-
-
-
-<h1>קורסים</h1>
-
-
-
-
-<table>
-    <tr>
-        <th>שם הקורס</th>
-        <td>CourseId</td>
-        <th>ציון</th>
-        <th>הערכה מילולית</th>
-
-    </tr>
-    <tr ng-repeat="course in student.Courses" ng-model="course">
-
-
-
-        <td>{{course.CoursName}} </td>
-        <td> {{course.CourseId}}</td>
-        <td>{{ course.Grade }}</td>
-        <td>{{ course.Evaluation}}</td>
-
-    </tr>
-</table>
-
-    <input type="submit"   name="submit" value="עדכן" />
+        </div>
+    </div>
 </form>
 
 <p style="color: red">{{message1}}</p>

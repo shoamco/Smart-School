@@ -1,24 +1,21 @@
 
-<h3>סטודנט חדש:</h3>
-<form name="myForm" ng-submit="createStudent(myForm)" >
-    <table>
-        <tr>
-            <td><label for="id"> מספר זהות: </label></td>
-            <td><input id="id" name="id" type ="text" ng-model="StudentId" required/><br/></td>
-        </tr>
-        <tr>
-            <td><label dir="rtl" for="firstName">שם פרטי:</label></td>
-            <td><input id="firstName" name="FirstName" type ="text"  ng-model="FirstName" required/></td>
 
-        </tr>
-        <tr>
-            <td><label for="LastName">שם משפחה:</label></td>
-            <td> <input id="LastName" type ="text" ng-model="LastName" required/></td>
-        </tr>
-        <tr>
-            <td><label for="studentclass">כיתה:</label></td>
-            <!--required not work in select-->
-            <td><select id ="studentclass"  name="ClassId"  required>
+<form name="myForm" ng-submit="createStudent(myForm)" >
+    <div class="studentInfo">
+        <div class="tableInfo">
+            <br />
+            <h1>סטודנט חדש</h1>
+    <table id="addCourse">
+        <tr><td> <br />
+            <strong> מספר זהות </strong><br />
+            <input id="id" name="id" type ="text" ng-model="StudentId" required/><br/>
+            <strong>שם פרטי</strong>
+            <br />
+            <input id="firstName" name="FirstName" type ="text"  ng-model="FirstName" required/><br />
+            <label for="LastName"><strong>שם משפחה</strong></label><br />
+            <input id="LastName" type ="text" ng-model="LastName" required/><br />
+            <label for="studentclass"><strong>כיתה</strong></label><br />
+            <select id ="studentclass"  name="ClassId"  required>
 
                 <option value="1" >א</option>
                 <option value="2"  > ב</option>
@@ -29,16 +26,17 @@
                 <option value="6"  >ו</option>
                 <option value="7" >ז</option>
                 <option value="8"  >ח</option>
-            </select></td>
-        </tr>
-        <tr>
-            <td></td>
-
-
-        </tr>
+            </select>
 
     </table>
-    <input type="submit" value="אישור">
+            <br />
+    <input class="submit" id="up" type="submit" value="אישור">
+        </div>
+    </div>
+
 </form>
 
 <p style="color: red">{{message1}}</p>
+
+
+

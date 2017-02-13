@@ -1,7 +1,7 @@
 /**
  * Created by כהן on 25/01/2017.
  */
-app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,studentsService) {
+app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,studentsService,$rootScope) {
     $scope.id = $routeParams.id;
 
     $scope.courseId=$routeParams.courseId;
@@ -204,7 +204,13 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
 
                         //alert( $scope.message1);
                         $scope.$apply();
-
+                        // setTimeout(function() {
+                        //     window.open("http://localhost:5000/#/admin/students","_self");
+                        // }, 1000);
+                        // if($rootScope.edit==true) {
+                        //             $rootScope.edit = false;
+                        //             location.reload();
+                        //        }
 
                     }
                 }

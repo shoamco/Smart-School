@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<form  name="myForm1" ng-submit="login(myForm1)">
-    <label for="user">user name</label>
-    <input type="text" id="user" name="user" required/>
-    <label for="password">password</label>
-    <input type="password" id="password" name="password" required/>
-    <input type="submit" value="login"/>
+<form id="signIn" name="myForm1" ng-submit="login(myForm1)">
+    <p>כניסת משתמש</p>
+    <hr />
+    <label for="user">תעודת זהות</label><br />
+    <input type="text" id="user" name="user" required/><br />
+    <label for="password">סיסמה</label><br />
+    <input type="password" id="password" name="password" required/><br /><br />
+    <input type="submit" id="enter" value="כניסה" /><br />
 </form>
-
-</body>
-
-
-</html>

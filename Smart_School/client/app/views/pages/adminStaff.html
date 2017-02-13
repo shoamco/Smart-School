@@ -4,6 +4,8 @@
 <div class="studentInfo">
     <div class="tableInfo">
         <div>
+            <div >
+                <img src="/staffB.jpg" id="imgStaff"></div>
             <table id="admin_class">
                 <tr >
                     <td><h3>שם המורה</h3></td>
@@ -17,10 +19,10 @@
                     <td>{{staff.UserId}}</td>
                     <td>{{staff.Type}}</td>
                     <td><a ng-href="#/admin/staff/updateStaff/{{staff.UserId}}">עדכון</a></td>
-                    <td> <input type="submit" value="מחיקה" ng-click="deleteUser(staff.UserId)"></td>
+                    <td> <input id="deleteCourse" type="submit" value="מחיקה" ng-click="deleteUser(staff.UserId)"></td>
                 </tr>
             </table>
-            <button><a ng-href="#/admin/staff/creatStaff">הוספת איש צוות</a></br></button>
+            <button id="addStaff" class="submit"><a ng-href="#/admin/staff/creatStaff">הוספת איש צוות</a></br></button>
 
         </div>
 
