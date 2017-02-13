@@ -26,6 +26,7 @@ app.controller('updateClassCtrl',function($scope,$routeParams,$rootScope,classes
         }
     });
 
+
     $scope.updateClass = function () {
         if (window.XMLHttpRequest)
             var xmlhttp = new XMLHttpRequest();

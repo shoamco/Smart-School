@@ -1,7 +1,7 @@
 app.controller('updateCourseCtrl',function($scope,$routeParams,classesService,$http,$window) {
 
     $scope.ClassId = $routeParams.classId;
-<<<<<<< HEAD
+
    $scope.CourseId = $routeParams.courseId;
     // var current=localStorage.getItem('currentUser');
     // if (current== "undefined"||current==""||current==null){
@@ -14,7 +14,7 @@ app.controller('updateCourseCtrl',function($scope,$routeParams,classesService,$h
     //     if(user.Type!=5&&user.Type!=4)
     //         window.open("http://localhost:5000/#/", "_self");
     // }
-=======
+
     $scope.CourseId = $routeParams.courseId;
     var current=localStorage.getItem('currentUser');
     if (current== "undefined"||current==""||current==null){
@@ -27,7 +27,7 @@ app.controller('updateCourseCtrl',function($scope,$routeParams,classesService,$h
         if(user.Type!=5&&user.Type!=4)
             window.open("http://localhost:5000/#/", "_self");
     }
->>>>>>> a9b24075f49689838547c6b0b99578ac7df313b4
+
     var promise = classesService.getClasses();
 
     promise.then(function (data) {

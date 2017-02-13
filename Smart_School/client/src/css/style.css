@@ -16,25 +16,7 @@ Text Domain: platz
 /* SOCIAM FONT ICON */
 /*-------------------------*/
 
-@font-face {
-    font-family: 'socialicoregular';
-    src: url('../font/socialico-webfont.eot');
-    src: url('../font/socialico-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../font/socialico-webfont.woff2') format('woff2'),
-    url('../font/socialico-webfont.woff') format('woff'),
-    url('../font/socialico-webfont.ttf') format('truetype'),
-    url('../font/socialico-webfont.svg#socialicoregular') format('svg');
-}
 
-@font-face {
-    font-family: 'socialico_plusregular';
-    src: url('../font/socialico_plus-webfont.eot');
-    src: url('../font/socialico_plus-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../font/socialico_plus-webfont.woff2') format('woff2'),
-    url('../font/socialico_plus-webfont.woff') format('woff'),
-    url('../font/socialico_plus-webfont.ttf') format('truetype'),
-    url('../font/socialico_plus-webfont.svg#socialico_plusregular') format('svg');
-}
 
 /*-------------------------*/
 /* DON'T TOUCH  */
@@ -131,10 +113,10 @@ body,html{
     margin-top:0.6%;
     width: 15%;
     height: 7%;
-    opacity: 0.6%;
+    opacity: 0.6;
 }
 #stripes{
-    background: url(img/stripes.svg) no-repeat;
+    /*background: url(img/stripes.svg) no-repeat;*/
     position:absolute;
     width:27px;
     height:20px;
@@ -272,7 +254,7 @@ body,html{
     height:18px;
     right:25px;
     margin-top:25px;
-    background: url(img/cross-menu.svg) no-repeat;
+    /*background: url(img/cross-menu.svg) no-repeat;*/
     cursor:pointer;
 }
 
@@ -293,7 +275,7 @@ body,html{
     height:53px;
     left:50%;
     margin-left:-65.5px;
-    background: url(img/small-logo.svg) no-repeat;
+    /*background: url(img/small-logo.svg) no-repeat;*/
 }
 
 /*----------------------------*/
@@ -514,8 +496,8 @@ h1{
     cursor:pointer;
 }
 
-#oldnew-next{background: url(img/next.svg) no-repeat;margin-left:25px;float:left;}
-#oldnew-prev{background: url(img/prev.svg) no-repeat;margin-right:25px;float:right;}
+/*#oldnew-next{background: url(img/next.svg) no-repeat;margin-left:25px;float:left;}*/
+/*#oldnew-prev{background: url(img/prev.svg) no-repeat;margin-right:25px;float:right;}*/
 
 /*----------------------------*/
 /* FOOTER */
@@ -580,7 +562,7 @@ h1{
     -webkit-appearance: none;
     box-shadow: none;
     outline: 0;
-    background: url(img/icon-newsletter.svg) no-repeat 10px 9px;
+    /*background: url(img/icon-newsletter.svg) no-repeat 10px 9px;*/
     margin:auto;
     vertical-align:central;
     font-weight:400;
@@ -611,7 +593,7 @@ h1{
     box-shadow: none;
     outline: 0;
     margin: 0;
-    background: url(img/icon-search.svg) no-repeat 12px 7px;
+    /*background: url(img/icon-search.svg) no-repeat 12px 7px;*/
     vertical-align:center;
     margin-left:-40px;
     background-color:#FFF;
@@ -619,7 +601,7 @@ h1{
 
 #loupe{
     position:absolute;
-    background: url(img/loupe.svg) no-repeat;
+    /*background: url(img/loupe.svg) no-repeat;*/
     width:28px;
     height:30px;
     right:20px;
@@ -918,8 +900,8 @@ body{
     font-size:14px;
     line-height:1.42857143;
     color:#333;
-    background-color:#fff
-    width:80%;
+    background-color:#fff;
+    /*width:80%;*/
 }
 figure{margin:0}
 ul,ol{
@@ -942,13 +924,13 @@ ul,ol{
     background-color: #726f6b;
     border: 0px;
 }
-@media (min-width:768px).container
+@media (min-width:768px){.container
 {
     padding-right:15px;
     padding-left:15px;
     margin-right:auto;
     margin-left:auto
-    }
+    }}
 @media (min-width:768px){.container{width:750px}}
 @media (min-width:992px){.container{width:970px}}
 @media (min-width:1200px){.container{width:1170px}}
@@ -1054,5 +1036,8 @@ ul,ol{
     clear: both;
     position: relative;
     top:50px;
+}
+#admin_class{
+margin: 10%;
 }
 

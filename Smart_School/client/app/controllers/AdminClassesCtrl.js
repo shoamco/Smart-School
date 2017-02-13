@@ -6,7 +6,7 @@
  */
 
 
-app.controller('AdminClassesCtrl',function($scope,$routeParams,$rootScope,classesService) {
+app.controller('AdminClassesCtrl',function($scope,$routeParams,$rootScope,classesService,usersService) {
     if($rootScope.edit==true) {
         $rootScope.edit = false;
         location.reload();
@@ -23,14 +23,36 @@ app.controller('AdminClassesCtrl',function($scope,$routeParams,$rootScope,classe
     // }
 
     var promise = classesService.getClasses();
+    var promise3 = usersService.getUsers();
+
     promise.then(function (data)
     {
         $scope.AllClasses=data.data;
 
 
+
+    promise3.then(function (data3)
+    {
+        $scope.Users=data3.data;
+
+      alert($scope.Users);
+
+    $scope.findTeacher = function(teacherid) {
+       // alert(teacherid);
+        for (var i = 0; i < $scope.Users.length; i++) {
+            alert("ggg");
+           alert( $scope.Users[i].UserId);
+           if (teacherid==  $scope.Users[i].UserId) {
+               return  $scope.Users[i].UserName;
+
+           }
+
+        }
+
+
+    }
     });
-
-
+});
 });
 
 

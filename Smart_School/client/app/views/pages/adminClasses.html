@@ -1,24 +1,28 @@
 
 
 
-<h1>all classes admin </h1>
+<h1>הכיתות </h1>
 
-<table>
-    <tr>
-        <th>שם הכיתה</th>
-        <th>ClassId</th>
-        <th>מחנך</th>
-        <th>עדכון</th>
-    </tr>
-    <tr ng-repeat="class in AllClasses">
-        <td>{{ class.ClassName }}</td>
-        <td>{{ class.ClassId}}</td>
-        <td>{{ class.Educator }}</td>
-        <th><a ng-href="#/admin/classes/updateClass/{{class.ClassId}}">עדכון</a></th>
-    </tr>
-</table>
+<div class="studentInfo">
+<div class="tableInfo">
+    <div>
+    <table id="admin_class">
+        <tr >
+            <td><h3>שם הכיתה</h3></td>
+            <td><h3>שם המורה</h3></td>
+            <td><h3>עדכון</h3></td>
+        </tr>
+        <tr data-ng-repeat="class in AllClasses" class="ng-scope">
+            <td>{{ class.ClassName }}</td>
+            <td>{{findTeacher(class.EducatorId)}}</td>
+
+            <td><a ng-href="#/admin/classes/updateClass/{{class.ClassId}}">עדכון</a></td>
+        </tr>
+    </table>
 
 
-   
-          
+    </div>
 
+
+    </div>
+</div>
