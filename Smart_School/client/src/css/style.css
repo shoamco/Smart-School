@@ -1077,9 +1077,26 @@ ul,ol{
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 25%;
+    height: 50%;
+    border-radius: 8px;
+
 }
 
+.modal-content a{
+    display: block;
+    border-radius: 8px;
+    background-color: gray;
+    height: 38%;
+    margin-top: 25%;
+    width: 38%;
+    float: left;
+    margin-right: 0px;
+    margin-left: 30px;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+}
 /* The Close Button */
 .close {
     color: #aaaaaa;

@@ -1,5 +1,5 @@
 /**
- * Created by נעמי יונג on 23/01/2017.
+
  */
 
 
@@ -32,8 +32,8 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
                 if (xmlhttp.responseText!='[]'&&xmlhttp.responseText!="null"){
                     var currentUser =xmlhttp.responseText;
                    // console.log("currentUser~~~~~~~~~~~~",currentUser);
-                    // var curret =JSON.parse(currentUser);
-                    // console.log("curret~~~~~~~~",curret);
+                    //var curret =JSON.parse(currentUser);
+                    //console.log("curret~~~~~~~~",curret);
                    // curret=curret[0];
 
                     //alert (currentUser );
