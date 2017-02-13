@@ -5,7 +5,17 @@
 
 
 app.controller('AdminStudentsCtrl',function($scope,$routeParams,$rootScope,studentsService) {
+    var current=localStorage.getItem('currentUser');
+    if (current== "undefined"||current==""||current==null){
+        window.open("http://localhost:5000/#/login", "_self");
+    }
+    else {
 
+        var user=JSON.parse(current);
+
+        if(user.Type!=5&&user.Type!=4)
+            window.open("http://localhost:5000/#/", "_self");
+    }
     if($rootScope.edit==true) {
         $rootScope.edit = false;
         location.reload();
@@ -43,6 +53,8 @@ app.controller('AdminStudentsCtrl',function($scope,$routeParams,$rootScope,stude
                     alert( $scope.message1);
                   //  $scope.companyList=JSON.parse(xmlhttp.responseText);
                     $scope.$apply();
+                    location.reload();
+
 
                 }
 

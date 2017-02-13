@@ -86,8 +86,7 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
 
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 
-                alert(xmlhttp.responseText);
-
+                $scope.message =xmlhttp.responseText;
             }
 
 
@@ -95,7 +94,7 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
 
         }
 
-        xmlhttp.open('POST', 'http://localhost:5000/login');
+        xmlhttp.open('POST', 'http://localhost:5000/changePassword');
         xmlhttp.setRequestHeader("Content-Type", "application/json;charset=utf-8");
         xmlhttp.send(JSON.stringify(document));
         //  $window.reload();
