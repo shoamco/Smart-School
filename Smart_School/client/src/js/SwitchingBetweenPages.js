@@ -180,4 +180,9 @@ app.config(function ($routeProvider) {
         //         templateUrl: "searchStaff.html",
         //         controller: "AdminCtrl"
         //     })
+
+    // .otherwise({
+    //     redirectTo: '/classes'
+    // });
+
 });
