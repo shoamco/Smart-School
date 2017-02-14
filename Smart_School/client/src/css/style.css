@@ -890,12 +890,13 @@ h1{
 }
 
 .studentFi{
-    width:60%;
-    padding: 10px;
-    right:50px;
-    top:20px;
+    width: 60%;
+    padding: 13px;
+    right: 50px;
+    top: 1px;
     position: relative;
     border: gray solid;
+    margin: 7%;
 }
 .studentInfo p{
     color:gray;

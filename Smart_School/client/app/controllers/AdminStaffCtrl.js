@@ -2,7 +2,7 @@
 
 
 app.controller('AdminStaffCtrl',function($scope,$routeParams,$rootScope,usersService) {
-    //$scope.UserId = $routeParams.UserId;
+
     if($rootScope.edit==true) {
         $rootScope.edit = false;
         location.reload();
@@ -23,13 +23,7 @@ app.controller('AdminStaffCtrl',function($scope,$routeParams,$rootScope,usersSer
     {
         $scope.AllUsers=data.data;
 
-    // console.log("AllStaff"+AllStaff);
-    //     for (var i = 0; i < $scope.AllUsers.length; i++) {
 
-        //     if ($scope.AllUsers[i].UserId ==  $scope.UserId){
-        //         alert("I am in if");
-        //         $scope.user = $scope.AllUsers[i];}
-        // }
         $scope.createStuff = function() {
 
             if (window.XMLHttpRequest)
@@ -70,7 +64,7 @@ app.controller('AdminStaffCtrl',function($scope,$routeParams,$rootScope,usersSer
             //  $window.reload();
         }
         $scope.deleteUser=function(UserId) {
-            alert(UserId);
+
             if(confirm('האם אתה בטוח שהינך מעוניין למחוק את איש הצוות? '+UserId+" ?")){
 
 
