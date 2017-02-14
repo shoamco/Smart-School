@@ -408,6 +408,11 @@ body,html{
     text-align:left;
 
 }
+.confirmImg{
+    
+    margin-top: -12%;
+    
+}
 
 #wrapper-part-info{
     position:relative;
