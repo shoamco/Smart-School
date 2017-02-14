@@ -103,6 +103,8 @@ app.controller('GradesCtrl',function($scope,$routeParams,$rootScope,classesServi
                 xmlhttp.onreadystatechange = function () 
                 {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                        location.reload();
                         $scope.message1 =xmlhttp.responseText;
                         $scope.$apply();
                     }

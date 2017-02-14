@@ -201,7 +201,7 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
 
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         $scope.message1 =xmlhttp.responseText;
-
+                        location.reload();
                         //alert( $scope.message1);
                         $scope.$apply();
                         // setTimeout(function() {
@@ -211,6 +211,7 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
                         //             $rootScope.edit = false;
                         //             location.reload();
                         //        }
+
 
                     }
                 }
@@ -246,7 +247,7 @@ app.controller('ConfirmCoursesCtrl',function($scope,$routeParams,classesService,
 
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     $scope.message1 =xmlhttp.responseText;
-
+                    location.reload();
                     //alert( $scope.message1);
                     $scope.$apply();
 

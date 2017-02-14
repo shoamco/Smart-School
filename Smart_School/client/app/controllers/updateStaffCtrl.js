@@ -49,7 +49,7 @@ app.controller('updateStaffCtrl',function($scope,$routeParams,$rootScope,usersSe
 
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     $scope.message1 =xmlhttp.responseText;
-
+                    location.reload();
                     alert( $scope.message1);
                     $scope.$apply();
                     $rootScope.edit=true;

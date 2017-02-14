@@ -74,10 +74,9 @@ app.controller('updateCourseCtrl',function($scope,$routeParams,classesService,$h
 
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 $scope.message = xmlhttp.responseText;
-
+                location.reload();
                 alert($scope.message);
                 $scope.$apply();
-
 
             }
         };

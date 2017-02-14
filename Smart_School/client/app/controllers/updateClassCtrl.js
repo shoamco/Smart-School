@@ -47,7 +47,6 @@ app.controller('updateClassCtrl',function($scope,$rootScope,$routeParams,classes
                 alert($scope.message);
                 $scope.$apply();
                 $rootScope.edit=true;
-
                 setTimeout(function() {
                     window.open("http://localhost:5000/#/admin/classes","_self");
                 }, 1000);
