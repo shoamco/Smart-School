@@ -36,10 +36,10 @@ app.controller('AdminClassesCtrl',function($scope,$routeParams,$rootScope,classe
     {
         $scope.Users=data3.data;
 
-      alert($scope.Users);
+
 
     $scope.findTeacher = function(teacherid) {
-       // alert(teacherid);
+
         for (var i = 0; i < $scope.Users.length; i++) {
            if (teacherid==  $scope.Users[i].UserId) {
                return  $scope.Users[i].UserName;
