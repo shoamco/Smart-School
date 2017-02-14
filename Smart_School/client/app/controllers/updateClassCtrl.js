@@ -61,7 +61,7 @@ app.controller('updateClassCtrl',function($scope,$rootScope,$routeParams,classes
         xmlhttp.send(JSON.stringify(document));
     };
     $scope.deleteCourse=function(courseid) {
-        alert(courseid);
+       // alert(courseid);
         if(confirm('האם אתה בטוח שהינך מעוניין למחוק את קורס '+courseid+" ?")){
 
 

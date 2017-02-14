@@ -1,19 +1,4 @@
-/*
-Theme Name: Platz
-Theme URI:
-Author: Dcrazed
-Author URI: https://dcrazed.com/
-Description: Platz is a free grid wordpress theme with responsive design for showing digital products, freebies similar to websites like freepik. Let your users upload images, content to your website and have their own author marketplace.
-Version: 1.0.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: white, four-columns, responsive-layout, featured-images, fixed-width-template, blogging, freebie
-Text Domain: platz
 
-*/
-
-/*-------------------------*/
-/* SOCIAM FONT ICON */
 /*-------------------------*/
 
 #signIn
@@ -30,7 +15,7 @@ Text Domain: platz
     border-radius:2%;
     align-items:center;
 }
-#user,#password ,#enter
+#user,#password ,#newPassword ,#enter
 {
     background-color: white !important;
     height: 38px;
@@ -41,7 +26,9 @@ Text Domain: platz
     border-radius: 5%;
     border-color: cadetblue;
 }
-
+#changeP{
+    margin-right: 30%;
+}
 #cert{
     margin-right: 16%;
     width: 100%;
@@ -125,11 +112,12 @@ body,html{
 /*----------------------------*/
 
 #wrapper-header{
-    float:left;
-    width:105%;
-    height:65px;
-    background-color:#2E2D30;
-    opacity:0;
+    height: 99px;
+    background-color: white;
+    border-bottom: solid #2E2D30;
+    border-top: solid #2E2D30;
+    opacity: 0;
+
 }
 
 #main-header{
@@ -161,14 +149,22 @@ body,html{
     display:none;
 }
 
-.logo img{height:100%;width:100%;}
+.logo img{
+    height: 100%;
+    width: 100%;
+    height: 99px;
+    width: auto;
+    margin-top: -3%;
+    margin-right: -239%;
+    /* display: inline-block; */
+}
 
 /*----------------------------*/
 /* SUB WHITE NAV BAR */
 /*----------------------------*/
 
 #wrapper-navbar{
-    float:left;
+   /* float:left;*/
     width:100%;
     height:0px;
     background-color:#FFF;
@@ -186,7 +182,7 @@ body,html{
 }
 
 .top-rated,.recent,.oldies{
-    float:left;
+    /*float:left;*/
     text-align:left;
     font-family: 'Roboto',sans-serif;
     font-size: 13px;
@@ -206,7 +202,7 @@ body,html{
 .top-rated:hover,.recent:hover,.oldies:hover{color:#666;opacity:1;}
 
 #fleche-nav-1,#fleche-nav-2,#fleche-nav-3{
-    float:left;
+    /*float:left;*/
     margin-top:26px;
     /*background: url(../img/fleche-nav.svg) no-repeat ;*/
     width:5px;
@@ -241,7 +237,7 @@ body,html{
 /*----------------------------*/
 
 #wrapper-container{
-    float:left;
+   /* float:left;*/
     width:100%;
     height:auto;
 
@@ -277,7 +273,7 @@ body,html{
 /*----------------------------*/
 
 #main-cross{
-    float:left;
+   /* float:left;*/
     min-height:53px;
     width:100%;
     margin-bottom:50px;
@@ -492,7 +488,7 @@ body,html{
 /*----------------------------*/
 
 #wrapper-thank{
-    float:left;
+    /*float:left;*/
     width:100%;
     height:190px;
     background-color:#F2F2F2;
@@ -533,7 +529,7 @@ h1{
 }
 
 .wrapper-oldnew-prev,.wrapper-oldnew-next{
-    float:left;
+    /*float:left;*/
     width:50%;
 }
 
@@ -552,7 +548,7 @@ h1{
 /*----------------------------*/
 
 #main-container-footer{
-    float:left;
+   /* float:left;*/
     width:100%;
     height:auto;
     background-color:#F9F9F9;
@@ -592,7 +588,7 @@ h1{
 /*----------------------------*/
 
 #main_tip_newsletter{
-    float:left;
+   /* float:left;*/
     width:100%;
     height:auto;
     margin-top:20px;
@@ -960,16 +956,17 @@ ul,ol{
 .loginButton{
     height: 100%;
     width: 10%;
-    color: white;
-    background-color: #2E2D30;
+    color:#726f6b;
+    background-color: white;
     border: 0px;
     float: left;
     /*margin-left: 3px;*/
 }
 .loginButton:hover{
-    color: white;
+    color:cadetblue ;
     font-size: 15px;
-    background-color: #726f6b;
+    font-style: bold;
+    background-color:#726f6b;
     border: 0px;
 }
 @media (min-width:768px){.container
@@ -1099,6 +1096,10 @@ margin: 10%;
 #up{
     margin-bottom: 3%;
 }
+#ch{
+    width: 15%;
+    margin-bottom: 3%;
+}
 #imgClass{
     width: 23%;
     float: left;
@@ -1176,7 +1177,7 @@ margin: 10%;
     margin-right:  40%;
 }
 /* The Modal (background) */
-.modal1,.modal2,.modal3,.modal14,.modal5,.modal6,.modal7,.modal8,.modal {
+.modal1,.modal2,.modal3,.modal4,.modal5,.modal6,.modal7,.modal8,.modal {
     display: none; /* Hidden by default */
    position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */

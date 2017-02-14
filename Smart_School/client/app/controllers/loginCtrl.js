@@ -93,6 +93,8 @@ app.controller('loginCtrl',function($scope, $rootScope,$routeParams,usersService
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 
                 $scope.message =xmlhttp.responseText;
+                if($scope.message=="הסיסמה הוחלפה בהצלחה.כנס עם הסיסמה החדשה שלך.")
+                    window.history.back();
             }
 
 
