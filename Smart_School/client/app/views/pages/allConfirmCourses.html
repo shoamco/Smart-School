@@ -17,9 +17,9 @@
 
             	<!--<img  ng-if="course.ConfirmEducator==1" src="/mainTeacher.png" alt="confirm" />-->
 
-            	<img  ng-if="course.ConfirmEducator==1" src="/mainTeacher.png" alt="המחנך אישר" />
-                <img  ng-if="course.ConfirmCoordinator==1" src="/teacher.png" alt="רכז אישר" />
-                <img  ng-if="course.ConfirmPrincipal==1" src="/principal.png" alt="מנהל אישר" />
+            	<img class="confirmImg"  ng-if="course.ConfirmEducator==1" src="/mainTeacher.png" alt="המחנך אישר" />
+                <img class="confirmImg" ng-if="course.ConfirmCoordinator==1" src="/teacher.png" alt="רכז אישר" />
+                <img  class="confirmImg" ng-if="course.ConfirmPrincipal==1" src="/principal.png" alt="מנהל אישר" />
 
                  <a ng-href="#/classes/{{id}}/confirmCourses/{{course.CourseId}}">
                     <img img src="/course.jpg" alt="{{student.FirstName}}" />

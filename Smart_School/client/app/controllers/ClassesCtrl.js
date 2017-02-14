@@ -8,7 +8,7 @@ app.controller('ClassesCtrl',function($scope,$routeParams,$rootScope,classesServ
         var user = JSON.parse(current);
         var userName = user.UserName;
         $scope.AccessToUpdate=false;
-        $scope.AccessToUpdate=false;
+        $scope.AccessToConfirm=false;
         var promise = classesService.getClasses();
         var promise2 = usersService.getUsers();
 
@@ -107,13 +107,18 @@ app.controller('ClassesCtrl',function($scope,$routeParams,$rootScope,classesServ
 
         var GetClass = function(id)
         {
+            $scope.flag=0;
             for (var i = 0; i < $scope.MyClasses.length; i++) {
                 if($scope.MyClasses[i].ClassId==id)
                 {
                     $scope.thisClass=$scope.MyClasses[i];
+                    for (var j = 0; j < $scope.MyClasses[i].Courses.length; j++) {
+                        if ($scope.MyClasses[i].Courses[j].TeacherId == user.UserId) {
+                            $scope.flag=1;;
+                        }
+                    }
                 }
             }
-
         }
         $scope.accessToConfirm= function(id) {
            // alert($scope.thisClass.ClassId);
@@ -121,41 +126,44 @@ app.controller('ClassesCtrl',function($scope,$routeParams,$rootScope,classesServ
            GetClass(id);
            if($scope.thisClass){
             if($scope.thisClass.EducatorId==user.UserId){
+                $scope.AccessToConfirm==true;
                 return "1";
-                $scope.AccessToUpdate==true;
+                
             }
             // else if($scope.thisClass.CoordinatorId==user.UserId)
             //     return "1";
             else if(user.Type==3){
+                $scope.AccessToConfirm==true;
                 return "1";
-                 $scope.AccessToUpdate==true;
+                 
             }
             else if(user.Type==4){
+                $scope.AccessToConfirm==true;
                 return "1";
-                 $scope.AccessToUpdate==true;
+                 
             }
             else{
+                 $scopeAccessToConfirm==false;
                 return "0";
-                 $scope.AccessToUpdate==false;
+                
 
             }
             }
         }
         $scope.accessToUpdate= function(id) {
-            var flag=0;
             GetClass(id);
-
             if(user.Type==1){
-                return "1";
                 $scope.AccessToUpdate=true;
+                return "1";
             }
-            else if(user.Type==2 && flag==1){
-                return "1";
+            else if(user.Type==2 && $scope.flag==1){
                 $scope.AccessToUpdate=true;
+                return "1";
             }
             else{
-                return "0";
                 $scope.AccessToUpdate=false;
+                return "0";
+                
             }
         }
 
